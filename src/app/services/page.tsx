@@ -4,9 +4,9 @@ import Link from 'next/link'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
 
 export const metadata: Metadata = {
-  title: 'Services — ARQMA Interior Design Toronto',
+  title: 'Services — ARQMA Interior Design Toronto | Canada & USA',
   description:
-    'ARQMA offers two tailored interior design services in Toronto: a Design Consultation starting at $600 and a comprehensive Full Design Service from concept to completion.',
+    'ARQMA offers interior design services across Canada and the United States: Design Consultation (starting at $600) and Full-Service Design from concept to completion. In-person and remote services available.',
   alternates: { canonical: 'https://www.arqma.ca/services' },
 }
 
@@ -78,7 +78,7 @@ export default function ServicesPage() {
 
       {/* ── OVERVIEW (espresso bg) ────────────────────────────── */}
       <section
-        className="py-28 md:py-40"
+        className="section-pad-lg"
         style={{ background: 'var(--color-espresso)' }}
         aria-label="Service overview"
       >
@@ -156,7 +156,7 @@ export default function ServicesPage() {
       {/* ── CONSULTATION DETAIL (cream bg) ───────────────────── */}
       <section
         id="consultation"
-        className="py-28 md:py-40"
+        className="section-pad-xl"
         style={{ background: 'var(--color-cream)' }}
         aria-label="Design consultation details"
       >
@@ -176,10 +176,14 @@ export default function ServicesPage() {
               >
                 Starting at $600 per consultation
               </p>
-              <p className="t-body mb-10" style={{ color: 'var(--color-taupe)', lineHeight: 1.9 }}>
+              <p className="t-body mb-6" style={{ color: 'var(--color-taupe)', lineHeight: 2 }}>
                 Ideal for clients looking to improve their space without major renovation, managing
                 implementation on their own. This service provides professional design direction
                 and curated recommendations tailored specifically to your space and vision.
+              </p>
+              <p className="t-body mb-10" style={{ color: 'var(--color-taupe)', lineHeight: 2 }}>
+                Available <strong>in-person and remotely</strong> — we serve clients across
+                Canada and the United States.
               </p>
 
               <h3 className="t-label mb-6" style={{ color: 'var(--color-espresso)' }}>
@@ -239,7 +243,7 @@ export default function ServicesPage() {
       {/* ── FULL DESIGN DETAIL (wine bg) ─────────────────────── */}
       <section
         id="full-design"
-        className="py-28 md:py-40"
+        className="section-pad-xl"
         style={{ background: 'var(--color-wine)' }}
         aria-label="Full design service details"
       >

@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/projects`, priority: 0.9, changeFrequency: 'weekly' as const },
     { url: `${baseUrl}/about`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/services`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${baseUrl}/process`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/testimonials`, priority: 0.7, changeFrequency: 'weekly' as const },
     { url: `${baseUrl}/connect`, priority: 0.8, changeFrequency: 'monthly' as const },
   ]

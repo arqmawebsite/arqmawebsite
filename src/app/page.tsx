@@ -6,9 +6,9 @@ import AnimateOnScroll from '@/components/AnimateOnScroll'
 import { projects, heroImages } from '@/data/projects'
 
 export const metadata: Metadata = {
-  title: 'ARQMA | Interior Design Studio — Toronto, Canada',
+  title: 'ARQMA | Interior Design Studio — Toronto, Canada & USA',
   description:
-    'ARQMA is an award-winning interior design studio in Toronto, Canada. We create beautifully curated residential and commercial spaces that reflect your authentic life and unique style.',
+    'ARQMA is a luxury interior design studio based in Toronto, serving clients across Canada and the United States. We create beautifully curated residential and commercial spaces — in-person and remote design services available.',
   alternates: { canonical: 'https://www.arqma.ca' },
 }
 
@@ -30,14 +30,20 @@ export default function HomePage() {
           }}
         />
 
-        {/* Centered logo monogram */}
-        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+        {/* Centered logo — full wordmark, luxury transparent */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-8">
           <Image
-            src="/images/brand/Vector.png"
-            alt="ARQMA"
-            width={200}
-            height={200}
-            className="w-28 md:w-44 lg:w-56 opacity-40"
+            src="/images/brand/Logo_lettering.png"
+            alt="ARQMA Interiors"
+            width={900}
+            height={260}
+            loading="eager"
+            className="opacity-[0.18]"
+            style={{
+              filter: 'brightness(0) invert(1)',
+              width: 'clamp(280px, 72vw, 820px)',
+              height: 'auto',
+            }}
             priority
           />
         </div>
@@ -76,28 +82,32 @@ export default function HomePage() {
 
       {/* ── ABOUT INTRO ─────────────────────────────────────── */}
       <section
-        className="py-24 md:py-32"
+        className="section-pad-lg"
         style={{ background: 'var(--color-cream)' }}
         aria-label="About ARQMA"
       >
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <AnimateOnScroll>
-              <p className="t-label mb-6" style={{ color: 'var(--color-taupe)' }}>
+              <p className="t-label mb-8" style={{ color: 'var(--color-taupe)' }}>
                 About the Studio
               </p>
               <h2
-                className="t-display font-serif mb-8"
+                className="t-display font-serif mb-10"
                 style={{ color: 'var(--color-espresso)' }}
               >
                 Crafting spaces that reflect your authentic life.
               </h2>
-              <p className="t-body mb-8" style={{ color: 'var(--color-taupe)', maxWidth: '520px' }}>
+              <p className="t-body mb-5" style={{ color: 'var(--color-taupe)', maxWidth: '520px' }}>
                 ARQMA is a design studio established in the Canadian market for over five years,
-                dedicated to creating thoughtfully curated spaces with a strong emphasis on client
-                experience. We believe that great design begins with understanding — carefully
-                observing the potential of each space and enhancing it through functional,
-                intentional solutions.
+                dedicated to creating thoughtfully curated residential and commercial spaces with
+                a strong emphasis on client experience.
+              </p>
+              <p className="t-body mb-10" style={{ color: 'var(--color-taupe)', maxWidth: '520px' }}>
+                Based in Toronto, we serve clients across <strong>Canada and the United States</strong> —
+                both in-person and remotely. We believe great design begins with understanding:
+                carefully observing the potential of each space and elevating it through
+                functional, intentional solutions.
               </p>
               <Link href="/about" className="btn-primary">
                 Meet the Team
@@ -108,7 +118,7 @@ export default function HomePage() {
               <div className="relative aspect-[4/5] img-zoom-wrapper">
                 <Image
                   src="/images/team/DSC_1208.jpg"
-                  alt="ARQMA design studio team — Toronto interior designers"
+                  alt="ARQMA design studio team — Toronto interior designers serving Canada and USA"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -121,7 +131,7 @@ export default function HomePage() {
 
       {/* ── FEATURED PROJECTS ────────────────────────────────── */}
       <section
-        className="py-24 md:py-32"
+        className="section-pad-lg"
         style={{ background: 'var(--color-espresso)' }}
         aria-label="Featured Projects"
       >
@@ -179,7 +189,7 @@ export default function HomePage() {
 
       {/* ── PHILOSOPHY ──────────────────────────────────────── */}
       <section
-        className="py-24 md:py-36 relative overflow-hidden"
+        className="section-pad-lg relative overflow-hidden"
         style={{ background: 'var(--color-wine)' }}
         aria-label="Our Philosophy"
       >
@@ -217,7 +227,7 @@ export default function HomePage() {
 
       {/* ── SERVICES OVERVIEW ────────────────────────────────── */}
       <section
-        className="py-24 md:py-32"
+        className="section-pad-lg"
         style={{ background: 'var(--color-cream)' }}
         aria-label="Our Services"
       >

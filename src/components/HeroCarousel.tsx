@@ -9,12 +9,10 @@ type Props = {
   interval?: number
 }
 
-export default function HeroCarousel({ images, interval = 5000 }: Props) {
+export default function HeroCarousel({ images, interval = 7500 }: Props) {
   const [current, setCurrent] = useState(0)
-  const [direction, setDirection] = useState(1)
 
   const next = useCallback(() => {
-    setDirection(1)
     setCurrent((prev) => (prev + 1) % images.length)
   }, [images.length])
 
@@ -23,35 +21,20 @@ export default function HeroCarousel({ images, interval = 5000 }: Props) {
     return () => clearInterval(timer)
   }, [next, interval])
 
-  const variants = {
-    enter: (dir: number) => ({
-      scale: 1.08,
-      opacity: 0,
-      x: dir > 0 ? 20 : -20,
-    }),
-    center: {
-      scale: 1,
-      opacity: 1,
-      x: 0,
-    },
-    exit: (dir: number) => ({
-      scale: 0.97,
-      opacity: 0,
-      x: dir > 0 ? -20 : 20,
-    }),
-  }
-
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <AnimatePresence mode="sync" custom={direction}>
+      <AnimatePresence mode="sync">
         <motion.div
           key={current}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{
+            duration: 2.2,
+            ease: [0.16, 1, 0.3, 1],
+            opacity: { duration: 1.8, ease: 'easeInOut' },
+            scale: { duration: 7.5, ease: 'linear' },
+          }}
           className="absolute inset-0"
         >
           <Image
@@ -65,21 +48,24 @@ export default function HeroCarousel({ images, interval = 5000 }: Props) {
         </motion.div>
       </AnimatePresence>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-8 left-[5vw] flex gap-2 z-10">
+      {/* Slide indicators — bottom left */}
+      <div className="absolute bottom-8 left-[5vw] flex gap-3 z-10">
         {images.map((_, i) => (
           <button
             key={i}
-            onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
-            className="transition-all duration-500"
+            onClick={() => setCurrent(i)}
+            className="group flex items-center py-2"
             aria-label={`Go to slide ${i + 1}`}
           >
-            <span
-              className="block h-[1px] transition-all duration-500"
-              style={{
-                width: i === current ? '2rem' : '1rem',
-                background: i === current ? 'var(--color-cream)' : 'rgba(238,235,231,0.4)',
+            <motion.span
+              className="block h-[1px] rounded-full"
+              animate={{
+                width: i === current ? '2.5rem' : '0.75rem',
+                background: i === current
+                  ? 'rgba(238,235,231,0.95)'
+                  : 'rgba(238,235,231,0.35)',
               }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             />
           </button>
         ))}

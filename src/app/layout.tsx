@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Montserrat } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import SmoothScroll from '@/components/SmoothScroll'
 
 const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     template: '%s | ARQMA Interior Design Toronto',
   },
   description:
-    'ARQMA is an award-winning interior design studio in Toronto, Canada. Specializing in residential and commercial interior design, we create beautifully curated spaces that reflect your authentic life and unique style. Full-service design and consultation available.',
+    'ARQMA is a luxury interior design studio based in Toronto, Canada, serving clients across Canada and the United States. Specializing in residential and commercial interior design, we create beautifully curated spaces with full-service design, remote consultation, and end-to-end project support.',
   keywords: [
     'interior designer Toronto',
     'interior design studio Toronto',
@@ -36,12 +37,21 @@ export const metadata: Metadata = {
     'commercial interior design Toronto',
     'luxury interior design Toronto',
     'interior design Canada',
+    'interior design USA',
     'interior designer near me Toronto',
     'home renovation Toronto',
     'interior design consultation Toronto',
+    'remote interior design Canada',
+    'remote interior design USA',
+    'online interior designer Canada',
+    'interior design services United States',
+    'luxury interior designer Canada',
+    'luxury interior design United States',
     'ARQMA design studio',
     'Toronto interior designer',
     'best interior designer Toronto',
+    'interior design consultation online',
+    'full service interior design Canada',
   ],
   authors: [{ name: 'ARQMA Design Studio' }],
   creator: 'ARQMA Design Studio',
@@ -103,11 +113,22 @@ export default function RootLayout({
     email: 'info@arqma.ca',
     sameAs: ['https://www.instagram.com/arqmainteriors'],
     priceRange: '$$$$',
-    areaServed: {
-      '@type': 'City',
-      name: 'Toronto',
-    },
-    serviceType: ['Residential Interior Design', 'Commercial Interior Design', 'Design Consultation'],
+    areaServed: [
+      { '@type': 'Country', name: 'Canada' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'City', name: 'Toronto' },
+      { '@type': 'City', name: 'New York' },
+      { '@type': 'City', name: 'Miami' },
+      { '@type': 'City', name: 'Los Angeles' },
+    ],
+    serviceType: [
+      'Residential Interior Design',
+      'Commercial Interior Design',
+      'Design Consultation',
+      'Remote Interior Design',
+      'Online Interior Design Consultation',
+      'Full-Service Interior Design',
+    ],
   }
 
   return (
@@ -119,9 +140,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   )

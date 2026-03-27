@@ -65,7 +65,7 @@ export default function Footer() {
                 { label: 'Projects', href: '/projects' },
                 { label: 'About Us', href: '/about' },
                 { label: 'Services', href: '/services' },
-                { label: 'Our Process', href: '/process' },
+                { label: 'Testimonials', href: '/testimonials' },
                 { label: 'Get in Touch', href: '/connect' },
               ].map((link) => (
                 <Link
@@ -86,7 +86,7 @@ export default function Footer() {
               Toronto, Ontario<br />Canada
             </p>
             <p className="t-body text-[var(--color-cream)] opacity-50 mt-4 text-xs leading-relaxed">
-              Serving clients locally<br />and remotely worldwide.
+              Serving clients across<br />Canada &amp; the United States.<br />In-person &amp; remote available.
             </p>
           </div>
         </div>

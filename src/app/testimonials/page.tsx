@@ -75,7 +75,7 @@ export default function TestimonialsPage() {
 
       {/* ── INTRO ────────────────────────────────────────────── */}
       <section
-        className="py-20 md:py-24"
+        className="section-pad"
         style={{ background: 'var(--color-espresso)' }}
         aria-label="Reviews intro"
       >
@@ -98,7 +98,7 @@ export default function TestimonialsPage() {
       {testimonials.map((testimonial, i) => (
         <section
           key={testimonial.name}
-          className="py-20 md:py-28"
+          className="section-pad-lg"
           style={{ background: bgAlternate[i % 2] }}
           aria-label={`Testimonial from ${testimonial.name}`}
         >

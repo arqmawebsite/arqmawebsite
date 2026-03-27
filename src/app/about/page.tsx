@@ -4,9 +4,9 @@ import Link from 'next/link'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
 
 export const metadata: Metadata = {
-  title: 'About ARQMA — Interior Design Studio Toronto',
+  title: 'About ARQMA — Interior Design Studio | Toronto, Canada & USA',
   description:
-    'Meet the team behind ARQMA, a Toronto-based interior design studio dedicated to creating thoughtfully curated residential and commercial spaces for over five years.',
+    'Meet the team behind ARQMA, a luxury interior design studio based in Toronto, serving clients across Canada and the United States. Residential and commercial interior design, in-person and remote.',
   alternates: { canonical: 'https://www.arqma.ca/about' },
 }
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
       {/* ── SECTION 2: STUDIO DESCRIPTION (wine bg) ───────── */}
       <section
-        className="py-28 md:py-40 relative overflow-hidden"
+        className="section-pad-xl relative overflow-hidden"
         style={{ background: 'var(--color-wine)' }}
         aria-label="Studio philosophy"
       >
@@ -87,26 +87,24 @@ export default function AboutPage() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.15}>
-              <p className="t-body" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2 }}>
+              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
                 ARQMA is a design studio established in the Canadian market for over five years,
                 dedicated to creating thoughtfully curated spaces with a strong emphasis on client
                 experience. Our work is guided by a contemporary design approach that seeks to
                 translate each client&apos;s individuality into spaces that feel both unique and
                 deeply personal.
               </p>
-              <p className="t-body mt-6" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2 }}>
+              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
                 We believe that great design begins with understanding — carefully observing the
                 potential of each space and enhancing it through functional, intentional solutions.
                 We place a strong emphasis on materiality, selecting high-quality and refined
                 finishes that are not only aesthetically elevated but also aligned with the
-                practical needs of each environment. Every detail is considered with purpose,
-                balancing beauty, durability, and performance.
+                practical needs of each environment.
               </p>
-              <p className="t-body mt-6" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2 }}>
-                At ARQMA, collaboration is at the core of our process. Our team works in close
-                alignment, and this sense of cohesion is reflected in the care, clarity, and
-                dedication we bring to every project — from the initial concept to the final
-                delivery.
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
+                Based in Toronto, we proudly serve clients across <strong style={{ color: 'rgba(238,235,231,0.95)' }}>Canada and the United States</strong> —
+                offering both in-person and remote design services tailored to your lifestyle,
+                budget, and vision.
               </p>
             </AnimateOnScroll>
           </div>
@@ -115,7 +113,7 @@ export default function AboutPage() {
 
       {/* ── SECTION 3: TEAM (cream bg) ────────────────────── */}
       <section
-        className="py-28 md:py-40"
+        className="section-pad-xl"
         style={{ background: 'var(--color-cream)' }}
         aria-label="Meet the team"
       >
