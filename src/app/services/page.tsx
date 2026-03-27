@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import ConsultationTimeline from '@/components/ConsultationTimeline'
+import FullDesignPhases from '@/components/FullDesignPhases'
 
 export const metadata: Metadata = {
   title: 'Services — ARQMA Interior Design Toronto | Canada & USA',
@@ -12,40 +14,22 @@ export const metadata: Metadata = {
 
 const consultationDeliverables = [
   'Space planning layout',
-  'Moodboard',
-  'Key furniture selections',
-  'Design guidance',
-  '1 week technical support',
-]
-
-const consultationSteps = [
-  { number: '01', title: 'Pre-Consultation Questionnaire', desc: 'Before we meet, you complete a short questionnaire that helps us understand your space, lifestyle, and goals.' },
-  { number: '02', title: '30-Minute Briefing Call', desc: 'A focused call to align on your vision, priorities, and any constraints before the design session.' },
-  { number: '03', title: '2-Hour Design Session', desc: 'An in-depth working session where we walk through your space and provide tailored design recommendations.' },
+  'Moodboard with suggested finishes and materials',
+  'Key furniture piece selections',
+  'Design guidance and recommendations',
+  '1 week of technical support post-session',
 ]
 
 const fullServiceDeliverables = [
-  '3D renderings',
-  'Technical drawings',
+  '3D renderings & realistic visualizations',
+  'Technical drawings for construction',
   'Complete shopping list',
-  'Furniture and material sourcing',
-  'Showroom visits',
+  'Furniture, lighting & accessories specifications',
+  'Material selection & showroom sourcing',
+  'Preliminary cost estimates',
   'Contractor coordination support',
   'Ongoing implementation support',
-  'Final styling guidance',
-]
-
-const fullServicePhases = [
-  'Site Measurements',
-  'Design Briefing',
-  'Layout Development',
-  'Concept Design & 3D',
-  'Design Review',
-  'Final Design',
-  'Technical Drawings',
-  'Material Selection',
-  'Implementation Support',
-  'Final Styling',
+  'Final styling (optional)',
 ]
 
 export default function ServicesPage() {
@@ -64,13 +48,10 @@ export default function ServicesPage() {
         <div className="overlay-dark" />
 
         <div className="absolute bottom-16 left-[5vw] z-20">
-          <p className="t-label mb-3" style={{ color: 'rgba(238,235,231,0.6)' }}>
+          <p className="t-label mb-4" style={{ color: 'rgba(238,235,231,0.6)' }}>
             What We Offer
           </p>
-          <h1
-            className="t-hero font-serif"
-            style={{ color: 'var(--color-cream)' }}
-          >
+          <h1 className="t-hero font-serif" style={{ color: 'var(--color-cream)' }}>
             Services
           </h1>
         </div>
@@ -78,73 +59,83 @@ export default function ServicesPage() {
 
       {/* ── OVERVIEW (espresso bg) ────────────────────────────── */}
       <section
-        className="section-pad-lg"
+        className="section-pad-xl"
         style={{ background: 'var(--color-espresso)' }}
         aria-label="Service overview"
       >
         <div className="container-wide">
+          {/* Header */}
           <AnimateOnScroll>
-            <p className="t-label mb-4" style={{ color: 'rgba(238,235,231,0.5)' }}>
+            <p className="t-label mb-5" style={{ color: 'rgba(238,235,231,0.45)' }}>
               Our Services
             </p>
             <h2
-              className="t-heading font-serif mb-16"
-              style={{ color: 'var(--color-cream)', maxWidth: '600px' }}
+              className="t-heading font-serif"
+              style={{ color: 'var(--color-cream)', maxWidth: '560px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}
             >
-              What we offer
+              A tailored experience for every project.
             </h2>
           </AnimateOnScroll>
 
+          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Consultation card */}
+            {/* Card 01 */}
             <AnimateOnScroll delay={0}>
               <div
-                className="p-10 md:p-14 flex flex-col h-full"
-                style={{ border: '1px solid rgba(238,235,231,0.12)', background: 'rgba(238,235,231,0.04)' }}
+                className="flex flex-col h-full"
+                style={{
+                  border: '1px solid rgba(238,235,231,0.1)',
+                  background: 'rgba(238,235,231,0.03)',
+                  padding: 'clamp(2rem, 3.5vw, 3.5rem)',
+                }}
               >
-                <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.4)' }}>01</p>
-                <h3
-                  className="t-subheading font-serif mb-2"
-                  style={{ color: 'var(--color-cream)' }}
-                >
+                <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.3)' }}>01</p>
+                <h3 className="t-subheading font-serif mb-4" style={{ color: 'var(--color-cream)' }}>
                   Design Consultation
                 </h3>
-                <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.45)' }}>
+                <p className="t-label mb-10" style={{ color: 'rgba(238,235,231,0.4)' }}>
                   Starting at $600 per consultation
                 </p>
-                <p className="t-body mb-10" style={{ color: 'rgba(238,235,231,0.7)', lineHeight: 1.9 }}>
-                  Ideal for clients looking to improve their space without major renovation,
-                  managing implementation on their own. A focused, professional session to
-                  get clarity on your space.
+                <p className="t-body mb-12" style={{ color: 'rgba(238,235,231,0.65)', lineHeight: 2 }}>
+                  Ideal for clients who want to improve their space with professional guidance while
+                  managing implementation on their own. Focused, clear, and actionable.
                 </p>
-                <Link href="#consultation" className="btn-light mt-auto" style={{ display: 'inline-block', width: 'fit-content' }}>
+                <Link
+                  href="#consultation"
+                  className="btn-light mt-auto"
+                  style={{ display: 'inline-block', width: 'fit-content' }}
+                >
                   Learn More
                 </Link>
               </div>
             </AnimateOnScroll>
 
-            {/* Full design card */}
+            {/* Card 02 */}
             <AnimateOnScroll delay={0.1}>
               <div
-                className="p-10 md:p-14 flex flex-col h-full"
-                style={{ border: '1px solid rgba(238,235,231,0.12)', background: 'rgba(238,235,231,0.04)' }}
+                className="flex flex-col h-full"
+                style={{
+                  border: '1px solid rgba(238,235,231,0.1)',
+                  background: 'rgba(238,235,231,0.03)',
+                  padding: 'clamp(2rem, 3.5vw, 3.5rem)',
+                }}
               >
-                <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.4)' }}>02</p>
-                <h3
-                  className="t-subheading font-serif mb-2"
-                  style={{ color: 'var(--color-cream)' }}
-                >
+                <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.3)' }}>02</p>
+                <h3 className="t-subheading font-serif mb-4" style={{ color: 'var(--color-cream)' }}>
                   Full Design Service
                 </h3>
-                <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.45)' }}>
+                <p className="t-label mb-10" style={{ color: 'rgba(238,235,231,0.4)' }}>
                   End-to-End Guidance
                 </p>
-                <p className="t-body mb-10" style={{ color: 'rgba(238,235,231,0.7)', lineHeight: 1.9 }}>
-                  A comprehensive, fully guided experience from concept to completion. Ideal
-                  for clients seeking a complete transformation with expert direction at
-                  every step.
+                <p className="t-body mb-12" style={{ color: 'rgba(238,235,231,0.65)', lineHeight: 2 }}>
+                  A comprehensive, fully guided experience from concept to completion — briefing,
+                  3D, technical drawings, material sourcing, and implementation support at every step.
                 </p>
-                <Link href="#full-design" className="btn-light mt-auto" style={{ display: 'inline-block', width: 'fit-content' }}>
+                <Link
+                  href="#full-design"
+                  className="btn-light mt-auto"
+                  style={{ display: 'inline-block', width: 'fit-content' }}
+                >
                   Learn More
                 </Link>
               </div>
@@ -161,80 +152,73 @@ export default function ServicesPage() {
         aria-label="Design consultation details"
       >
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+          {/* Title block — full width */}
+          <AnimateOnScroll>
+            <div className="mb-16 md:mb-20" style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
+              <p className="t-label mb-5" style={{ color: 'var(--color-taupe)' }}>Service 01</p>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <h2 className="t-heading font-serif mb-4" style={{ color: 'var(--color-espresso)' }}>
+                    Design Consultation
+                  </h2>
+                  <p className="t-label" style={{ color: 'var(--color-wine)' }}>
+                    Starting at $600 per consultation
+                  </p>
+                </div>
+                <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '480px', lineHeight: 2 }}>
+                  Available <strong>in-person and remotely</strong> — serving clients across
+                  Canada and the United States.
+                </p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Description */}
+          <AnimateOnScroll>
+            <p className="t-body mb-6" style={{ color: 'var(--color-taupe)', maxWidth: '640px', lineHeight: 2.1 }}>
+              This service is ideal for clients who are looking to improve their space without undergoing
+              a major renovation, and who feel comfortable managing the implementation on their own. It
+              provides expert guidance on layout, aesthetics, and key design decisions.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Two-column: deliverables + timeline */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mt-16 md:mt-20">
+            {/* Left: What's included */}
             <AnimateOnScroll>
-              <p className="t-label mb-4" style={{ color: 'var(--color-taupe)' }}>Service 01</p>
-              <h2
-                className="t-heading font-serif mb-4"
-                style={{ color: 'var(--color-espresso)' }}
+              <div
+                className="pb-10 mb-10"
+                style={{ borderBottom: '1px solid rgba(66,53,44,0.1)' }}
               >
-                Design Consultation
-              </h2>
-              <p
-                className="t-label mb-10"
-                style={{ color: 'var(--color-wine)' }}
-              >
-                Starting at $600 per consultation
-              </p>
-              <p className="t-body mb-6" style={{ color: 'var(--color-taupe)', lineHeight: 2 }}>
-                Ideal for clients looking to improve their space without major renovation, managing
-                implementation on their own. This service provides professional design direction
-                and curated recommendations tailored specifically to your space and vision.
-              </p>
-              <p className="t-body mb-10" style={{ color: 'var(--color-taupe)', lineHeight: 2 }}>
-                Available <strong>in-person and remotely</strong> — we serve clients across
-                Canada and the United States.
-              </p>
-
-              <h3 className="t-label mb-6" style={{ color: 'var(--color-espresso)' }}>
-                What&apos;s Included
-              </h3>
-              <ul className="space-y-3 mb-12">
-                {consultationDeliverables.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      className="mt-2 flex-shrink-0 w-4 h-px"
-                      style={{ background: 'var(--color-taupe)', opacity: 0.6 }}
-                    />
-                    <span className="t-body" style={{ color: 'var(--color-taupe)' }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
+                <p className="t-label mb-8" style={{ color: 'var(--color-espresso)', letterSpacing: '0.2em' }}>
+                  What&apos;s Included
+                </p>
+                <ul className="space-y-5">
+                  {consultationDeliverables.map((item) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <span
+                        className="flex-shrink-0 mt-[0.6rem] w-5 h-px"
+                        style={{ background: 'var(--color-wine)', opacity: 0.5 }}
+                      />
+                      <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.7 }}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <Link href="/connect" className="btn-primary">
                 Book a Consultation
               </Link>
             </AnimateOnScroll>
 
+            {/* Right: Interactive Timeline */}
             <AnimateOnScroll delay={0.12}>
-              <h3 className="t-label mb-8" style={{ color: 'var(--color-espresso)' }}>
-                The Process
-              </h3>
-              <div className="space-y-8">
-                {consultationSteps.map((step, i) => (
-                  <div
-                    key={step.number}
-                    className="flex gap-6 pb-8"
-                    style={i < consultationSteps.length - 1 ? { borderBottom: '1px solid rgba(66,53,44,0.12)' } : {}}
-                  >
-                    <span
-                      className="t-label flex-shrink-0 pt-1"
-                      style={{ color: 'var(--color-taupe)', opacity: 0.5 }}
-                    >
-                      {step.number}
-                    </span>
-                    <div>
-                      <h4
-                        className="font-serif mb-2"
-                        style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1rem, 1.2vw, 1.2rem)' }}
-                      >
-                        {step.title}
-                      </h4>
-                      <p className="t-body" style={{ color: 'var(--color-taupe)' }}>{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="t-label mb-10" style={{ color: 'var(--color-espresso)', letterSpacing: '0.2em' }}>
+                Client Journey
+              </p>
+              <ConsultationTimeline />
             </AnimateOnScroll>
           </div>
         </div>
@@ -248,73 +232,76 @@ export default function ServicesPage() {
         aria-label="Full design service details"
       >
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+          {/* Title block — full width */}
+          <AnimateOnScroll>
+            <div className="mb-16 md:mb-20" style={{ borderBottom: '1px solid rgba(238,235,231,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
+              <p className="t-label mb-5" style={{ color: 'rgba(238,235,231,0.45)' }}>Service 02</p>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <h2 className="t-heading font-serif mb-4" style={{ color: 'var(--color-cream)' }}>
+                    Full Design Service
+                  </h2>
+                  <p className="t-label" style={{ color: 'rgba(238,235,231,0.45)' }}>
+                    Design phase: 2 to 4 months
+                  </p>
+                </div>
+                <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', maxWidth: '480px', lineHeight: 2 }}>
+                  A complete, end-to-end experience — for clients who want expert direction
+                  at every stage, from first concept to final styling.
+                </p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Description */}
+          <AnimateOnScroll>
+            <p className="t-body mb-6" style={{ color: 'rgba(238,235,231,0.72)', maxWidth: '640px', lineHeight: 2.1 }}>
+              Designed for clients seeking a comprehensive, fully guided experience from concept
+              to completion. We manage every detail — so you can focus on the vision while we
+              handle the execution with precision and care.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Two-column: deliverables + phases */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mt-16 md:mt-20">
+            {/* Left: Deliverables */}
             <AnimateOnScroll>
-              <p className="t-label mb-4" style={{ color: 'rgba(238,235,231,0.5)' }}>Service 02</p>
-              <h2
-                className="t-heading font-serif mb-4"
-                style={{ color: 'var(--color-cream)' }}
+              <div
+                className="pb-10 mb-10"
+                style={{ borderBottom: '1px solid rgba(238,235,231,0.1)' }}
               >
-                Full Design Service
-              </h2>
-              <p className="t-label mb-10" style={{ color: 'rgba(238,235,231,0.5)' }}>
-                Design phase: 2 to 4 months
-              </p>
-              <p className="t-body mb-10" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 1.9 }}>
-                For clients seeking a comprehensive, fully guided experience from concept to
-                completion. We manage every detail — so you can focus on the vision while
-                we handle the execution.
-              </p>
-
-              <h3 className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>
-                Deliverables
-              </h3>
-              <ul className="space-y-3 mb-12">
-                {fullServiceDeliverables.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      className="mt-2 flex-shrink-0 w-4 h-px"
-                      style={{ background: 'var(--color-cream)', opacity: 0.4 }}
-                    />
-                    <span className="t-body" style={{ color: 'rgba(238,235,231,0.75)' }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
+                <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.5)', letterSpacing: '0.2em' }}>
+                  Deliverables
+                </p>
+                <ul className="space-y-5">
+                  {fullServiceDeliverables.map((item) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <span
+                        className="flex-shrink-0 mt-[0.6rem] w-5 h-px"
+                        style={{ background: 'var(--color-cream)', opacity: 0.3 }}
+                      />
+                      <span className="t-body" style={{ color: 'rgba(238,235,231,0.7)', lineHeight: 1.7 }}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <Link href="/connect" className="btn-light">
                 Start Your Project
               </Link>
             </AnimateOnScroll>
 
+            {/* Right: Interactive Phases */}
             <AnimateOnScroll delay={0.12}>
-              <h3 className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.5)' }}>
+              <p className="t-label mb-10" style={{ color: 'rgba(238,235,231,0.45)', letterSpacing: '0.2em' }}>
                 10-Phase Process
-              </h3>
-              <div className="space-y-0">
-                {fullServicePhases.map((phase, i) => (
-                  <div
-                    key={phase}
-                    className="flex items-center gap-6 py-5"
-                    style={{ borderBottom: '1px solid rgba(238,235,231,0.1)' }}
-                  >
-                    <span
-                      className="t-label flex-shrink-0 w-8"
-                      style={{ color: 'rgba(238,235,231,0.35)' }}
-                    >
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span
-                      className="font-serif"
-                      style={{
-                        color: 'var(--color-cream)',
-                        fontSize: 'clamp(0.95rem, 1.1vw, 1.2rem)',
-                      }}
-                    >
-                      {phase}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              </p>
+              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.4)', lineHeight: 1.8, fontSize: '0.8rem' }}>
+                Hover each phase to learn more.
+              </p>
+              <FullDesignPhases />
             </AnimateOnScroll>
           </div>
         </div>
@@ -322,7 +309,7 @@ export default function ServicesPage() {
 
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section
-        className="relative py-32 md:py-44 overflow-hidden"
+        className="relative section-pad-xl overflow-hidden"
         aria-label="Get started"
       >
         <Image
@@ -336,24 +323,25 @@ export default function ServicesPage() {
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>
+            <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.55)' }}>
               Not sure which service is right for you?
             </p>
             <h2
-              className="t-display font-serif italic mb-8"
+              className="t-display font-serif italic mb-10"
               style={{ color: 'var(--color-cream)' }}
             >
               Let&apos;s talk about your project.
             </h2>
             <p
-              className="t-body mb-10"
+              className="t-body mb-12"
               style={{
-                color: 'rgba(238,235,231,0.72)',
+                color: 'rgba(238,235,231,0.68)',
                 maxWidth: '480px',
-                margin: '0 auto 2.5rem',
+                margin: '0 auto 3rem',
+                lineHeight: 2,
               }}
             >
-              Fill out our brief form and we&apos;ll help you find the most suitable service
+              Fill out our brief form and we&apos;ll recommend the most suitable service
               for your goals and timeline.
             </p>
             <Link href="/connect" className="btn-light">

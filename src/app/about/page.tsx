@@ -35,6 +35,7 @@ export default function AboutPage() {
           alt="ARQMA design team — Toronto interior designers"
           fill
           className="object-cover"
+          style={{ objectPosition: '50% 20%' }}
           sizes="100vw"
           priority
         />
