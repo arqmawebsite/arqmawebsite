@@ -166,7 +166,7 @@ export default function ProjectsGallery() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────── */}
-      <section className="relative py-44 md:py-56 overflow-hidden" aria-label="Start your project">
+      <section className="relative overflow-hidden" style={{ paddingTop: 'clamp(140px, 16vw, 240px)', paddingBottom: 'clamp(140px, 16vw, 240px)' }} aria-label="Start your project">
         <Image
           src="/images/projects/mb-beauty/MBBEAULTY-SAL-CREATORS-1.jpg"
           alt="ARQMA interior design studio Toronto"
@@ -174,7 +174,12 @@ export default function ProjectsGallery() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.62)' }} />
+        {/* Base overlay */}
+        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.52)' }} />
+        {/* Top gradient — darkens smoothly from top edge inward */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
+        {/* Bottom gradient — darkens smoothly from bottom edge inward */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
             <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>Ready to Begin?</p>

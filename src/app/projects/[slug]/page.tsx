@@ -192,7 +192,8 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section
-        className="relative py-32 md:py-44 overflow-hidden"
+        className="relative overflow-hidden"
+        style={{ paddingTop: 'clamp(140px, 16vw, 240px)', paddingBottom: 'clamp(140px, 16vw, 240px)' }}
         aria-label="Start your project"
       >
         <Image
@@ -202,7 +203,9 @@ export default async function ProjectPage({ params }: Props) {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.65)' }} />
+        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.52)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
