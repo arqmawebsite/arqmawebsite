@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--color-espresso)', color: 'var(--color-cream)' }}>
-      <div className="container-wide" style={{ paddingTop: 'clamp(80px, 10vw, 176px)', paddingBottom: 'clamp(64px, 8vw, 128px)' }}>
+      <div className="container-wide" style={{ paddingTop: 'clamp(56px, 6vw, 96px)', paddingBottom: 'clamp(48px, 5vw, 80px)' }}>
         {/* Logo */}
         <div className="mb-16 md:mb-20">
           <Image
