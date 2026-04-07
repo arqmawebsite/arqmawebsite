@@ -74,8 +74,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* ── DESCRIPTION ──────────────────────────────────────── */}
       <section
-        className="py-28 md:py-40"
-        style={{ background: 'var(--color-cream)' }}
+        style={{ background: 'var(--color-cream)', paddingTop: 'clamp(80px, 10vw, 160px)', paddingBottom: 'clamp(80px, 10vw, 160px)' }}
         aria-label="Project description"
       >
         <div className="container-wide">
