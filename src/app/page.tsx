@@ -298,7 +298,8 @@ export default function HomePage() {
 
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section
-        className="relative py-44 md:py-56 overflow-hidden mt-0"
+        className="relative overflow-hidden mt-0"
+        style={{ paddingTop: 'clamp(140px, 16vw, 240px)', paddingBottom: 'clamp(140px, 16vw, 240px)' }}
         aria-label="Get in touch"
       >
         <Image
@@ -308,8 +309,12 @@ export default function HomePage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="overlay-subtle" />
-        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.55)' }} />
+        {/* Base overlay */}
+        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.52)' }} />
+        {/* Top gradient — darkens smoothly from top edge inward */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
+        {/* Bottom gradient — darkens smoothly from bottom edge inward */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
