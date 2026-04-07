@@ -17,10 +17,10 @@ export default function Footer() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 md:gap-12 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:flex lg:flex-row lg:justify-between mb-16 md:mb-20">
           {/* Newsletter */}
-          <div>
-            <p className="t-label text-[var(--color-cream)] mb-6 opacity-60">Stay Inspired</p>
+          <div className="lg:max-w-[220px]">
+            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Stay Inspired</p>
             <form className="flex flex-col gap-3">
               <input
                 type="text"
@@ -37,20 +37,20 @@ export default function Footer() {
           </div>
 
           {/* Connect */}
-          <div>
-            <p className="t-label text-[var(--color-cream)] mb-6 opacity-60">Connect</p>
-            <div className="flex flex-col gap-3">
-              <a href="tel:+16476856421" className="t-body text-[var(--color-cream)] opacity-70 hover:opacity-100">
+          <div className="lg:max-w-[180px]">
+            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Connect</p>
+            <div className="flex flex-col gap-4">
+              <a href="tel:+16476856421" className="t-body text-[var(--color-cream)] opacity-70 hover:opacity-100 leading-loose">
                 647 685 6421
               </a>
-              <a href="mailto:info@arqma.ca" className="t-body text-[var(--color-cream)] opacity-70 hover:opacity-100 uppercase tracking-widest text-xs">
+              <a href="mailto:info@arqma.ca" className="t-body text-[var(--color-cream)] opacity-70 hover:opacity-100 uppercase tracking-widest text-xs leading-loose">
                 INFO@ARQMA.CA
               </a>
               <a
                 href="https://www.instagram.com/arqmainteriors"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100 mt-1"
+                className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100 mt-1 leading-loose"
               >
                 Instagram
               </a>
@@ -58,9 +58,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <p className="t-label text-[var(--color-cream)] mb-6 opacity-60">Navigation</p>
-            <div className="flex flex-col gap-3">
+          <div className="lg:max-w-[160px]">
+            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Navigation</p>
+            <div className="flex flex-col gap-4">
               {[
                 { label: 'Projects', href: '/projects' },
                 { label: 'About Us', href: '/about' },
@@ -71,7 +71,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100"
+                  className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100 leading-loose"
                 >
                   {link.label}
                 </Link>
@@ -80,12 +80,12 @@ export default function Footer() {
           </div>
 
           {/* Location */}
-          <div>
-            <p className="t-label text-[var(--color-cream)] mb-6 opacity-60">Location</p>
-            <p className="t-body text-[var(--color-cream)] opacity-70 leading-relaxed">
+          <div className="lg:max-w-[200px]">
+            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Location</p>
+            <p className="t-body text-[var(--color-cream)] opacity-70 leading-loose">
               Toronto, Ontario<br />Canada
             </p>
-            <p className="t-body text-[var(--color-cream)] opacity-50 mt-4 text-xs leading-relaxed">
+            <p className="t-body text-[var(--color-cream)] opacity-50 mt-5 text-xs leading-loose">
               Serving clients across<br />Canada &amp; the United States.<br />In-person &amp; remote available.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+          className="pt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
           style={{ borderTop: '1px solid rgba(238,235,231,0.12)' }}
         >
           <p className="t-label opacity-40">©ARQMA {new Date().getFullYear()}. All rights reserved.</p>

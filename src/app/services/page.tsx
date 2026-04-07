@@ -186,7 +186,7 @@ export default function ServicesPage() {
           <hr style={{ borderColor: 'rgba(66,53,44,0.1)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
 
           {/* Two-column: deliverables + timeline */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-40 mt-0">
             {/* Left: What's included */}
             <AnimateOnScroll>
               <div
@@ -268,7 +268,7 @@ export default function ServicesPage() {
           <hr style={{ borderColor: 'rgba(238,235,231,0.1)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
 
           {/* Two-column: deliverables + phases */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-40 mt-0">
             {/* Left: Deliverables */}
             <AnimateOnScroll>
               <div
