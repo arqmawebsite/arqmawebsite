@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: Props) {
 
               {/* Left: tags + description */}
               <div>
-                <div className="flex flex-wrap gap-3 mb-10">
+                <div className="flex flex-wrap gap-3" style={{ marginBottom: '2.5rem' }}>
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
