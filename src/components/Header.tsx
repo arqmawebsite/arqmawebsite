@@ -117,8 +117,8 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 h-full w-full md:w-[55vw] lg:w-[45vw] z-50 flex flex-col justify-between py-24 px-[14vw] md:px-[10vw] lg:px-[8vw]"
-              style={{ background: 'var(--color-espresso)' }}
+              className="fixed top-0 right-0 h-full w-full md:w-[55vw] lg:w-[45vw] z-50 flex flex-col justify-between py-24"
+              style={{ background: 'var(--color-espresso)', paddingLeft: 'clamp(44px, 12vw, 80px)', paddingRight: 'clamp(44px, 12vw, 80px)' }}
             >
               {/* Nav links */}
               <div className="flex flex-col gap-5 md:gap-6">
@@ -170,7 +170,7 @@ export default function Header() {
                   </a>
                 </div>
                 {/* Monogram watermark */}
-                <div className="absolute bottom-8 right-[8vw] md:right-[6vw] opacity-[0.06]">
+                <div className="absolute bottom-8 right-10 opacity-[0.06]">
                   <Image
                     src="/images/brand/Vector.png"
                     alt=""
