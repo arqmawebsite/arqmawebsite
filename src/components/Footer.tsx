@@ -4,9 +4,9 @@ import Image from 'next/image'
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--color-espresso)', color: 'var(--color-cream)' }}>
-      <div className="container-wide py-16 md:py-20">
+      <div className="container-wide py-24 md:py-32">
         {/* Logo */}
-        <div className="mb-12 md:mb-16">
+        <div className="mb-16 md:mb-20">
           <Image
             src="/images/brand/Logo_lettering.png"
             alt="ARQMA Interior Design Studio"
@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 md:gap-12 mb-16 md:mb-20">
           {/* Newsletter */}
           <div>
             <p className="t-label text-[var(--color-cream)] mb-6 opacity-60">Stay Inspired</p>
@@ -93,7 +93,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+          className="pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
           style={{ borderTop: '1px solid rgba(238,235,231,0.12)' }}
         >
           <p className="t-label opacity-40">©ARQMA {new Date().getFullYear()}. All rights reserved.</p>

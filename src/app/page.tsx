@@ -298,7 +298,7 @@ export default function HomePage() {
 
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section
-        className="relative py-32 md:py-44 overflow-hidden"
+        className="relative py-44 md:py-56 overflow-hidden mt-0"
         aria-label="Get in touch"
       >
         <Image

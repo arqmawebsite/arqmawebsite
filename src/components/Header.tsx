@@ -121,7 +121,7 @@ export default function Header() {
               style={{ background: 'var(--color-espresso)' }}
             >
               {/* Nav links */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-5 md:gap-6">
                 {navItems.map((item, i) => (
                   <motion.div
                     key={item.href}
@@ -174,9 +174,9 @@ export default function Header() {
                   <Image
                     src="/images/brand/Vector.png"
                     alt=""
-                    width={120}
-                    height={120}
-                    className="w-24 h-24"
+                    width={160}
+                    height={160}
+                    className="w-32 h-auto"
                   />
                 </div>
               </motion.div>

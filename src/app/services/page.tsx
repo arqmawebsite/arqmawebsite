@@ -176,15 +176,17 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <p className="t-body mb-6" style={{ color: 'var(--color-taupe)', maxWidth: '640px', lineHeight: 2.1 }}>
+            <p className="t-body mb-16 md:mb-20" style={{ color: 'var(--color-taupe)', maxWidth: '680px', lineHeight: 2.1 }}>
               This service is ideal for clients who are looking to improve their space without undergoing
               a major renovation, and who feel comfortable managing the implementation on their own. It
               provides expert guidance on layout, aesthetics, and key design decisions.
             </p>
           </AnimateOnScroll>
 
+          <hr style={{ borderColor: 'rgba(66,53,44,0.1)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
+
           {/* Two-column: deliverables + timeline */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mt-16 md:mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 mt-0">
             {/* Left: What's included */}
             <AnimateOnScroll>
               <div
@@ -256,15 +258,17 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <p className="t-body mb-6" style={{ color: 'rgba(238,235,231,0.72)', maxWidth: '640px', lineHeight: 2.1 }}>
+            <p className="t-body mb-16 md:mb-20" style={{ color: 'rgba(238,235,231,0.72)', maxWidth: '680px', lineHeight: 2.1 }}>
               Designed for clients seeking a comprehensive, fully guided experience from concept
               to completion. We manage every detail — so you can focus on the vision while we
               handle the execution with precision and care.
             </p>
           </AnimateOnScroll>
 
+          <hr style={{ borderColor: 'rgba(238,235,231,0.1)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
+
           {/* Two-column: deliverables + phases */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mt-16 md:mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 mt-0">
             {/* Left: Deliverables */}
             <AnimateOnScroll>
               <div
