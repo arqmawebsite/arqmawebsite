@@ -211,10 +211,9 @@ export const projects: Project[] = [
 ]
 
 export const heroImages = [
-  '/images/projects/wellthera/RP400446.jpg',
-  '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-1.jpg',
-  '/images/projects/mb-beauty/MBBEAULTY-SAL-CREATORS-1.jpg',
-  '/images/projects/bossa-nova/RMPROREAL-BOSSA-NOVA-1.jpg',
+  '/images/projects/R01/Scene 3_3.png',
+  '/images/projects/12-09 (danny) (1)/Scene 1_2.png',
+  '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-11.jpg',
   '/images/projects/nathalia-marques/SAL_CREATORS_ARQMA_NATALIA-1.jpg',
-  '/images/projects/nursery/ARQMA-TERRY-LUANA-NURSERY-1.jpg',
+  '/images/projects/nursery/ARQMA-TERRY-LUANA-NURSERY-4.jpg',
 ]
