@@ -147,6 +147,13 @@ a:hover { opacity: 0.7; }
 .fade-up { animation: fadeUp 0.9s ease forwards; }
 .fade-in { animation: fadeIn 0.7s ease forwards; }
 
+/* Connect page — responsive overrides */
+.lg-hide { display: none; }
+@media (max-width: 1023px) {
+  .lg-right-panel { margin-left: 0 !important; }
+  .lg-hide { display: flex !important; }
+}
+
 /* Menu drawer nav link hover */
 .nav-link {
   font-family: var(--font-serif);
