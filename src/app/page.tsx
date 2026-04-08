@@ -209,8 +209,8 @@ export default function HomePage() {
               Our Approach
             </p>
             <blockquote
-              className="t-display font-serif italic mb-10"
-              style={{ color: 'var(--color-cream)', lineHeight: 1.2 }}
+              className="font-serif italic mb-10"
+              style={{ color: 'var(--color-cream)', lineHeight: 1.2, fontSize: 'clamp(2rem, 3.2vw, 4rem)' }}
             >
               &ldquo;We design with intention, creating spaces that not only function beautifully,
               but also elevate the way people experience their everyday lives.&rdquo;

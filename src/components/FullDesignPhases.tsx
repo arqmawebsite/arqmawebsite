@@ -57,92 +57,117 @@ const phases = [
 ]
 
 export default function FullDesignPhases() {
-  const [hovered, setHovered] = useState<number | null>(null)
+  const [active, setActive] = useState<number | null>(null)
 
   return (
-    <div className="w-full">
+    <div style={{ width: '100%' }}>
       {phases.map((phase, i) => (
-        <motion.div
-          key={phase.number}
-          onHoverStart={() => setHovered(i)}
-          onHoverEnd={() => setHovered(null)}
-          className="relative cursor-default"
-          style={{ borderBottom: '1px solid rgba(238,235,231,0.1)' }}
-        >
-          <motion.div
-            animate={{
-              paddingLeft: hovered === i ? '1.5rem' : '0',
-              background: hovered === i ? 'rgba(238,235,231,0.05)' : 'transparent',
+        <div key={phase.number}>
+          <div style={{ width: '100%', height: '0.5px', background: 'rgba(238,235,231,0.1)' }} />
+          <button
+            onClick={() => setActive(active === i ? null : i)}
+            style={{
+              width: '100%',
+              textAlign: 'left',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              paddingTop: '1.4rem',
+              paddingBottom: '1.4rem',
             }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="py-5 flex items-start gap-6"
           >
-            {/* Number */}
-            <span
-              className="t-label flex-shrink-0 w-8 pt-1"
-              style={{
-                color: hovered === i ? 'rgba(238,235,231,0.8)' : 'rgba(238,235,231,0.3)',
-                transition: 'color 0.3s ease',
-                fontSize: '0.65rem',
-              }}
-            >
-              {phase.number}
-            </span>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+              {/* Number */}
+              <span
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.6rem',
+                  letterSpacing: '0.2em',
+                  fontWeight: 300,
+                  color: active === i ? 'rgba(238,235,231,0.6)' : 'rgba(238,235,231,0.2)',
+                  minWidth: '1.8rem',
+                  paddingTop: '0.2rem',
+                  transition: 'color 0.45s ease',
+                  flexShrink: 0,
+                }}
+              >
+                {phase.number}
+              </span>
 
-            {/* Title + expandable desc */}
-            <div className="flex-1">
-              <div className="flex items-center justify-between">
-                <span
-                  className="font-serif"
-                  style={{
-                    color: hovered === i ? 'var(--color-cream)' : 'rgba(238,235,231,0.75)',
-                    fontSize: 'clamp(0.95rem, 1.1vw, 1.15rem)',
-                    transition: 'color 0.3s ease',
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {phase.title}
-                </span>
-                {/* Arrow indicator */}
-                <motion.span
-                  animate={{ opacity: hovered === i ? 1 : 0, x: hovered === i ? 0 : -8 }}
-                  transition={{ duration: 0.25 }}
-                  style={{ color: 'rgba(238,235,231,0.4)', fontSize: '0.8rem', flexShrink: 0, marginLeft: '1rem' }}
-                >
-                  →
-                </motion.span>
-              </div>
-
-              {/* Description — slides in on hover */}
-              <AnimatePresence>
-                {hovered === i && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                    animate={{ opacity: 1, height: 'auto', marginTop: '0.75rem' }}
-                    exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="t-body overflow-hidden"
-                    style={{ color: 'rgba(238,235,231,0.6)', lineHeight: 1.85, fontSize: '0.82rem' }}
+              {/* Title + description */}
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-serif)',
+                      fontSize: 'clamp(0.92rem, 1.05vw, 1.15rem)',
+                      letterSpacing: '0.01em',
+                      lineHeight: 1.45,
+                      color: active === i ? 'var(--color-cream)' : 'rgba(238,235,231,0.6)',
+                      transition: 'color 0.45s ease',
+                    }}
                   >
-                    {phase.desc}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        </motion.div>
-      ))}
+                    {phase.title}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '1.05rem',
+                      lineHeight: 1,
+                      color: 'rgba(238,235,231,0.28)',
+                      flexShrink: 0,
+                      display: 'block',
+                      transform: active === i ? 'rotate(45deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)',
+                    }}
+                  >
+                    +
+                  </span>
+                </div>
 
-      {/* Timeline duration note */}
-      <div className="mt-8 flex items-start gap-4">
-        <div className="w-8 flex-shrink-0">
-          <div className="h-px w-4" style={{ background: 'rgba(238,235,231,0.25)', marginTop: '0.5rem' }} />
+                <AnimatePresence>
+                  {active === i && (
+                    <motion.p
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                      style={{
+                        overflow: 'hidden',
+                        color: 'rgba(238,235,231,0.48)',
+                        fontSize: '0.79rem',
+                        lineHeight: 1.95,
+                        marginTop: '0.85rem',
+                        maxWidth: '420px',
+                        letterSpacing: '0.025em',
+                        fontFamily: 'var(--font-sans)',
+                        fontWeight: 300,
+                      }}
+                    >
+                      {phase.desc}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </button>
         </div>
-        <p className="t-label" style={{ color: 'rgba(238,235,231,0.35)', lineHeight: 1.6 }}>
-          Design phase typically 2–4 months.<br />
-          Construction timeline varies by scope.
-        </p>
-      </div>
+      ))}
+      <div style={{ width: '100%', height: '0.5px', background: 'rgba(238,235,231,0.1)' }} />
+
+      {/* Footer note */}
+      <p
+        style={{
+          marginTop: '1.5rem',
+          fontSize: '0.58rem',
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color: 'rgba(238,235,231,0.2)',
+          fontFamily: 'var(--font-sans)',
+          fontWeight: 500,
+        }}
+      >
+        Select each phase to explore
+      </p>
     </div>
   )
 }

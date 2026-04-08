@@ -6,24 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 const steps = [
   {
     number: '01',
+    subtitle: 'Before We Meet',
     title: 'Pre-Consultation Questionnaire',
-    subtitle: 'Before we meet',
     desc: 'You complete a simple online questionnaire sharing essential information about your space, lifestyle, and design preferences. You may upload reference images and include general measurements directly within the form.',
-    icon: '✦',
   },
   {
     number: '02',
+    subtitle: 'We Align on Your Vision',
     title: '30-Minute Briefing Call',
-    subtitle: 'We align on your vision',
     desc: 'A focused initial meeting to review the information provided, better understand your lifestyle, clarify expectations, and identify key design priorities before the working session.',
-    icon: '◈',
   },
   {
     number: '03',
+    subtitle: 'Live, Hands-On Exploration',
     title: '2-Hour Design Session',
-    subtitle: 'Live, hands-on exploration',
     desc: 'An in-depth working session where we explore layout solutions, test ideas, and develop design directions in real time — with immediate feedback and refinements tailored to your needs.',
-    icon: '◇',
   },
 ]
 
@@ -32,161 +29,112 @@ export default function ConsultationTimeline() {
 
   return (
     <div className="w-full">
-      {/* Desktop: horizontal timeline */}
-      <div className="hidden md:block">
-        {/* Connecting line */}
-        <div className="relative flex items-start gap-0">
-          {steps.map((step, i) => (
-            <div key={step.number} className="flex-1 relative">
-              {/* Connector line */}
-              {i < steps.length - 1 && (
-                <div
-                  className="absolute top-[28px] left-1/2 w-full h-[1px]"
-                  style={{ background: 'rgba(66,53,44,0.18)', zIndex: 0 }}
-                />
-              )}
+      {steps.map((step, i) => (
+        <div key={step.number}>
+          {/* Thin top divider */}
+          <div style={{ width: '100%', height: '1px', background: 'rgba(66,53,44,0.12)' }} />
 
-              <button
-                onClick={() => setActive(active === i ? null : i)}
-                className="w-full text-left group"
-              >
-                {/* Number circle */}
-                <div className="relative flex flex-col items-center mb-6">
-                  <motion.div
-                    animate={{
-                      background: active === i ? 'var(--color-wine)' : 'transparent',
-                      borderColor: active === i ? 'var(--color-wine)' : 'rgba(66,53,44,0.25)',
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="relative z-10 w-14 h-14 rounded-full border flex items-center justify-center"
-                    style={{ background: active === i ? 'var(--color-wine)' : 'transparent' }}
-                  >
-                    <span
-                      className="t-label"
-                      style={{
-                        color: active === i ? 'var(--color-cream)' : 'var(--color-taupe)',
-                        fontSize: '0.7rem',
-                        letterSpacing: '0.15em',
-                      }}
-                    >
-                      {step.number}
-                    </span>
-                  </motion.div>
-                </div>
-
-                {/* Step info */}
-                <div className="px-3">
-                  <p
-                    className="t-label mb-2"
-                    style={{ color: 'var(--color-taupe)', opacity: 0.6 }}
-                  >
-                    {step.subtitle}
-                  </p>
-                  <h4
-                    className="font-serif mb-3"
-                    style={{
-                      color: active === i ? 'var(--color-wine)' : 'var(--color-espresso)',
-                      fontSize: 'clamp(0.95rem, 1.1vw, 1.15rem)',
-                      lineHeight: 1.35,
-                      transition: 'color 0.3s ease',
-                    }}
-                  >
-                    {step.title}
-                  </h4>
-                </div>
-              </button>
-
-              {/* Expandable description */}
-              <AnimatePresence>
-                {active === i && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div
-                      className="mx-3 mb-2 p-5 rounded-sm"
-                      style={{ background: 'rgba(81,44,50,0.06)', borderLeft: '2px solid var(--color-wine)' }}
-                    >
-                      <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.85 }}>
-                        {step.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
-
-        {/* Hint */}
-        <p
-          className="t-label mt-6 text-center"
-          style={{ color: 'var(--color-taupe)', opacity: 0.4 }}
-        >
-          Click each step to learn more
-        </p>
-      </div>
-
-      {/* Mobile: vertical accordion */}
-      <div className="md:hidden space-y-4">
-        {steps.map((step, i) => (
           <button
-            key={step.number}
             onClick={() => setActive(active === i ? null : i)}
-            className="w-full text-left"
+            className="w-full text-left group"
+            style={{ paddingTop: '1.75rem', paddingBottom: '1.75rem' }}
           >
-            <div
-              className="flex items-start gap-5 p-5 transition-all duration-300"
-              style={{
-                background: active === i ? 'rgba(81,44,50,0.06)' : 'transparent',
-                borderLeft: active === i ? '2px solid var(--color-wine)' : '2px solid rgba(66,53,44,0.12)',
-              }}
-            >
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem' }}>
+
+              {/* Step number */}
               <span
-                className="t-label flex-shrink-0 pt-1"
-                style={{ color: 'var(--color-wine)', fontSize: '0.7rem' }}
+                className="t-label flex-shrink-0"
+                style={{
+                  color: active === i ? 'var(--color-wine)' : 'rgba(66,53,44,0.35)',
+                  letterSpacing: '0.22em',
+                  fontSize: '0.65rem',
+                  paddingTop: '0.25rem',
+                  transition: 'color 0.3s ease',
+                  minWidth: '2rem',
+                }}
               >
                 {step.number}
               </span>
-              <div className="flex-1">
+
+              {/* Content */}
+              <div style={{ flex: 1 }}>
+                <p
+                  className="t-label"
+                  style={{
+                    color: 'rgba(66,53,44,0.45)',
+                    letterSpacing: '0.18em',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  {step.subtitle}
+                </p>
                 <h4
-                  className="font-serif mb-1"
-                  style={{ color: 'var(--color-espresso)', fontSize: '1rem', lineHeight: 1.4 }}
+                  className="font-serif"
+                  style={{
+                    color: active === i ? 'var(--color-wine)' : 'var(--color-espresso)',
+                    fontSize: 'clamp(1rem, 1.2vw, 1.25rem)',
+                    lineHeight: 1.4,
+                    transition: 'color 0.3s ease',
+                  }}
                 >
                   {step.title}
                 </h4>
+
+                {/* Expandable description — no background box */}
                 <AnimatePresence>
                   {active === i && (
-                    <motion.p
+                    <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.35 }}
-                      className="t-body mt-3 overflow-hidden"
-                      style={{ color: 'var(--color-taupe)', lineHeight: 1.85 }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ overflow: 'hidden' }}
                     >
-                      {step.desc}
-                    </motion.p>
+                      <p
+                        className="t-body"
+                        style={{
+                          color: 'var(--color-taupe)',
+                          lineHeight: 1.9,
+                          marginTop: '1rem',
+                          maxWidth: '480px',
+                        }}
+                      >
+                        {step.desc}
+                      </p>
+                    </motion.div>
                   )}
                 </AnimatePresence>
               </div>
+
+              {/* Expand indicator */}
               <span
-                className="flex-shrink-0 text-sm transition-transform duration-300"
                 style={{
                   color: 'var(--color-taupe)',
-                  opacity: 0.5,
+                  opacity: 0.4,
+                  fontSize: '1.1rem',
+                  lineHeight: 1,
+                  flexShrink: 0,
+                  paddingTop: '0.2rem',
                   transform: active === i ? 'rotate(45deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.3s ease, opacity 0.3s ease',
                 }}
               >
                 +
               </span>
             </div>
           </button>
-        ))}
-      </div>
+        </div>
+      ))}
+
+      {/* Final divider */}
+      <div style={{ width: '100%', height: '1px', background: 'rgba(66,53,44,0.12)' }} />
+
+      <p
+        className="t-label"
+        style={{ color: 'rgba(66,53,44,0.35)', letterSpacing: '0.18em', marginTop: '1.5rem' }}
+      >
+        Click each step to learn more
+      </p>
     </div>
   )
 }

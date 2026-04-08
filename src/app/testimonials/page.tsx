@@ -157,8 +157,7 @@ export default function TestimonialsPage() {
 
       {/* ── GOOGLE REVIEWS ───────────────────────────────────── */}
       <section
-        className="py-20 md:py-28"
-        style={{ background: 'var(--color-espresso)' }}
+        style={{ background: 'var(--color-espresso)', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 'clamp(5rem, 10vw, 9rem)' }}
         aria-label="Google reviews"
       >
         <div className="container-narrow text-center">

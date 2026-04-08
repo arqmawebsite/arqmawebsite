@@ -3,10 +3,10 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--color-espresso)', color: 'var(--color-cream)' }}>
+    <footer style={{ background: 'var(--color-espresso)', color: 'var(--color-cream)', position: 'relative', zIndex: 1 }}>
       <div className="container-wide" style={{ paddingTop: 'clamp(56px, 6vw, 96px)', paddingBottom: 'clamp(48px, 5vw, 80px)' }}>
         {/* Logo */}
-        <div className="mb-16 md:mb-20">
+        <div style={{ marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
           <Image
             src="/images/brand/Logo_lettering.png"
             alt="ARQMA Interior Design Studio"

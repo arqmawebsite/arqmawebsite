@@ -53,9 +53,10 @@ export default function Header() {
     <>
       {/* Header bar */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5vw] py-5 transition-all duration-350 ${
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-350 ${
           hidden && !menuOpen ? '-translate-y-full' : 'translate-y-0'
         }`}
+        style={{ padding: '1.25rem 5vw' }}
       >
         {/* Logo */}
         <Link href="/" className={`transition-opacity duration-300 ${isHome && !scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>

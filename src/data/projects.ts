@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description:
       'This massage therapy clinic was designed with a strong emphasis on spatial flow, materiality, and sensory experience. The layout is anchored by a generous reception area that establishes a sense of calm and arrival, seamlessly guiding clients into more private treatment spaces. Throughout the project, careful attention was given to proportions, lighting, and finishes to create a cohesive environment that minimizes external distractions and promotes introspection. Each element was intentionally selected to support a quiet and restorative atmosphere.',
     shortDescription: 'Massage therapy clinic designed for calm and restorative sensory experience.',
-    coverImage: '/images/projects/wellthera/RP400446.jpg',
+    coverImage: '/images/projects/wellthera/RP409128.jpg',
     images: [
       '/images/projects/wellthera/RP400446.jpg',
       '/images/projects/wellthera/RP400556.jpg',
@@ -52,10 +52,20 @@ export const projects: Project[] = [
     description:
       "This immigration office was designed to balance a sense of professionalism with a welcoming and supportive atmosphere. The spatial concept draws directly from the company's branding, translating its colors and forms into curved panels and modern furniture that shape the experience of the space. Through a careful composition of materials, lighting, and geometry, the design introduces warmth and elegance. The result is an environment that conveys trust, respect, and reassurance — creating a setting where clients feel both supported and confident throughout their immigration journey.",
     shortDescription: 'Immigration office balancing professionalism with warmth and trust.',
-    coverImage: '/images/projects/wellthera/RP409128.jpg',
+    coverImage: '/images/projects/TFA Immigration Office/ARQMA_TFA_01.png',
     images: [
-      '/images/projects/wellthera/RP409128.jpg',
-      '/images/projects/wellthera/RP409131.jpg',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_01.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_03.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_04.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_05.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_06.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_07.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_08.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_09.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_10.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_11.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_12.png',
+      '/images/projects/TFA Immigration Office/ARQMA_TFA_13.png',
     ],
     tags: ['Commercial', 'Office', 'Corporate'],
   },
@@ -120,7 +130,7 @@ export const projects: Project[] = [
     description:
       "This Brazilian restaurant was designed as a vibrant expression of cultural identity, where interior design and branding come together to create an immersive dining experience. The space draws from the richness of Brazilian design through the use of bold colors, natural elements, and a layered contrast of materials. Soft, organic curves — so characteristic of Brazilian architecture — are echoed in the selection of furniture and millwork, bringing fluidity and movement into the space. Fully integrated with the brand's visual language, the design creates a cohesive and dynamic environment that celebrates warmth, authenticity, and a strong sense of place.",
     shortDescription: 'Brazilian restaurant as a vibrant expression of cultural identity and warmth.',
-    coverImage: '/images/projects/bossa-nova/RMPROREAL-BOSSA-NOVA-1.jpg',
+    coverImage: '/images/projects/bossa-nova/RMPROREAL-BOSSA-NOVA-4.jpg',
     images: [
       '/images/projects/bossa-nova/RMPROREAL-BOSSA-NOVA-1.jpg',
       '/images/projects/bossa-nova/RMPROREAL-BOSSA-NOVA-2.jpg',

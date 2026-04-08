@@ -155,14 +155,14 @@ export default function ServicesPage() {
 
           {/* Title block — full width */}
           <AnimateOnScroll>
-            <div className="mb-16 md:mb-20" style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-              <p className="t-label mb-5" style={{ color: 'var(--color-taupe)' }}>Service 01</p>
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p className="t-label" style={{ color: 'var(--color-taupe)', letterSpacing: '0.26em', marginBottom: '1.25rem' }}>Service 01</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem' }}>
                 <div>
-                  <h2 className="t-heading font-serif mb-4" style={{ color: 'var(--color-espresso)' }}>
+                  <h2 className="t-heading font-serif" style={{ color: 'var(--color-espresso)', marginBottom: '0.75rem' }}>
                     Design Consultation
                   </h2>
-                  <p className="t-label" style={{ color: 'var(--color-wine)' }}>
+                  <p className="t-label" style={{ color: 'var(--color-wine)', letterSpacing: '0.22em' }}>
                     Starting at $600 per consultation
                   </p>
                 </div>
@@ -176,52 +176,50 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <p className="t-body mb-16 md:mb-20" style={{ color: 'var(--color-taupe)', maxWidth: '680px', lineHeight: 2.1 }}>
+            <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', lineHeight: 2.1, marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
               This service is ideal for clients who are looking to improve their space without undergoing
               a major renovation, and who feel comfortable managing the implementation on their own. It
               provides expert guidance on layout, aesthetics, and key design decisions.
             </p>
           </AnimateOnScroll>
 
-          <hr style={{ borderColor: 'rgba(66,53,44,0.1)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
+          <hr style={{ borderColor: 'rgba(66,53,44,0.08)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
 
           {/* Two-column: deliverables + timeline */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-40 mt-0">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'clamp(3rem, 8vw, 10rem)' }} className="lg:grid-cols-2-auto">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(3rem, 8vw, 10rem)' }}>
             {/* Left: What's included */}
             <AnimateOnScroll>
-              <div
-                className="pb-10 mb-10"
-                style={{ borderBottom: '1px solid rgba(66,53,44,0.1)' }}
-              >
-                <p className="t-label mb-8" style={{ color: 'var(--color-espresso)', letterSpacing: '0.2em' }}>
+              <div style={{ paddingBottom: '2.5rem', marginBottom: '2.5rem', borderBottom: '1px solid rgba(66,53,44,0.1)' }}>
+                <p className="t-label" style={{ color: 'var(--color-espresso)', letterSpacing: '0.26em', marginBottom: '2rem' }}>
                   What&apos;s Included
                 </p>
-                <ul className="space-y-5">
+                <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   {consultationDeliverables.map((item) => (
-                    <li key={item} className="flex items-start gap-4">
+                    <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                       <span
-                        className="flex-shrink-0 mt-[0.6rem] w-5 h-px"
-                        style={{ background: 'var(--color-wine)', opacity: 0.5 }}
+                        style={{ flexShrink: 0, marginTop: '0.6rem', width: '1.25rem', height: '1px', background: 'var(--color-wine)', opacity: 0.5, display: 'block' }}
                       />
-                      <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.7 }}>
+                      <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.8 }}>
                         {item}
                       </span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <Link href="/connect" className="btn-primary">
+              <Link href="/connect" className="btn-primary" style={{ marginTop: '0.5rem', display: 'inline-block' }}>
                 Book a Consultation
               </Link>
             </AnimateOnScroll>
 
             {/* Right: Interactive Timeline */}
             <AnimateOnScroll delay={0.12}>
-              <p className="t-label mb-10" style={{ color: 'var(--color-espresso)', letterSpacing: '0.2em' }}>
+              <p className="t-label" style={{ color: 'var(--color-espresso)', letterSpacing: '0.26em', marginBottom: '2rem' }}>
                 Client Journey
               </p>
               <ConsultationTimeline />
             </AnimateOnScroll>
+            </div>
           </div>
         </div>
       </section>
@@ -229,26 +227,49 @@ export default function ServicesPage() {
       {/* ── FULL DESIGN DETAIL (wine bg) ─────────────────────── */}
       <section
         id="full-design"
-        className="section-pad-xl"
-        style={{ background: 'var(--color-wine)' }}
+        style={{ background: 'var(--color-wine)', paddingTop: 'clamp(6rem, 12vw, 11rem)', paddingBottom: 'clamp(6rem, 12vw, 11rem)' }}
         aria-label="Full design service details"
       >
         <div className="container-wide">
 
-          {/* Title block — full width */}
+          {/* Title block */}
           <AnimateOnScroll>
-            <div className="mb-16 md:mb-20" style={{ borderBottom: '1px solid rgba(238,235,231,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-              <p className="t-label mb-5" style={{ color: 'rgba(238,235,231,0.45)' }}>Service 02</p>
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div style={{ borderBottom: '0.5px solid rgba(238,235,231,0.12)', paddingBottom: 'clamp(2.5rem, 4vw, 4.5rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p
+                className="t-label"
+                style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.28em', marginBottom: '1.5rem' }}
+              >
+                Service 02
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
                 <div>
-                  <h2 className="t-heading font-serif mb-4" style={{ color: 'var(--color-cream)' }}>
+                  <h2
+                    className="t-heading font-serif"
+                    style={{
+                      color: 'var(--color-cream)',
+                      letterSpacing: '0.025em',
+                      lineHeight: 1.08,
+                      marginBottom: '1.1rem',
+                    }}
+                  >
                     Full Design Service
                   </h2>
-                  <p className="t-label" style={{ color: 'rgba(238,235,231,0.45)' }}>
-                    Design phase: 2 to 4 months
+                  <p
+                    className="t-label"
+                    style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.22em' }}
+                  >
+                    Design Phase: 2 to 4 Months
                   </p>
                 </div>
-                <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', maxWidth: '480px', lineHeight: 2 }}>
+                <p
+                  className="t-body"
+                  style={{
+                    color: 'rgba(238,235,231,0.6)',
+                    maxWidth: '460px',
+                    lineHeight: 2.2,
+                    letterSpacing: '0.02em',
+                  }}
+                >
                   A complete, end-to-end experience — for clients who want expert direction
                   at every stage, from first concept to final styling.
                 </p>
@@ -258,52 +279,105 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <p className="t-body mb-16 md:mb-20" style={{ color: 'rgba(238,235,231,0.72)', maxWidth: '680px', lineHeight: 2.1 }}>
+            <p
+              className="t-body"
+              style={{
+                color: 'rgba(238,235,231,0.65)',
+                maxWidth: '620px',
+                lineHeight: 2.2,
+                letterSpacing: '0.02em',
+                marginBottom: 'clamp(3rem, 5vw, 5rem)',
+              }}
+            >
               Designed for clients seeking a comprehensive, fully guided experience from concept
               to completion. We manage every detail — so you can focus on the vision while we
               handle the execution with precision and care.
             </p>
           </AnimateOnScroll>
 
-          <hr style={{ borderColor: 'rgba(238,235,231,0.1)', marginBottom: 'clamp(3.5rem,6vw,5rem)' }} />
+          {/* Editorial image strip */}
+          <AnimateOnScroll>
+            <div
+              style={{
+                width: '100%',
+                height: 'clamp(200px, 26vw, 400px)',
+                position: 'relative',
+                overflow: 'hidden',
+                marginBottom: 'clamp(3.5rem, 6vw, 6rem)',
+              }}
+            >
+              <Image
+                src="/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-11.jpg"
+                alt="ARQMA full design service — interior detail"
+                fill
+                className="object-cover"
+                sizes="90vw"
+                style={{ objectPosition: 'center 40%' }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'rgba(81,44,50,0.18)',
+                }}
+              />
+            </div>
+          </AnimateOnScroll>
 
           {/* Two-column: deliverables + phases */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-40 mt-0">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+              gap: 'clamp(3.5rem, 8vw, 9rem)',
+            }}
+          >
             {/* Left: Deliverables */}
             <AnimateOnScroll>
-              <div
-                className="pb-10 mb-10"
-                style={{ borderBottom: '1px solid rgba(238,235,231,0.1)' }}
+              <p
+                className="t-label"
+                style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '2rem' }}
               >
-                <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.5)', letterSpacing: '0.2em' }}>
-                  Deliverables
-                </p>
-                <ul className="space-y-5">
-                  {fullServiceDeliverables.map((item) => (
-                    <li key={item} className="flex items-start gap-4">
+                Deliverables
+              </p>
+              <div>
+                {fullServiceDeliverables.map((item) => (
+                  <div key={item}>
+                    <div style={{ height: '0.5px', background: 'rgba(238,235,231,0.1)' }} />
+                    <div style={{ paddingTop: '1.05rem', paddingBottom: '1.05rem' }}>
                       <span
-                        className="flex-shrink-0 mt-[0.6rem] w-5 h-px"
-                        style={{ background: 'var(--color-cream)', opacity: 0.3 }}
-                      />
-                      <span className="t-body" style={{ color: 'rgba(238,235,231,0.7)', lineHeight: 1.7 }}>
+                        style={{
+                          color: 'rgba(238,235,231,0.62)',
+                          fontSize: '0.85rem',
+                          lineHeight: 1.65,
+                          letterSpacing: '0.015em',
+                          fontFamily: 'var(--font-sans)',
+                          fontWeight: 300,
+                        }}
+                      >
                         {item}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                  </div>
+                ))}
+                <div style={{ height: '0.5px', background: 'rgba(238,235,231,0.1)' }} />
               </div>
-              <Link href="/connect" className="btn-light">
+              <Link
+                href="/connect"
+                className="btn-light"
+                style={{ marginTop: '2.5rem', display: 'inline-block' }}
+              >
                 Start Your Project
               </Link>
             </AnimateOnScroll>
 
             {/* Right: Interactive Phases */}
-            <AnimateOnScroll delay={0.12}>
-              <p className="t-label mb-10" style={{ color: 'rgba(238,235,231,0.45)', letterSpacing: '0.2em' }}>
+            <AnimateOnScroll delay={0.1}>
+              <p
+                className="t-label"
+                style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '2rem' }}
+              >
                 10-Phase Process
-              </p>
-              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.4)', lineHeight: 1.8, fontSize: '0.8rem' }}>
-                Hover each phase to learn more.
               </p>
               <FullDesignPhases />
             </AnimateOnScroll>
