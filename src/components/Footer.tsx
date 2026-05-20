@@ -8,49 +8,50 @@ export default function Footer() {
         {/* Logo */}
         <div style={{ marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
           <Image
-            src="/images/brand/Logo_lettering.png"
+            src="/images/brand/Vector.png"
             alt="ARQMA Interior Design Studio"
-            width={160}
-            height={42}
-            className="h-8 w-auto opacity-90"
+            width={56}
+            height={56}
+            className="h-14 w-auto"
+            style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
           />
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:flex lg:flex-row lg:justify-between mb-16 md:mb-20">
-          {/* Newsletter */}
-          <div className="lg:max-w-[220px]">
-            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Stay Inspired</p>
-            <form className="flex flex-col gap-3">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="bg-transparent border-b border-[rgba(238,235,231,0.25)] text-[var(--color-cream)] placeholder-[rgba(238,235,231,0.4)] t-body py-2 outline-none focus:border-[rgba(238,235,231,0.7)] transition-all"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="bg-transparent border-b border-[rgba(238,235,231,0.25)] text-[var(--color-cream)] placeholder-[rgba(238,235,231,0.4)] t-body py-2 outline-none focus:border-[rgba(238,235,231,0.7)] transition-all"
-              />
-              <button className="btn-light mt-2 self-start">Subscribe</button>
-            </form>
-          </div>
+        {/* Newsletter — full-width horizontal row */}
+        <div style={{ marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+          <p className="t-label text-[var(--color-cream)] opacity-80 mb-4" style={{ letterSpacing: '0.14em' }}>Stay Inspired</p>
+          <form className="flex flex-col sm:flex-row items-stretch sm:items-end gap-3">
+            <input
+              type="text"
+              placeholder="First Name"
+              className="bg-transparent border-b border-[rgba(238,235,231,0.25)] text-[var(--color-cream)] placeholder-[rgba(238,235,231,0.4)] t-body py-2 outline-none focus:border-[rgba(238,235,231,0.7)] transition-all flex-1"
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="bg-transparent border-b border-[rgba(238,235,231,0.25)] text-[var(--color-cream)] placeholder-[rgba(238,235,231,0.4)] t-body py-2 outline-none focus:border-[rgba(238,235,231,0.7)] transition-all flex-1"
+            />
+            <button className="btn-light sm:ml-2 shrink-0">Subscribe</button>
+          </form>
+        </div>
 
+        {/* Grid — 3 equal columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10" style={{ marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
           {/* Connect */}
-          <div className="lg:max-w-[180px]">
-            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Connect</p>
-            <div className="flex flex-col gap-4">
-              <a href="tel:+16476856421" className="t-body text-[var(--color-cream)] opacity-70 hover:opacity-100 leading-loose">
+          <div>
+            <p className="t-label text-[var(--color-cream)] opacity-80" style={{ letterSpacing: '0.14em', marginBottom: '1rem' }}>Connect</p>
+            <div className="flex flex-col" style={{ gap: '1rem' }}>
+              <a href="tel:+16476856421" className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100">
                 647 685 6421
               </a>
-              <a href="mailto:info@arqma.ca" className="t-body text-[var(--color-cream)] opacity-70 hover:opacity-100 uppercase tracking-widest text-xs leading-loose">
+              <a href="mailto:info@arqma.ca" className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100">
                 INFO@ARQMA.CA
               </a>
               <a
                 href="https://www.instagram.com/arqmainteriors"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100 mt-1 leading-loose"
+                className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100"
               >
                 Instagram
               </a>
@@ -58,20 +59,20 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:max-w-[160px]">
-            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Navigation</p>
-            <div className="flex flex-col gap-4">
+          <div>
+            <p className="t-label text-[var(--color-cream)] opacity-80" style={{ letterSpacing: '0.14em', marginBottom: '1rem' }}>Navigation</p>
+            <div className="flex flex-col" style={{ gap: '1rem' }}>
               {[
-                { label: 'Projects', href: '/projects' },
+                { label: 'Portfolio', href: '/projects' },
                 { label: 'About Us', href: '/about' },
                 { label: 'Services', href: '/services' },
-                { label: 'Testimonials', href: '/testimonials' },
+                { label: 'In Their Words', href: '/testimonials' },
                 { label: 'Get in Touch', href: '/connect' },
               ].map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100 leading-loose"
+                  className="t-label text-[var(--color-cream)] opacity-70 hover:opacity-100"
                 >
                   {link.label}
                 </Link>
@@ -80,15 +81,17 @@ export default function Footer() {
           </div>
 
           {/* Location */}
-          <div className="lg:max-w-[200px]">
-            <p className="t-label text-[var(--color-cream)] mb-8 opacity-80" style={{ letterSpacing: '0.14em' }}>Location</p>
-            <p className="t-body text-[var(--color-cream)] opacity-70 leading-loose">
-              Toronto, Ontario<br />Canada
-            </p>
-            <p className="t-body text-[var(--color-cream)] opacity-50 mt-5 text-xs leading-loose">
-              Serving clients across<br />Canada &amp; the United States.<br />In-person &amp; remote available.
-            </p>
+          <div>
+            <p className="t-label text-[var(--color-cream)] opacity-80" style={{ letterSpacing: '0.14em', marginBottom: '1rem' }}>Location</p>
+            <div className="flex flex-col" style={{ gap: '1rem' }}>
+              <p className="t-label text-[var(--color-cream)] opacity-70">Toronto, Ontario</p>
+              <p className="t-label text-[var(--color-cream)] opacity-70">Canada</p>
+              <p className="t-label text-[var(--color-cream)] opacity-50">
+                Serving clients across Canada &amp; the United States.<br />In-person &amp; remote available.
+              </p>
+            </div>
           </div>
+
         </div>
 
         {/* Bottom bar */}

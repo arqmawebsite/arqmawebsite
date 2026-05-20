@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 const team = [
   {
-    name: 'Márcia',
+    name: 'Marcia Oliveira Martins',
     title: 'Founder and Principal Designer',
     image: '/images/team/Marcia.jpg',
-    bio: 'is the Founder and Creative Director of ARQMA, leading the studio with a clear vision rooted in thoughtful design and elevated client experience. With a background in architecture and interior design, she brings a refined and contemporary approach to every project, balancing aesthetics, functionality, and emotional connection. At ARQMA, Márcia is responsible for overseeing the creative direction of all projects, ensuring that each space reflects the studio\'s standards of quality, coherence, and attention to detail.',
+    bio: 'is the Founder and Creative Director of ARQMA, leading the studio with a clear vision rooted in thoughtful design and elevated client experience. With a background in architecture and interior design, she brings a refined and contemporary approach to every project, balancing aesthetics, functionality, and emotional connection. At ARQMA, Marcia is responsible for overseeing the creative direction of all projects, ensuring that each space reflects the studio\'s standards of quality, coherence, and attention to detail.',
   },
   {
     name: 'Melissa',
@@ -83,29 +83,28 @@ export default function AboutPage() {
                 className="t-display font-serif italic mb-10"
                 style={{ color: 'var(--color-cream)', lineHeight: 1.15 }}
               >
-                Crafting beautiful spaces that perfectly reflect your authentic life.
+                We don&apos;t just design spaces — we define how they are experienced.
               </h2>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.15}>
               <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                ARQMA is a design studio established in the Canadian market for over five years,
-                dedicated to creating thoughtfully curated spaces with a strong emphasis on client
-                experience. Our work is guided by a contemporary design approach that seeks to
-                translate each client&apos;s individuality into spaces that feel both unique and
-                deeply personal.
+                At ARQMA, we believe that great design goes far beyond aesthetics. It begins with
+                understanding — how you live, what you value, and the way you want to feel in your space.
               </p>
               <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                We believe that great design begins with understanding — carefully observing the
-                potential of each space and enhancing it through functional, intentional solutions.
-                We place a strong emphasis on materiality, selecting high-quality and refined
-                finishes that are not only aesthetically elevated but also aligned with the
-                practical needs of each environment.
+                Based in Ontario, we work with clients across <strong style={{ color: 'rgba(238,235,231,0.95)' }}>Canada and internationally</strong>,
+                creating thoughtfully curated residential and commercial environments that are both
+                refined and deeply personal.
+              </p>
+              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
+                Our approach is rooted in intention. Every material, every detail, and every decision
+                is carefully considered to create spaces that are not only visually elevated, but also
+                functional, meaningful, and aligned with your lifestyle.
               </p>
               <p className="t-body" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                Based in Toronto, we proudly serve clients across <strong style={{ color: 'rgba(238,235,231,0.95)' }}>Canada and the United States</strong> —
-                offering both in-person and remote design services tailored to your lifestyle,
-                budget, and vision.
+                With a strong emphasis on client experience, we guide each project with clarity,
+                sensitivity, and a commitment to delivering spaces that truly reflect who you are.
               </p>
             </AnimateOnScroll>
           </div>
@@ -160,7 +159,7 @@ export default function AboutPage() {
                     {member.name}
                   </h3>
                   <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9 }}>
-                    {member.name === 'Márcia'
+                    {member.name === 'Marcia Oliveira Martins'
                       ? `${member.name} ${member.bio}`
                       : member.bio}
                   </p>
@@ -190,14 +189,14 @@ export default function AboutPage() {
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Work With Us
             </p>
             <h2
               className="t-display font-serif italic mb-8"
               style={{ color: 'var(--color-cream)' }}
             >
-              Ready to bring your vision to life?
+              Let&apos;s bring your vision to life.
             </h2>
             <p
               className="t-body mb-10"
@@ -211,7 +210,7 @@ export default function AboutPage() {
               that is uniquely yours.
             </p>
             <Link href="/connect" className="btn-light">
-              Start a Conversation
+              Start Your Project
             </Link>
           </AnimateOnScroll>
         </div>

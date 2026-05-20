@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Portfolio', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'In Their Words', href: '/testimonials' },
   { label: 'Connect', href: '/connect' },
 ]
 
@@ -61,34 +61,34 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className={`transition-opacity duration-300 ${isHome && !scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <Image
-            src="/images/brand/Logo_lettering.png"
+            src="/images/brand/Vector.png"
             alt="ARQMA Interior Design Studio"
-            width={140}
-            height={36}
-            className="h-7 w-auto"
-            style={{ filter: scrolled || menuOpen ? 'invert(0)' : 'invert(1) brightness(2)' }}
+            width={48}
+            height={48}
+            className="h-8 w-auto"
+            style={{ filter: scrolled || menuOpen ? 'brightness(0)' : 'brightness(0) invert(1)' }}
           />
         </Link>
 
         {/* Menu Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex flex-col items-center justify-center gap-[5px] w-12 h-12 cursor-pointer"
+          className="flex flex-col items-center justify-center gap-[6px] w-12 h-12 cursor-pointer"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           style={{ zIndex: 60 }}
         >
           <span
-            className={`block h-[1px] w-6 transition-all duration-300 ${
+            className={`block h-[1.5px] w-7 transition-all duration-300 ${
               scrolled || menuOpen ? 'bg-[var(--color-espresso)]' : 'bg-[var(--color-cream)]'
             } ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
           />
           <span
-            className={`block h-[1px] w-6 transition-all duration-300 ${
+            className={`block h-[1.5px] w-7 transition-all duration-300 ${
               scrolled || menuOpen ? 'bg-[var(--color-espresso)]' : 'bg-[var(--color-cream)]'
             } ${menuOpen ? 'opacity-0' : ''}`}
           />
           <span
-            className={`block h-[1px] w-6 transition-all duration-300 ${
+            className={`block h-[1.5px] w-7 transition-all duration-300 ${
               scrolled || menuOpen ? 'bg-[var(--color-espresso)]' : 'bg-[var(--color-cream)]'
             } ${menuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
           />

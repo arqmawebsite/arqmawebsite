@@ -47,8 +47,7 @@ export default function ProjectsGallery() {
         />
         <div className="overlay-dark" />
         <div className="absolute bottom-16 left-[5vw] z-20">
-          <p className="t-label mb-3" style={{ color: 'rgba(238,235,231,0.6)' }}>Our Work</p>
-          <h2 className="t-hero font-serif" style={{ color: 'var(--color-cream)' }}>Projects</h2>
+          <h2 className="t-hero font-serif" style={{ color: 'var(--color-cream)' }}>Portfolio</h2>
         </div>
       </section>
 
@@ -62,12 +61,12 @@ export default function ProjectsGallery() {
 
           {/* Filter tabs */}
           <AnimateOnScroll>
-            <div className="flex items-center gap-10 mb-16 md:mb-20" style={{ borderBottom: '1px solid rgba(66,53,44,0.1)' }}>
+            <div className="flex items-center gap-10" style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', marginBottom: '5rem' }}>
               {tabs.map((tab) => (
                 <button
                   key={tab.value}
                   onClick={() => setActiveFilter(tab.value)}
-                  className="t-label pb-4 transition-all duration-300 cursor-pointer"
+                  className="transition-all duration-300 cursor-pointer pb-5"
                   style={{
                     color: activeFilter === tab.value ? 'var(--color-espresso)' : 'rgba(66,53,44,0.35)',
                     marginBottom: '-1px',
@@ -75,6 +74,10 @@ export default function ProjectsGallery() {
                     outline: 'none',
                     border: 'none',
                     borderBottom: activeFilter === tab.value ? '1px solid var(--color-espresso)' : '1px solid transparent',
+                    fontSize: '0.85rem',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase' as const,
+                    fontWeight: 500,
                   }}
                 >
                   {tab.label}
@@ -86,80 +89,25 @@ export default function ProjectsGallery() {
           {filtered.length === 0 ? (
             <p className="t-body" style={{ color: 'var(--color-taupe)' }}>No projects found.</p>
           ) : (
-            <div className="flex flex-col gap-4">
-
-              {/* Featured first project — full width */}
-              {featured && (
-                <AnimateOnScroll>
-                  <Link href={`/projects/${featured.slug}`} className="block group relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filtered.map((project, i) => (
+                <AnimateOnScroll key={project.slug} delay={(i % 2) * 0.07}>
+                  <Link href={`/projects/${project.slug}`} className="block group relative overflow-hidden" style={{ aspectRatio: '4/5' }}>
                     <Image
-                      src={featured.coverImage}
-                      alt={`${featured.name} — ARQMA Interior Design`}
+                      src={project.coverImage}
+                      alt={`${project.name} — ARQMA Interior Design`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      sizes="100vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.82) 0%, rgba(42,31,26,0.15) 55%, transparent 100%)' }} />
-                    <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 flex items-end justify-between">
-                      <div>
-                        <p className="t-label mb-2" style={{ color: 'rgba(238,235,231,0.6)' }}>{getCategoryLabel(featured.category)}</p>
-                        <h3 className="font-serif" style={{ color: 'var(--color-cream)', fontSize: 'clamp(1.6rem, 3vw, 3rem)' }}>{featured.name}</h3>
-                      </div>
-                      <span className="t-label hidden md:block" style={{ color: 'rgba(238,235,231,0.5)' }}>View Project →</span>
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.82) 0%, rgba(42,31,26,0.1) 55%, transparent 100%)' }} />
+                    <div className="absolute bottom-0 left-0 right-0" style={{ padding: '1.5rem 1.75rem 2.5rem' }}>
+                      <p className="t-label mb-2" style={{ color: 'rgba(238,235,231,0.85)' }}>{getCategoryLabel(project.category)}</p>
+                      <h3 className="font-serif" style={{ color: 'var(--color-cream)', fontSize: 'clamp(1.2rem, 2vw, 2rem)' }}>{project.name}</h3>
                     </div>
                   </Link>
                 </AnimateOnScroll>
-              )}
-
-              {/* Rest in alternating rows of 2 */}
-              {rest.map((project, i) => {
-                // Group into pairs; skip odd indices (handled by even)
-                if (i % 2 !== 0) return null
-                const left = rest[i]
-                const right = rest[i + 1]
-
-                return (
-                  <div key={left.slug} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Left card — alternates tall/short each row */}
-                    <AnimateOnScroll delay={0.05}>
-                      <Link href={`/projects/${left.slug}`} className="block group relative overflow-hidden" style={{ aspectRatio: i % 4 === 0 ? '3/4' : '4/3' }}>
-                        <Image
-                          src={left.coverImage}
-                          alt={`${left.name} — ARQMA Interior Design`}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.82) 0%, rgba(42,31,26,0.1) 55%, transparent 100%)' }} />
-                        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                          <p className="t-label mb-1" style={{ color: 'rgba(238,235,231,0.6)' }}>{getCategoryLabel(left.category)}</p>
-                          <h3 className="font-serif" style={{ color: 'var(--color-cream)', fontSize: 'clamp(1.1rem, 1.8vw, 1.8rem)' }}>{left.name}</h3>
-                        </div>
-                      </Link>
-                    </AnimateOnScroll>
-
-                    {/* Right card — inverse aspect ratio (if exists) */}
-                    {right && (
-                      <AnimateOnScroll delay={0.1}>
-                        <Link href={`/projects/${right.slug}`} className="block group relative overflow-hidden" style={{ aspectRatio: i % 4 === 0 ? '4/3' : '3/4' }}>
-                          <Image
-                            src={right.coverImage}
-                            alt={`${right.name} — ARQMA Interior Design`}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.82) 0%, rgba(42,31,26,0.1) 55%, transparent 100%)' }} />
-                          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                            <p className="t-label mb-1" style={{ color: 'rgba(238,235,231,0.6)' }}>{getCategoryLabel(right.category)}</p>
-                            <h3 className="font-serif" style={{ color: 'var(--color-cream)', fontSize: 'clamp(1.1rem, 1.8vw, 1.8rem)' }}>{right.name}</h3>
-                          </div>
-                        </Link>
-                      </AnimateOnScroll>
-                    )}
-                  </div>
-                )
-              })}
+              ))}
             </div>
           )}
         </div>
@@ -182,11 +130,11 @@ export default function ProjectsGallery() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>Ready to Begin?</p>
-            <h2 className="t-display font-serif italic mb-8" style={{ color: 'var(--color-cream)' }}>
-              Let&apos;s create your next space together.
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>Ready to Begin?</p>
+            <h2 className="t-display font-serif italic" style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}>
+              Let&apos;s design a space that elevates your experience.
             </h2>
-            <Link href="/connect" className="btn-light">Get in Touch</Link>
+            <Link href="/connect" className="btn-light">Start Your Project</Link>
           </AnimateOnScroll>
         </div>
       </section>

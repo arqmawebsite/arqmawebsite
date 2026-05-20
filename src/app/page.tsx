@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import HeroCarousel from '@/components/HeroCarousel'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import TestimonialsCarousel from '@/components/TestimonialsCarousel'
+import InstagramFeed from '@/components/InstagramFeed'
 import { projects, heroImages } from '@/data/projects'
 
 export const metadata: Metadata = {
@@ -30,18 +32,18 @@ export default function HomePage() {
           }}
         />
 
-        {/* Centered logo — full wordmark, luxury transparent */}
+        {/* Centered logo — monogram only */}
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-8">
           <Image
-            src="/images/brand/Logo_lettering.png"
-            alt="ARQMA Interiors"
-            width={900}
-            height={260}
+            src="/images/brand/Vector.png"
+            alt="ARQMA"
+            width={400}
+            height={400}
             loading="eager"
-            className="opacity-[0.18]"
+            className="opacity-90"
             style={{
               filter: 'brightness(0) invert(1)',
-              width: 'clamp(280px, 72vw, 820px)',
+              width: 'clamp(120px, 22vw, 280px)',
               height: 'auto',
             }}
             priority
@@ -51,23 +53,18 @@ export default function HomePage() {
         {/* Bottom tagline */}
         <div className="absolute bottom-16 left-[5vw] z-20">
           <p
-            className="t-label mb-2"
-            style={{ color: 'rgba(238,235,231,0.65)' }}
-          >
-            Interior Design Studio
-          </p>
-          <p
             className="font-serif italic"
             style={{
               color: 'var(--color-cream)',
               fontSize: 'clamp(1rem, 1.5vw, 1.4rem)',
               fontWeight: 300,
-              maxWidth: '380px',
-              lineHeight: 1.5,
+              maxWidth: '440px',
+              lineHeight: 1.6,
             }}
           >
-            Design is not just about aesthetics.<br />
-            It&#39;s about how you feel when you walk into the room.
+            We don&apos;t follow trends. We study people.<br />
+            Every ARQMA project begins with one question:<br />
+            how do you want to feel when you walk through the door?
           </p>
         </div>
 
@@ -87,27 +84,32 @@ export default function HomePage() {
         aria-label="About ARQMA"
       >
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <AnimateOnScroll>
               <p className="t-label mb-8" style={{ color: 'var(--color-taupe)' }}>
                 About the Studio
               </p>
               <h2
-                className="t-display font-serif mb-10"
-                style={{ color: 'var(--color-espresso)' }}
+                className="t-display font-serif"
+                style={{ color: 'var(--color-espresso)', marginBottom: '4rem' }}
               >
-                Crafting spaces that reflect your authentic life.
+                We don&apos;t just design spaces — we define how they are experienced.
               </h2>
-              <p className="t-body mb-5" style={{ color: 'var(--color-taupe)', maxWidth: '520px' }}>
-                ARQMA is a design studio established in the Canadian market for over five years,
-                dedicated to creating thoughtfully curated residential and commercial spaces with
-                a strong emphasis on client experience.
+              <p className="t-body mb-5" style={{ color: 'var(--color-taupe)' }}>
+                We don&apos;t just design spaces. We design the feeling of coming home. ARQMA was
+                built on a simple but radical belief: that your environment has the power to change
+                your life. Not in a grand, abstract way — but in the way light falls on a Sunday
+                morning. In the way a room makes you exhale the moment you walk in.
               </p>
-              <p className="t-body mb-10" style={{ color: 'var(--color-taupe)', maxWidth: '520px' }}>
-                Based in Toronto, we serve clients across <strong>Canada and the United States</strong> —
-                both in-person and remotely. We believe great design begins with understanding:
-                carefully observing the potential of each space and elevating it through
-                functional, intentional solutions.
+              <p className="t-body mb-5" style={{ color: 'var(--color-taupe)' }}>
+                Based in Ontario, we work with clients across <strong>Canada and internationally</strong>,
+                bringing the same obsessive attention to detail to every project — whether a downtown
+                condo or a custom residence. Residential. Commercial. Always intentional.
+              </p>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', marginBottom: '4rem' }}>
+                We listen before we design. We question before we decide. And we don&apos;t stop
+                until the space feels exactly like you — only better than you imagined. This is not
+                decoration. This is design as it was always meant to be.
               </p>
               <Link href="/about" className="btn-primary">
                 Meet the Team
@@ -117,8 +119,8 @@ export default function HomePage() {
             <AnimateOnScroll delay={0.15}>
               <div className="relative aspect-[4/5] img-zoom-wrapper">
                 <Image
-                  src="/images/team/DSC_1208.jpg"
-                  alt="ARQMA design studio team — Toronto interior designers serving Canada and USA"
+                  src="/images/team/Marcia.jpg"
+                  alt="Marcia Oliveira Martins — ARQMA Founder & Principal Designer"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -137,13 +139,10 @@ export default function HomePage() {
       >
         <div className="container-wide">
           <AnimateOnScroll>
-            <div className="flex items-end justify-between mb-12 md:mb-16">
+            <div className="flex items-end justify-between" style={{ marginBottom: '5rem' }}>
               <div>
-                <p className="t-label mb-4" style={{ color: 'rgba(238,235,231,0.5)' }}>
-                  Our Work
-                </p>
                 <h2 className="t-heading font-serif" style={{ color: 'var(--color-cream)' }}>
-                  Selected Projects
+                  Portfolio
                 </h2>
               </div>
               <Link href="/projects" className="btn-light hidden md:inline-block">
@@ -219,7 +218,7 @@ export default function HomePage() {
               className="t-label not-italic"
               style={{ color: 'rgba(238,235,231,0.5)' }}
             >
-              — Márcia, Founder &amp; Principal Designer
+              — Marcia Oliveira Martins, Founder &amp; Principal Designer
             </cite>
           </AnimateOnScroll>
         </div>
@@ -237,54 +236,73 @@ export default function HomePage() {
               What We Offer
             </p>
             <h2
-              className="t-heading font-serif mb-16"
-              style={{ color: 'var(--color-espresso)', maxWidth: '600px' }}
+              className="t-heading font-serif"
+              style={{ color: 'var(--color-espresso)', maxWidth: '640px', marginBottom: '3rem' }}
             >
-              A complete design experience, tailored to you.
+              A refined design experience, thoughtfully tailored to how you live.
             </h2>
+            <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', marginBottom: '5rem' }}>
+              Every project begins with a different need. Some clients are looking for guidance with
+              finishes. Others want to rethink how their space functions. And some are ready for a
+              fully developed, end-to-end design experience. We&apos;ve structured our services to
+              meet you exactly where you are — with clear, guided options that make it easy to
+              understand what you need and how to move forward. Each offering is intentionally
+              designed to feel simple, refined, and easy to navigate — so you can choose the level
+              of support that aligns with your project.
+            </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginTop: '7rem' }}>
             {[
               {
                 number: '01',
-                title: 'Design Consultation',
-                subtitle: 'Starting at $600',
-                desc: 'Ideal for clients who prefer to manage implementation themselves with professional guidance. A streamlined process including a briefing call, 2-hour design session, and curated deliverables.',
-                href: '/services',
+                title: 'ARQMA Strategy',
+                subtitle: 'Where your design journey begins',
+                href: '/services#strategy',
               },
               {
                 number: '02',
-                title: 'Full Design Service',
-                subtitle: 'End-to-End Guidance',
-                desc: 'A comprehensive experience from concept to completion. We guide you through every phase — briefing, layout, 3D visualization, technical drawings, material selection, and implementation support.',
-                href: '/services',
+                title: 'ARQMA E-Design',
+                subtitle: 'A refined, streamlined design experience',
+                note: '2.1 — ARQMA Essential\n2.2 — ARQMA Signature',
+                href: '/services#edesign',
+              },
+              {
+                number: '03',
+                title: 'ARQMA Full-Service Design',
+                subtitle: 'A fully tailored, end-to-end experience',
+                href: '/services#fullservice',
+              },
+              {
+                number: '04',
+                title: 'Curated Partnerships',
+                subtitle: 'Trade & Brand Collaborations',
+                href: '/services#partnerships',
               },
             ].map((service, i) => (
-              <AnimateOnScroll key={service.number} delay={i * 0.1}>
-                <Link href={service.href} className="block group">
+              <AnimateOnScroll key={service.number} delay={i * 0.08}>
+                <Link href={service.href} className="block group h-full">
                   <div
-                    className="p-8 md:p-10 h-full transition-colors duration-300 group-hover:bg-[var(--color-cream-dark)]"
-                    style={{ border: '1px solid rgba(66,53,44,0.15)' }}
+                    className="h-full flex flex-col transition-colors duration-300 group-hover:bg-[var(--color-cream-dark)]"
+                    style={{ border: '1px solid rgba(66,53,44,0.15)', padding: '2.5rem' }}
                   >
-                    <p className="t-label mb-6" style={{ color: 'var(--color-taupe)' }}>
-                      {service.number}
-                    </p>
                     <h3
-                      className="t-subheading font-serif mb-1"
-                      style={{ color: 'var(--color-espresso)' }}
+                      className="font-serif"
+                      style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1.2rem, 1.6vw, 1.5rem)', lineHeight: 1.25, marginBottom: '1rem' }}
                     >
                       {service.title}
                     </h3>
-                    <p className="t-label mb-6" style={{ color: 'var(--color-wine)' }}>
+                    <p style={{ color: 'var(--color-taupe)', fontSize: '0.72rem', letterSpacing: '0.1em', marginBottom: '1rem' }}>
                       {service.subtitle}
                     </p>
-                    <p className="t-body" style={{ color: 'var(--color-taupe)' }}>
-                      {service.desc}
-                    </p>
+                    {'note' in service && service.note && (
+                      <p style={{ color: 'var(--color-taupe)', fontSize: '0.68rem', letterSpacing: '0.08em', opacity: 0.6, whiteSpace: 'pre-line' }}>
+                        {service.note}
+                      </p>
+                    )}
                     <p
-                      className="t-label mt-8 flex items-center gap-2 group-hover:gap-4 transition-all"
-                      style={{ color: 'var(--color-espresso)' }}
+                      className="t-label flex items-center gap-2 group-hover:gap-4 transition-all"
+                      style={{ color: 'var(--color-espresso)', marginTop: 'auto', paddingTop: '2rem' }}
                     >
                       Learn More <span>→</span>
                     </p>
@@ -293,8 +311,30 @@ export default function HomePage() {
               </AnimateOnScroll>
             ))}
           </div>
+
+          <AnimateOnScroll>
+            <div
+              style={{ borderTop: '1px solid rgba(66,53,44,0.15)', marginTop: '6rem', padding: '3rem 0 0' }}
+            >
+              <p className="t-label mb-3" style={{ color: 'var(--color-taupe)' }}>
+                Flexible to Your Project
+              </p>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px' }}>
+                Not every space requires the same level of involvement. You may choose different
+                services for different areas of your home — a full-service design for one space, and
+                a more focused approach for another. Our goal is to support your project in a way
+                that feels cohesive, efficient, and thoughtfully tailored to your needs.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
+
+      {/* ── TESTIMONIALS CAROUSEL ───────────────────────────── */}
+      <TestimonialsCarousel />
+
+      {/* ── INSTAGRAM FEED ───────────────────────────────────── */}
+      <InstagramFeed />
 
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section
@@ -318,20 +358,20 @@ export default function HomePage() {
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Ready to Begin?
             </p>
             <h2
               className="t-display font-serif italic mb-8"
               style={{ color: 'var(--color-cream)' }}
             >
-              Let&apos;s transform your space into a home you&apos;ll love to live in.
+              Let&apos;s create a space that reflects who you are.
             </h2>
             <p className="t-body mb-10" style={{ color: 'rgba(238,235,231,0.7)', maxWidth: '480px', margin: '0 auto 2.5rem' }}>
               Take your ideas off the mood board and into reality. We&apos;d love to hear about your project.
             </p>
             <Link href="/connect" className="btn-light">
-              Get in Touch
+              Start Your Project
             </Link>
           </AnimateOnScroll>
         </div>

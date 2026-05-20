@@ -2,48 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 
 export const metadata: Metadata = {
-  title: 'Client Testimonials — ARQMA Interior Design Toronto',
+  title: 'In Their Words — ARQMA Interior Design Toronto',
   description:
     'Read what ARQMA clients say about their interior design experience in Toronto. From residential renovations to commercial spaces, our clients love the results.',
   alternates: { canonical: 'https://www.arqma.ca/testimonials' },
 }
-
-const testimonials = [
-  {
-    name: 'Sarah M.',
-    quote:
-      'ARQMA completely transformed our home. Márcia\'s attention to detail and understanding of our lifestyle created a space that feels both beautiful and uniquely ours. The process was seamless from start to finish.',
-    project: 'Residential — Toronto',
-  },
-  {
-    name: 'James & Lisa K.',
-    quote:
-      'Working with ARQMA was an exceptional experience. Every decision was thoughtful, every material carefully chosen. Our basement renovation exceeded every expectation.',
-    project: 'Freeman Project — Basement Renovation',
-  },
-  {
-    name: 'Dr. A. Petrova',
-    quote:
-      'The clinic design ARQMA created perfectly captures our brand identity while creating a calming, welcoming environment for our clients. Truly remarkable work.',
-    project: 'Wellthera Clinic',
-  },
-  {
-    name: 'Carlos & Ana B.',
-    quote:
-      'ARQMA brought our restaurant vision to life in a way we never imagined possible. The space tells a story — our story.',
-    project: 'Bossa Nova Restaurant',
-  },
-  {
-    name: 'Michelle T.',
-    quote:
-      "From the first meeting to the final reveal, ARQMA's professionalism and creativity were outstanding. Our nursery is a magical space our daughter will grow up loving.",
-    project: 'Nursery Design — Toronto',
-  },
-]
-
-const bgAlternate = ['var(--color-cream)', 'var(--color-soft-white)']
 
 export default function TestimonialsPage() {
   return (
@@ -68,106 +34,27 @@ export default function TestimonialsPage() {
             className="t-hero font-serif"
             style={{ color: 'var(--color-cream)' }}
           >
-            Testimonials
+            In Their Words
           </h1>
         </div>
       </section>
 
-      {/* ── INTRO ────────────────────────────────────────────── */}
-      <section
-        className="section-pad"
-        style={{ background: 'var(--color-espresso)' }}
-        aria-label="Reviews intro"
-      >
-        <div className="container-narrow text-center">
-          <AnimateOnScroll>
-            <p className="t-label mb-4" style={{ color: 'rgba(238,235,231,0.5)' }}>
-              Our Clients
-            </p>
-            <h2
-              className="t-heading font-serif"
-              style={{ color: 'var(--color-cream)', maxWidth: '600px', margin: '0 auto' }}
-            >
-              What our clients are saying
-            </h2>
-          </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ─────────────────────────────────────── */}
-      {testimonials.map((testimonial, i) => (
-        <section
-          key={testimonial.name}
-          className="section-pad-lg"
-          style={{ background: bgAlternate[i % 2] }}
-          aria-label={`Testimonial from ${testimonial.name}`}
-        >
-          <div className="container-narrow">
-            <AnimateOnScroll>
-              <div className="flex flex-col items-start">
-                {/* Large opening quote mark */}
-                <span
-                  className="font-serif mb-4 leading-none select-none"
-                  style={{
-                    fontSize: 'clamp(4rem, 8vw, 9rem)',
-                    color: 'var(--color-wine)',
-                    opacity: 0.18,
-                    lineHeight: 0.8,
-                  }}
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-
-                <blockquote
-                  className="t-subheading font-serif italic mb-8"
-                  style={{
-                    color: 'var(--color-espresso)',
-                    lineHeight: 1.6,
-                    maxWidth: '720px',
-                  }}
-                >
-                  {testimonial.quote}
-                </blockquote>
-
-                <div
-                  className="w-8 h-px mb-6"
-                  style={{ background: 'var(--color-taupe)', opacity: 0.4 }}
-                />
-
-                <cite className="not-italic">
-                  <p
-                    className="font-serif mb-1"
-                    style={{
-                      color: 'var(--color-espresso)',
-                      fontSize: 'clamp(1rem, 1.2vw, 1.2rem)',
-                    }}
-                  >
-                    {testimonial.name}
-                  </p>
-                  <p className="t-label" style={{ color: 'var(--color-taupe)' }}>
-                    {testimonial.project}
-                  </p>
-                </cite>
-              </div>
-            </AnimateOnScroll>
-          </div>
-        </section>
-      ))}
+      {/* ── CAROUSEL ─────────────────────────────────────────── */}
+      <TestimonialsCarousel />
 
       {/* ── GOOGLE REVIEWS ───────────────────────────────────── */}
       <section
-        style={{ background: 'var(--color-espresso)', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 'clamp(5rem, 10vw, 9rem)' }}
+        style={{ background: 'var(--color-cream)', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 'clamp(5rem, 10vw, 9rem)' }}
         aria-label="Google reviews"
       >
         <div className="container-narrow text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-4" style={{ color: 'rgba(238,235,231,0.5)' }}>
+            <p className="t-label mb-4" style={{ color: 'var(--color-taupe)', opacity: 0.6 }}>
               More Reviews
             </p>
             <p
               className="t-subheading font-serif mb-8"
-              style={{ color: 'var(--color-cream)' }}
+              style={{ color: 'var(--color-espresso)' }}
             >
               See all our reviews on Google
             </p>
@@ -175,7 +62,7 @@ export default function TestimonialsPage() {
               href="https://www.google.com/maps/search/ARQMA+Interior+Design+Toronto"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-light"
+              className="btn-primary"
             >
               View on Google
             </a>
@@ -202,17 +89,17 @@ export default function TestimonialsPage() {
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Your Story, Next
             </p>
             <h2
-              className="t-display font-serif italic mb-8"
-              style={{ color: 'var(--color-cream)' }}
+              className="t-display font-serif italic"
+              style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}
             >
-              Ready to create your perfect space?
+              Let&apos;s design a space that elevates your experience.
             </h2>
             <Link href="/connect" className="btn-light">
-              Get in Touch
+              Start Your Project
             </Link>
           </AnimateOnScroll>
         </div>

@@ -35,8 +35,6 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound()
 
   const galleryImages = project.images.slice(1)
-  const firstGallery = galleryImages.slice(0, 1)
-  const restGallery = galleryImages.slice(1)
 
   const categoryLabel =
     project.category === 'commercial'
@@ -115,15 +113,8 @@ export default async function ProjectPage({ params }: Props) {
                   style={{ width: '100%', height: '1px', background: 'rgba(66,53,44,0.1)' }}
                 />
                 <div>
-                  <p className="t-label mb-2" style={{ color: 'rgba(66,53,44,0.4)' }}>Studio</p>
-                  <p className="font-serif" style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1rem, 1.2vw, 1.2rem)' }}>ARQMA Interior Design</p>
-                </div>
-                <div
-                  style={{ width: '100%', height: '1px', background: 'rgba(66,53,44,0.1)' }}
-                />
-                <div>
                   <p className="t-label mb-2" style={{ color: 'rgba(66,53,44,0.4)' }}>Location</p>
-                  <p className="font-serif" style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1rem, 1.2vw, 1.2rem)' }}>Toronto, Ontario</p>
+                  <p className="font-serif" style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1rem, 1.2vw, 1.2rem)' }}>Ontario, Canada</p>
                 </div>
               </div>
 
@@ -146,44 +137,22 @@ export default async function ProjectPage({ params }: Props) {
             style={{ width: '100%', height: '1px', background: 'rgba(66,53,44,0.12)' }}
           />
 
-          {/* First large image — full width 16/9 */}
-          {firstGallery.length > 0 && (
-            <AnimateOnScroll>
-              <div className="relative w-full mb-4 img-zoom-wrapper" style={{ aspectRatio: '16/9' }}>
-                <Image
-                  src={firstGallery[0]}
-                  alt={`${project.name} — interior design detail`}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                />
-              </div>
-            </AnimateOnScroll>
-          )}
-
-          {/* Rest: 2-column grid, every 3rd image spans full width */}
-          {restGallery.length > 0 && (
+          {/* Gallery: uniform 2-column grid */}
+          {galleryImages.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {restGallery.map((img, i) => {
-                // Every 3rd image (i === 2, 5, 8...) spans full width
-                const isWide = i % 3 === 2
-                return (
-                  <AnimateOnScroll key={img} delay={i * 0.04} className={isWide ? 'md:col-span-2' : ''}>
-                    <div
-                      className="relative img-zoom-wrapper"
-                      style={{ aspectRatio: isWide ? '16/7' : (i % 2 === 0 ? '4/3' : '3/4') }}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${project.name} — photo ${i + 2}`}
-                        fill
-                        className="object-cover"
-                        sizes={isWide ? '100vw' : '(max-width: 768px) 100vw, 50vw'}
-                      />
-                    </div>
-                  </AnimateOnScroll>
-                )
-              })}
+              {galleryImages.map((img, i) => (
+                <AnimateOnScroll key={img} delay={(i % 4) * 0.05}>
+                  <div className="relative img-zoom-wrapper" style={{ aspectRatio: '4/3' }}>
+                    <Image
+                      src={img}
+                      alt={`${project.name} — interior design detail`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </AnimateOnScroll>
+              ))}
             </div>
           )}
         </div>
@@ -208,23 +177,18 @@ export default async function ProjectPage({ params }: Props) {
 
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
-            <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.6)' }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Inspired by this project?
             </p>
             <h2
-              className="t-display font-serif italic mb-8"
-              style={{ color: 'var(--color-cream)' }}
+              className="t-display font-serif italic"
+              style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}
             >
-              Let&apos;s design your space with the same care and intention.
+              Let&apos;s design a space that elevates your experience.
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/connect" className="btn-light">
-                Start Your Project
-              </Link>
-              <Link href="/projects" className="btn-light">
-                View All Projects
-              </Link>
-            </div>
+            <Link href="/connect" className="btn-light">
+              Start Your Project
+            </Link>
           </AnimateOnScroll>
         </div>
       </section>

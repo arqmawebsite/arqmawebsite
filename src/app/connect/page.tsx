@@ -16,6 +16,9 @@ type FormState = {
   startTimeline: string
   priority: string
   referralSource: string
+  propertyStatus: string
+  involvementLevel: string
+  projectLocation: string
 }
 
 const initialForm: FormState = {
@@ -30,6 +33,9 @@ const initialForm: FormState = {
   startTimeline: '',
   priority: '',
   referralSource: '',
+  propertyStatus: '',
+  involvementLevel: '',
+  projectLocation: '',
 }
 
 const fieldStyle: React.CSSProperties = {
@@ -98,6 +104,9 @@ export default function ConnectPage() {
           start_timeline: form.startTimeline,
           priority: form.priority,
           referral_source: form.referralSource,
+          property_status: form.propertyStatus,
+          involvement_level: form.involvementLevel,
+          project_location: form.projectLocation,
         }),
       })
       if (!res.ok) {
@@ -140,7 +149,7 @@ export default function ConnectPage() {
           }}
         >
           <Image
-            src="/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-3.jpg"
+            src="/images/connect/contact-panel.jpg"
             alt="ARQMA interior design project"
             fill
             className="object-cover"
@@ -161,7 +170,7 @@ export default function ConnectPage() {
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.5)', marginBottom: '0.25rem' }}>
               Hidden Creek Residence
             </p>
-            <p className="t-label" style={{ color: 'rgba(238,235,231,0.35)' }}>Toronto, Canada</p>
+            <p className="t-label" style={{ color: 'rgba(238,235,231,0.35)' }}>Kitchener, Canada</p>
           </div>
 
           {/* Contact strip — bottom of image */}
@@ -231,7 +240,7 @@ export default function ConnectPage() {
                 marginBottom: '1.5rem',
               }}
             >
-              Let&apos;s talk about<br />your project.
+              Start your project<br />with us.
             </h1>
             <p
               className="t-body"
@@ -242,8 +251,8 @@ export default function ConnectPage() {
                 marginBottom: 'clamp(3rem, 5vw, 4.5rem)',
               }}
             >
-              Fill out the form below and we&apos;ll get back to you within 1–2 business days
-              to discuss your vision.
+              Share a few details about your project, and our team will be in touch within
+              1–2 business days.
             </p>
 
             {/* Mobile contact info */}
@@ -272,11 +281,11 @@ export default function ConnectPage() {
                   className="font-serif"
                   style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1.6rem, 2.5vw, 2.8rem)', lineHeight: 1.2, marginBottom: '1.5rem' }}
                 >
-                  Message received.
+                  Thank you for sharing your project with us.
                 </h2>
                 <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '380px', lineHeight: 2, marginBottom: '2.5rem' }}>
-                  We&apos;ll be in touch within 1–2 business days to discuss your project and explore
-                  how we can bring your vision to life.
+                  We appreciate your time and trust! We&apos;ll be in touch within 1–2 business
+                  days to discuss your vision and explore how we can bring it to life.
                 </p>
                 <Link href="/" className="btn-primary">Back to Home</Link>
               </div>
@@ -334,8 +343,11 @@ export default function ConnectPage() {
                       onBlur={() => setFocusedField(null)}
                     >
                       <option value="" disabled>Select a service</option>
+                      <option value="Design Strategy Session">Design Strategy Session</option>
+                      <option value="E-Design Essential">E-Design Essential</option>
+                      <option value="E-Design Signature">E-Design Signature</option>
                       <option value="Full-Service Design">Full-Service Design</option>
-                      <option value="Design Consultation">Design Consultation</option>
+                      <option value="Curated Partnerships">Curated Partnerships</option>
                       <option value="Not sure yet">Not sure yet</option>
                     </select>
                   </div>
@@ -357,11 +369,11 @@ export default function ConnectPage() {
 
                 {/* Project Description */}
                 <div style={fieldStyle}>
-                  <label htmlFor="projectDescription" style={labelStyle}>Tell Us About Your Project *</label>
+                  <label htmlFor="projectDescription" style={labelStyle}>What Are You Looking to Create? *</label>
                   <textarea
                     id="projectDescription" name="projectDescription" required rows={4}
                     value={form.projectDescription} onChange={handleChange}
-                    placeholder="Describe your space, style vision, and what you're hoping to achieve..."
+                    placeholder="Describe your space, style vision, and what challenges you're looking to solve..."
                     style={{ ...getDynamicInput('projectDescription'), resize: 'none' }}
                     onFocus={() => setFocusedField('projectDescription')}
                     onBlur={() => setFocusedField(null)}
@@ -380,9 +392,10 @@ export default function ConnectPage() {
                       onBlur={() => setFocusedField(null)}
                     >
                       <option value="" disabled>Where are you in the process?</option>
-                      <option value="Just exploring">Just exploring</option>
-                      <option value="Planning to start soon">Planning to start soon</option>
-                      <option value="Already in progress">Already in progress</option>
+                      <option value="Just exploring ideas">Just exploring ideas</option>
+                      <option value="Planning phase">Planning phase</option>
+                      <option value="Ready to start soon">Ready to start soon</option>
+                      <option value="Already under construction">Already under construction</option>
                     </select>
                   </div>
                   <div>
@@ -396,9 +409,9 @@ export default function ConnectPage() {
                     >
                       <option value="" disabled>When to start?</option>
                       <option value="Immediately">Immediately</option>
-                      <option value="Within 1–3 months">Within 1–3 months</option>
+                      <option value="1–3 months">1–3 months</option>
                       <option value="3–6 months">3–6 months</option>
-                      <option value="Just exploring">Just exploring</option>
+                      <option value="Flexible">Flexible</option>
                     </select>
                   </div>
                 </div>
@@ -432,13 +445,82 @@ export default function ConnectPage() {
                       onBlur={() => setFocusedField(null)}
                     >
                       <option value="" disabled>Select your priority</option>
-                      <option value="Aesthetic transformation">Aesthetic transformation</option>
                       <option value="Functionality">Functionality</option>
-                      <option value="Investment optimization">Investment optimization</option>
+                      <option value="Aesthetic impact">Aesthetic impact</option>
+                      <option value="Investment return">Investment return</option>
+                      <option value="Brand experience">Brand experience</option>
+                      <option value="Timeline">Timeline</option>
                       <option value="Full guidance and support">Full guidance and support</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
+                </div>
+
+                {/* Property Status + Involvement Level */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '2.75rem' }}>
+                  <div>
+                    <label htmlFor="propertyStatus" style={labelStyle}>Status of the Property</label>
+                    <select
+                      id="propertyStatus" name="propertyStatus"
+                      value={form.propertyStatus} onChange={handleChange}
+                      style={getDynamicSelect('propertyStatus')}
+                      onFocus={() => setFocusedField('propertyStatus')}
+                      onBlur={() => setFocusedField(null)}
+                    >
+                      <option value="" disabled>What is the ownership status?</option>
+                      <option value="Owned">Owned</option>
+                      <option value="Rented / Leased">Rented / Leased</option>
+                      <option value="In the process of purchasing">In the process of purchasing</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="involvementLevel" style={labelStyle}>Level of Involvement</label>
+                    <select
+                      id="involvementLevel" name="involvementLevel"
+                      value={form.involvementLevel} onChange={handleChange}
+                      style={getDynamicSelect('involvementLevel')}
+                      onFocus={() => setFocusedField('involvementLevel')}
+                      onBlur={() => setFocusedField(null)}
+                    >
+                      <option value="" disabled>How involved would you like to be?</option>
+                      <option value="Fully involved">Fully involved</option>
+                      <option value="Collaborative">Collaborative</option>
+                      <option value="Prefer a turnkey experience">Prefer a turnkey experience</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Project Location */}
+                <div style={fieldStyle}>
+                  <label htmlFor="projectLocation" style={labelStyle}>Project Location</label>
+                  <select
+                    id="projectLocation" name="projectLocation"
+                    value={form.projectLocation} onChange={handleChange}
+                    style={getDynamicSelect('projectLocation')}
+                    onFocus={() => setFocusedField('projectLocation')}
+                    onBlur={() => setFocusedField(null)}
+                  >
+                    <option value="" disabled>Select your region</option>
+                    <option value="Kitchener & GTA">Kitchener &amp; GTA</option>
+                    <option value="Ontario (outside GTA)">Ontario (outside GTA)</option>
+                    <option value="Canada (outside Ontario)">Canada (outside Ontario)</option>
+                    <option value="United States">United States</option>
+                    <option value="International">International</option>
+                  </select>
+                </div>
+
+                {/* Image upload */}
+                <div style={fieldStyle}>
+                  <label style={labelStyle}>Upload Images (Optional)</label>
+                  <p className="t-body" style={{ color: 'rgba(100,81,67,0.55)', fontSize: '0.78rem', marginBottom: '0.75rem', lineHeight: 1.6 }}>
+                    Upload images, references, or photos of your space (optional)
+                  </p>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    style={{ ...inputStyle, fontSize: '0.78rem', paddingBottom: '0.5rem' }}
+                  />
                 </div>
 
                 {/* Referral */}
@@ -477,7 +559,7 @@ export default function ConnectPage() {
                       padding: '1rem 3rem',
                     }}
                   >
-                    {submitting ? 'Sending...' : 'Send Message'}
+                    {submitting ? 'Sending...' : 'Submit Project Details'}
                   </button>
                 </div>
 
