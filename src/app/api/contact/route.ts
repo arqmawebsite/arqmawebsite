@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const TO_EMAIL = 'info@arqma.ca'
-const FROM_EMAIL = 'ARQMA Website <onboarding@resend.dev>'
+const FROM_EMAIL = 'ARQMA Website <noreply@email.arqma.ca>'
 
 function row(label: string, value: string | undefined) {
   if (!value) return ''
