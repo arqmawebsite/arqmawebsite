@@ -49,24 +49,27 @@ export default function ServiceSlideshow({ images, alt, theme = 'light' }: Props
   }, [next, images.length])
 
   const styles = {
+    // bg matches --color-cream so letterbox areas blend into the section
     light: {
-      border: '1px solid rgba(66,53,44,0.1)',
-      shadow: '0 32px 96px rgba(66,53,44,0.12), 0 6px 28px rgba(66,53,44,0.07)',
-      bg: '#F0EDE9',
+      border: '1px solid rgba(66,53,44,0.12)',
+      shadow: '0 32px 96px rgba(66,53,44,0.14), 0 6px 28px rgba(66,53,44,0.08)',
+      bg: '#EEEBE7',
       dotActive: 'var(--color-espresso)',
       dotInactive: 'rgba(66,53,44,0.18)',
     },
+    // bg matches --color-espresso so letterbox areas blend into the section
     dark: {
-      border: '1px solid rgba(238,235,231,0.1)',
-      shadow: '0 32px 96px rgba(0,0,0,0.4), 0 6px 28px rgba(0,0,0,0.22)',
-      bg: '#1E1510',
+      border: '1px solid rgba(238,235,231,0.12)',
+      shadow: '0 32px 96px rgba(0,0,0,0.45), 0 6px 28px rgba(0,0,0,0.25)',
+      bg: '#42352C',
       dotActive: 'var(--color-cream)',
       dotInactive: 'rgba(238,235,231,0.2)',
     },
+    // bg matches --color-wine so letterbox areas blend into the section
     wine: {
-      border: '1px solid rgba(238,235,231,0.1)',
-      shadow: '0 32px 96px rgba(42,10,14,0.35), 0 6px 28px rgba(42,10,14,0.2)',
-      bg: '#3D1F23',
+      border: '1px solid rgba(238,235,231,0.12)',
+      shadow: '0 32px 96px rgba(42,10,14,0.4), 0 6px 28px rgba(42,10,14,0.22)',
+      bg: '#512C32',
       dotActive: 'var(--color-cream)',
       dotInactive: 'rgba(238,235,231,0.2)',
     },
@@ -87,7 +90,7 @@ export default function ServiceSlideshow({ images, alt, theme = 'light' }: Props
           position: 'relative',
         }}
       >
-        <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3' }}>
+        <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' }}>
           <Image
             src={images[0]}
             alt={alt}
@@ -115,7 +118,7 @@ export default function ServiceSlideshow({ images, alt, theme = 'light' }: Props
           style={{
             position: 'relative',
             width: '100%',
-            aspectRatio: '4/3',
+            aspectRatio: '16/9',
             overflow: 'hidden',
           }}
         >

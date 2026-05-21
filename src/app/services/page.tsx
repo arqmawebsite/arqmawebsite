@@ -829,14 +829,16 @@ export default function ServicesPage() {
             </div>
           </AnimateOnScroll>
 
-          {/* Info grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(3rem, 8vw, 8rem)' }}>
+          {/* Info grid — 2×2: top row (How / What We Bring), bottom row (For Clients / Let's Work Together) */}
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 'clamp(3rem, 8vw, 8rem)', rowGap: 'clamp(4rem, 7vw, 7rem)' }}>
+
+            {/* Row 1 — Left: How We Work Together */}
             <AnimateOnScroll>
               <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>How We Work Together</p>
               <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
                 Every collaboration is tailored to the project and team involved.
               </p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', marginBottom: 'clamp(2rem, 3.5vw, 3.5rem)' }}>
                 {[
                   'We align early to understand your process and project needs',
                   'We adapt our design workflow to integrate seamlessly with your execution',
@@ -846,25 +848,12 @@ export default function ServicesPage() {
                   <Bullet key={item}>{item}</Bullet>
                 ))}
               </ul>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9 }}>
                 The goal is simple: make your work easier, while elevating the final result.
               </p>
-
-              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>For Your Clients</p>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
-                Our role is to enhance your client experience by:
-              </p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
-                {[
-                  'Helping them make confident design decisions',
-                  'Creating cohesive, well-thought-out spaces',
-                  'Reducing uncertainty during the process',
-                ].map((item) => (
-                  <Bullet key={item}>{item}</Bullet>
-                ))}
-              </ul>
             </AnimateOnScroll>
 
+            {/* Row 1 — Right: What We Bring */}
             <AnimateOnScroll delay={0.1}>
               <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>What We Bring</p>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
@@ -891,14 +880,33 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-
-              <div style={{ marginTop: 'clamp(2.5rem, 4vw, 4rem)' }}>
-                <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>Let&apos;s Work Together</p>
-                <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2, marginBottom: '1.25rem' }}>
-                  If you&apos;re a builder or contractor looking for a design partner, we&apos;d love to connect. We&apos;re happy to walk through your process, understand your needs, and define a collaboration that works for both your team and your clients.
-                </p>
-              </div>
             </AnimateOnScroll>
+
+            {/* Row 2 — Left: For Your Clients */}
+            <AnimateOnScroll>
+              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>For Your Clients</p>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
+                Our role is to enhance your client experience by:
+              </p>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+                {[
+                  'Helping them make confident design decisions',
+                  'Creating cohesive, well-thought-out spaces',
+                  'Reducing uncertainty during the process',
+                ].map((item) => (
+                  <Bullet key={item}>{item}</Bullet>
+                ))}
+              </ul>
+            </AnimateOnScroll>
+
+            {/* Row 2 — Right: Let's Work Together */}
+            <AnimateOnScroll delay={0.1}>
+              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>Let&apos;s Work Together</p>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2 }}>
+                If you&apos;re a builder or contractor looking for a design partner, we&apos;d love to connect. We&apos;re happy to walk through your process, understand your needs, and define a collaboration that works for both your team and your clients.
+              </p>
+            </AnimateOnScroll>
+
           </div>
 
           {/* Curated partnerships investment + CTA */}
@@ -973,7 +981,8 @@ export default function ServicesPage() {
 
       {/* ── FINAL CTA ────────────────────────────────────────── */}
       <section
-        className="relative section-pad-xl overflow-hidden"
+        className="relative overflow-hidden"
+        style={{ paddingTop: 'clamp(140px, 16vw, 240px)', paddingBottom: 'clamp(140px, 16vw, 240px)' }}
         aria-label="Get started"
       >
         <Image
@@ -983,20 +992,27 @@ export default function ServicesPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.62)' }} />
+        {/* Triple overlay — same pattern used across all CTAs */}
+        <div className="absolute inset-0" style={{ background: 'rgba(42,31,26,0.52)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
 
-        <div className="container-narrow relative z-10 text-center">
+        <div className="relative z-10 text-center" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5vw' }}>
           <AnimateOnScroll>
-            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '1rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Not sure which service is right for you?
             </p>
-            <h2 className="t-hero font-serif italic mb-10" style={{ color: 'var(--color-cream)' }}>
+            <h2
+              className="font-serif italic"
+              style={{
+                color: 'var(--color-cream)',
+                marginBottom: '2.5rem',
+                fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
+                lineHeight: 1.08,
+              }}
+            >
               Let&apos;s design a space that elevates your business.
             </h2>
-            <p className="t-body mb-12" style={{ color: 'rgba(238,235,231,0.68)', maxWidth: '480px', margin: '0 auto 3rem', lineHeight: 2 }}>
-              Fill out our brief form and we&apos;ll recommend the most suitable service
-              for your goals and timeline.
-            </p>
             <Link href="/connect" className="btn-light">
               Start Your Project
             </Link>
