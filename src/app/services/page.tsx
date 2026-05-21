@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
-import ConsultationTimeline from '@/components/ConsultationTimeline'
 import FullDesignPhases from '@/components/FullDesignPhases'
+import ServiceSlideshow from '@/components/ServiceSlideshow'
 
 export const metadata: Metadata = {
   title: 'Services — ARQMA Interior Design Toronto | Canada & USA',
@@ -43,6 +44,161 @@ const overviewCards = [
     anchor: '#curated-partnerships',
   },
 ]
+
+/* ─── bullet helper ─────────────────────────────────────────── */
+function Bullet({ children, dark }: { children: string; dark?: boolean }) {
+  return (
+    <li style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
+      <span
+        style={{
+          flexShrink: 0,
+          marginTop: '0.65rem',
+          width: '1.25rem',
+          height: '1px',
+          background: dark ? 'rgba(238,235,231,0.3)' : 'var(--color-wine)',
+          opacity: dark ? 1 : 0.45,
+          display: 'block',
+        }}
+      />
+      <span
+        style={{
+          color: dark ? 'rgba(238,235,231,0.62)' : 'var(--color-taupe)',
+          fontSize: '0.85rem',
+          lineHeight: 1.8,
+          fontFamily: 'var(--font-sans)',
+          fontWeight: 300,
+        }}
+      >
+        {children}
+      </span>
+    </li>
+  )
+}
+
+/* ─── journey step helper ───────────────────────────────────── */
+function JourneyStep({
+  step,
+  title,
+  desc,
+  isLast,
+  dark,
+}: {
+  step: string
+  title: string
+  desc: string
+  isLast: boolean
+  dark?: boolean
+}) {
+  return (
+    <div
+      style={{
+        paddingTop: '1.4rem',
+        paddingBottom: '1.4rem',
+        borderBottom: isLast
+          ? 'none'
+          : `0.5px solid ${dark ? 'rgba(238,235,231,0.1)' : 'rgba(66,53,44,0.1)'}`,
+        display: 'grid',
+        gridTemplateColumns: '2rem 1fr',
+        gap: '1rem',
+        alignItems: 'start',
+      }}
+    >
+      <span
+        className="t-label"
+        style={{
+          color: dark ? 'rgba(238,235,231,0.28)' : 'rgba(66,53,44,0.3)',
+          paddingTop: '0.2rem',
+        }}
+      >
+        {step}
+      </span>
+      <div>
+        <p
+          className="font-serif"
+          style={{
+            color: dark ? 'var(--color-cream)' : 'var(--color-espresso)',
+            fontSize: 'clamp(0.9rem, 1.1vw, 1.05rem)',
+            lineHeight: 1.4,
+            marginBottom: '0.55rem',
+          }}
+        >
+          {title}
+        </p>
+        <p
+          style={{
+            color: dark ? 'rgba(238,235,231,0.55)' : 'var(--color-taupe)',
+            fontSize: '0.82rem',
+            lineHeight: 1.85,
+            fontFamily: 'var(--font-sans)',
+            fontWeight: 300,
+          }}
+        >
+          {desc}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+/* ─── investment + cta block ────────────────────────────────── */
+function InvestmentBlock({
+  label,
+  children,
+  dark,
+}: {
+  label: string
+  children: ReactNode
+  dark?: boolean
+}) {
+  return (
+    <div
+      style={{
+        borderTop: `0.5px solid ${dark ? 'rgba(238,235,231,0.1)' : 'rgba(66,53,44,0.1)'}`,
+        paddingTop: 'clamp(2rem, 3.5vw, 3.5rem)',
+        marginTop: 'clamp(3rem, 5vw, 5rem)',
+      }}
+    >
+      <p
+        className="t-label"
+        style={{
+          color: dark ? 'rgba(238,235,231,0.38)' : 'rgba(66,53,44,0.4)',
+          letterSpacing: '0.24em',
+          marginBottom: '0.6rem',
+        }}
+      >
+        Investment
+      </p>
+      <p
+        className="t-label"
+        style={{
+          color: dark ? 'rgba(238,235,231,0.75)' : 'var(--color-wine)',
+          letterSpacing: '0.2em',
+          marginBottom: '2.25rem',
+          fontSize: '0.9rem',
+        }}
+      >
+        {label}
+      </p>
+      {children}
+    </div>
+  )
+}
+
+/* ─── section label helper ──────────────────────────────────── */
+function SectionLabel({ text, dark }: { text: string; dark?: boolean }) {
+  return (
+    <p
+      className="t-label"
+      style={{
+        color: dark ? 'rgba(238,235,231,0.38)' : 'rgba(66,53,44,0.4)',
+        letterSpacing: '0.26em',
+        marginBottom: '1.5rem',
+      }}
+    >
+      {text}
+    </p>
+  )
+}
 
 export default function ServicesPage() {
   return (
@@ -124,7 +280,9 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── STRATEGY SESSION (cream) — Service 01 ─────────────── */}
+      {/* ══════════════════════════════════════════════════════════
+          SERVICE 01 — STRATEGY SESSION (cream)
+      ══════════════════════════════════════════════════════════ */}
       <section
         id="strategy"
         className="section-pad-xl"
@@ -132,70 +290,80 @@ export default function ServicesPage() {
         aria-label="Strategy session details"
       >
         <div className="container-wide">
+
+          {/* Header */}
           <AnimateOnScroll>
-            <div style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', paddingBottom: 'clamp(2rem, 3.5vw, 3.5rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
               <p className="t-label" style={{ color: 'var(--color-taupe)', letterSpacing: '0.26em', marginBottom: '1.25rem' }}>
                 Service 01
               </p>
-              <h2 className="t-heading font-serif" style={{ color: 'var(--color-espresso)', marginBottom: '1.75rem' }}>
+              <h2 className="t-heading font-serif" style={{ color: 'var(--color-espresso)' }}>
                 ARQMA Design Strategy Session
               </h2>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '1rem' }}>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Description */}
+          <AnimateOnScroll>
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, marginBottom: '1rem' }}>
                 Making design decisions shouldn&apos;t feel overwhelming — but with so many options
                 and details to consider, it often does.
               </p>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '1rem' }}>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, marginBottom: '1rem' }}>
                 This session is designed to bring clarity, confidence, and direction to your space —
                 whether you&apos;re selecting finishes, choosing furniture, refining your layout,
                 or navigating key design decisions.
               </p>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '1.75rem' }}>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1 }}>
                 Together, we define a clear path forward — so you can move ahead with confidence,
                 and create a space that feels cohesive and intentional.
               </p>
-              <p className="t-label" style={{ color: 'var(--color-wine)', letterSpacing: '0.22em', marginBottom: '0.5rem' }}>
-                Investment: $600 + HST
-              </p>
-              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.16em' }}>
-                Available in-person and remotely — serving clients across Canada and the United States
-              </p>
             </div>
           </AnimateOnScroll>
 
+          {/* Slideshow */}
           <AnimateOnScroll>
-            <div style={{ width: '100%', height: 'clamp(220px, 28vw, 420px)', position: 'relative', overflow: 'hidden', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-              <Image src="/images/services/strategy/15.png" alt="ARQMA Strategy Session" fill className="object-cover" sizes="90vw" />
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(66,53,44,0.06)' }} />
+            <div style={{ marginBottom: 'clamp(4rem, 7vw, 7rem)' }}>
+              <ServiceSlideshow
+                images={['/images/services/strategy/15.png']}
+                alt="ARQMA Strategy Session"
+                theme="light"
+              />
             </div>
           </AnimateOnScroll>
 
+          {/* Info grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(3rem, 8vw, 9rem)' }}>
             <AnimateOnScroll>
-              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1.5rem' }}>What This Is Ideal For</p>
+              <SectionLabel text="What This Is Ideal For" />
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-                {['Selecting finishes, materials, and key design elements','Furniture layout and selection guidance','Lighting and fixture decisions','Refining the layout and functionality of your space','Gaining clarity before making important design investments'].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.65rem', width: '1.25rem', height: '1px', background: 'var(--color-wine)', opacity: 0.45, display: 'block' }} />
-                    <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.8 }}>{item}</span>
-                  </li>
+                {[
+                  'Selecting finishes, materials, and key design elements',
+                  'Furniture layout and selection guidance',
+                  'Lighting and fixture decisions',
+                  'Refining the layout and functionality of your space',
+                  'Gaining clarity before making important design investments',
+                ].map((item) => (
+                  <Bullet key={item}>{item}</Bullet>
                 ))}
               </ul>
-              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1.5rem' }}>What You&apos;ll Receive</p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-                {['A clear design direction tailored to your space and goals','Expert guidance on key decisions (finishes, furniture, layout, or fixtures)','Curated recommendations to support your next steps','A focused plan to move forward with confidence'].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.65rem', width: '1.25rem', height: '1px', background: 'var(--color-wine)', opacity: 0.45, display: 'block' }} />
-                    <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.8 }}>{item}</span>
-                  </li>
+
+              <SectionLabel text="What You'll Receive" />
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  'A clear design direction tailored to your space and goals',
+                  'Expert guidance on key decisions (finishes, furniture, layout, or fixtures)',
+                  'Curated recommendations to support your next steps',
+                  'A focused plan to move forward with confidence',
+                ].map((item) => (
+                  <Bullet key={item}>{item}</Bullet>
                 ))}
               </ul>
-              <a href="https://arqmaservices.setmore.com/services/fc25ee5d-0356-4bf1-a1d6-7110cce8fa7f" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block' }}>
-                Book a Strategy Session
-              </a>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.1}>
-              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '2rem' }}>Client Journey</p>
+              <SectionLabel text="Client Journey" />
               <div>
                 {[
                   { step: '1.', title: 'Project Intake — Questionnaire', desc: "You'll complete a short form sharing your space, needs, and priorities — along with photos, measurements, and inspiration. This allows us to fully understand your space and what you're looking to achieve." },
@@ -204,29 +372,46 @@ export default function ServicesPage() {
                   { step: '4.', title: 'Strategy Session (Up to 1 hour)', desc: "During our live session, we work through your space together in real time — refining ideas, making decisions, and bringing clarity to your project. You'll leave with a clear direction and actionable next steps." },
                   { step: '5.', title: 'Follow-Up Support (Up to 20–30 min)', desc: "After the session, you'll receive a summary of key decisions and guidance — along with the opportunity to clarify any final questions." },
                 ].map(({ step, title, desc }, i, arr) => (
-                  <div key={step} style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem', borderBottom: i < arr.length - 1 ? '1px solid rgba(66,53,44,0.1)' : 'none', display: 'grid', gridTemplateColumns: '2rem 1fr', gap: '1rem', alignItems: 'start' }}>
-                    <span className="t-label" style={{ color: 'rgba(66,53,44,0.3)', paddingTop: '0.2rem' }}>{step}</span>
-                    <div>
-                      <p className="font-serif" style={{ color: 'var(--color-espresso)', fontSize: 'clamp(0.9rem, 1.1vw, 1.05rem)', lineHeight: 1.4, marginBottom: '0.6rem' }}>{title}</p>
-                      <p style={{ color: 'var(--color-taupe)', fontSize: '0.82rem', lineHeight: 1.85, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{desc}</p>
-                    </div>
-                  </div>
+                  <JourneyStep key={step} step={step} title={title} desc={desc} isLast={i === arr.length - 1} />
                 ))}
               </div>
             </AnimateOnScroll>
           </div>
+
+          {/* Investment + CTA */}
+          <AnimateOnScroll>
+            <InvestmentBlock label="$600 + HST">
+              <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.16em', marginBottom: '2rem' }}>
+                Available in-person and remotely — serving clients across Canada and the United States
+              </p>
+              <a
+                href="https://arqmaservices.setmore.com/services/fc25ee5d-0356-4bf1-a1d6-7110cce8fa7f"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ display: 'inline-block' }}
+              >
+                Book a Strategy Session
+              </a>
+            </InvestmentBlock>
+          </AnimateOnScroll>
+
         </div>
       </section>
 
-      {/* ── E-DESIGN (espresso) — Service 02 ─────────────────────── */}
+      {/* ══════════════════════════════════════════════════════════
+          SERVICE 02 — E-DESIGN (espresso)
+      ══════════════════════════════════════════════════════════ */}
       <section
         id="e-design"
         style={{ background: 'var(--color-espresso)', paddingTop: 'clamp(6rem, 12vw, 11rem)', paddingBottom: 'clamp(6rem, 12vw, 11rem)' }}
         aria-label="E-Design service"
       >
         <div className="container-wide">
+
+          {/* Section intro */}
           <AnimateOnScroll>
-            <div style={{ borderBottom: '0.5px solid rgba(238,235,231,0.12)', paddingBottom: 'clamp(2.5rem, 4vw, 4.5rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ borderBottom: '0.5px solid rgba(238,235,231,0.12)', paddingBottom: 'clamp(2.5rem, 4vw, 4.5rem)', marginBottom: 'clamp(4rem, 7vw, 7rem)' }}>
               <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.28em', marginBottom: '1.5rem' }}>
                 Service 02
               </p>
@@ -242,61 +427,76 @@ export default function ServicesPage() {
             </div>
           </AnimateOnScroll>
 
-          {/* ── E-Design Essential 02.1 ───────── */}
+          {/* ── 02.1 E-Design Essential ────────────────────────── */}
           <AnimateOnScroll>
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.28)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>02.1</p>
             <h3 className="t-subheading font-serif" style={{ color: 'var(--color-cream)', marginBottom: '0.4rem' }}>E-Design Essential</h3>
-            <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.18em', marginBottom: '1.25rem' }}>For Up to 2 rooms</p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '0.9rem' }}>
-              Creating a cohesive, well-designed space goes beyond simply choosing furniture — it requires clarity, direction, and thoughtful planning.
-            </p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '0.9rem' }}>
-              When you&apos;re furnishing your home, it&apos;s easy to feel unsure where to begin. Without a clear strategy, decisions become fragmented — and the space never fully comes together.
-            </p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', maxWidth: '640px', lineHeight: 2.1, marginBottom: 'clamp(2rem, 3vw, 3rem)' }}>
-              This service is designed to provide a clear layout, furniture direction, and a cohesive design strategy tailored to how you live — so you can make confident decisions, avoid costly mistakes, and create a space that feels intentional from the start.
-            </p>
+            <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.18em', marginBottom: 'clamp(2rem, 3.5vw, 3.5rem)' }}>For Up to 2 rooms</p>
           </AnimateOnScroll>
 
-          {/* Essential editorial strip */}
+          {/* Essential description */}
           <AnimateOnScroll>
-            <div style={{ width: '100%', height: 'clamp(200px, 24vw, 380px)', position: 'relative', overflow: 'hidden', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-              <Image src="/images/services/e-design-essential/1.png" alt="ARQMA E-Design Essential service" fill className="object-cover" sizes="90vw" />
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(42,31,26,0.18)' }} />
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1, marginBottom: '0.9rem' }}>
+                Creating a cohesive, well-designed space goes beyond simply choosing furniture — it requires clarity, direction, and thoughtful planning.
+              </p>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1, marginBottom: '0.9rem' }}>
+                When you&apos;re furnishing your home, it&apos;s easy to feel unsure where to begin. Without a clear strategy, decisions become fragmented — and the space never fully comes together.
+              </p>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1 }}>
+                This service is designed to provide a clear layout, furniture direction, and a cohesive design strategy tailored to how you live — so you can make confident decisions, avoid costly mistakes, and create a space that feels intentional from the start.
+              </p>
             </div>
           </AnimateOnScroll>
 
-          {/* Essential: ideal for + what you'll receive + client journey */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(3rem, 8vw, 9rem)', marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
+          {/* Essential slideshow */}
+          <AnimateOnScroll>
+            <div style={{ marginBottom: 'clamp(4rem, 7vw, 7rem)' }}>
+              <ServiceSlideshow
+                images={[
+                  '/images/services/e-design-essential/1.png',
+                  '/images/services/e-design-essential/2.png',
+                  '/images/services/e-design-essential/3.png',
+                  '/images/services/e-design-essential/4.png',
+                  '/images/services/e-design-essential/5.png',
+                ]}
+                alt="ARQMA E-Design Essential"
+                theme="dark"
+              />
+            </div>
+          </AnimateOnScroll>
+
+          {/* Essential info grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(3rem, 8vw, 9rem)' }}>
             <AnimateOnScroll>
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>This service is ideal if you:</p>
+              <SectionLabel text="This service is ideal if you:" dark />
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-                {['Are unsure where to start when furnishing your space','Want a cohesive, intentional design — not a mix of random pieces',"Don't have time to research and plan everything on your own",'Want expert guidance before investing in furniture and key elements'].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.6rem', width: '1.25rem', height: '1px', background: 'rgba(238,235,231,0.3)', display: 'block' }} />
-                    <span style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.85rem', lineHeight: 1.75, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{item}</span>
-                  </li>
+                {[
+                  'Are unsure where to start when furnishing your space',
+                  'Want a cohesive, intentional design — not a mix of random pieces',
+                  "Don't have time to research and plan everything on your own",
+                  'Want expert guidance before investing in furniture and key elements',
+                ].map((item) => (
+                  <Bullet key={item} dark>{item}</Bullet>
                 ))}
               </ul>
 
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>What You&apos;ll Receive</p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
-                {['Conceptual layout floor plans options — A clear layout strategy tailored to your space','Shopping list (furniture + key elements) — A curated furniture selection aligned with your style and needs','Moodboard — A cohesive design direction to guide your decisions','Visual support through conceptual 3D renderings, helping you clearly understand how everything comes together','A focused plan to help you move forward with confidence'].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.6rem', width: '1.25rem', height: '1px', background: 'rgba(238,235,231,0.3)', display: 'block' }} />
-                    <span style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.85rem', lineHeight: 1.75, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{item}</span>
-                  </li>
+              <SectionLabel text="What You'll Receive" dark />
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  'Conceptual layout floor plans options — A clear layout strategy tailored to your space',
+                  'Shopping list (furniture + key elements) — A curated furniture selection aligned with your style and needs',
+                  'Moodboard — A cohesive design direction to guide your decisions',
+                  'Visual support through conceptual 3D renderings, helping you clearly understand how everything comes together',
+                  'A focused plan to help you move forward with confidence',
+                ].map((item) => (
+                  <Bullet key={item} dark>{item}</Bullet>
                 ))}
               </ul>
-
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.4)', letterSpacing: '0.22em', marginBottom: '2rem' }}>Investment: $950 + HST</p>
-              <a href="https://arqmaservices.setmore.com/services/d50ea8eb-95e1-473b-8fab-5e9031907deb" target="_blank" rel="noopener noreferrer" className="btn-light" style={{ display: 'inline-block' }}>
-                Book E-Design Essential
-              </a>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.1}>
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '2rem' }}>Client Journey</p>
+              <SectionLabel text="Client Journey" dark />
               <div>
                 {[
                   { step: '1.', title: 'Project Intake', desc: 'You will fill out a short form with measurements, photos/videos, and inspiration. This step helps us understand your space, your style, and your goals.' },
@@ -306,61 +506,73 @@ export default function ServicesPage() {
                   { step: '5.', title: 'Design Review Session (up to 1.5 hours)', desc: 'Together we review layout options and refine the design in real time, including: Furniture selection, Layout optimization, Functional solutions tailored to your routine.' },
                   { step: '6.', title: 'Follow-up Session (Up to 20–30 min)', desc: 'We clarify any final questions and ensure everything feels clear and ready to move forward. You receive guidance to make confident decisions during the session.' },
                 ].map(({ step, title, desc }, i, arr) => (
-                  <div key={step} style={{ paddingTop: '1.4rem', paddingBottom: '1.4rem', borderBottom: i < arr.length - 1 ? '0.5px solid rgba(238,235,231,0.1)' : 'none', display: 'grid', gridTemplateColumns: '2rem 1fr', gap: '1rem', alignItems: 'start' }}>
-                    <span className="t-label" style={{ color: 'rgba(238,235,231,0.28)', paddingTop: '0.2rem' }}>{step}</span>
-                    <div>
-                      <p className="font-serif" style={{ color: 'var(--color-cream)', fontSize: 'clamp(0.9rem, 1.1vw, 1.05rem)', lineHeight: 1.4, marginBottom: '0.5rem' }}>{title}</p>
-                      <p style={{ color: 'rgba(238,235,231,0.55)', fontSize: '0.82rem', lineHeight: 1.85, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{desc}</p>
-                    </div>
-                  </div>
+                  <JourneyStep key={step} step={step} title={title} desc={desc} isLast={i === arr.length - 1} dark />
                 ))}
               </div>
             </AnimateOnScroll>
           </div>
 
-          {/* Essential image row */}
+          {/* Essential investment + CTA */}
           <AnimateOnScroll>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2" style={{ marginBottom: 'clamp(4rem, 8vw, 8rem)' }}>
-              {['2', '3', '4', '5'].map((n) => (
-                <div key={n} style={{ position: 'relative', aspectRatio: '1/1', overflow: 'hidden' }}>
-                  <Image src={`/images/services/e-design-essential/${n}.png`} alt={`ARQMA E-Design Essential — example ${n}`} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(42,31,26,0.1)' }} />
-                </div>
-              ))}
-            </div>
+            <InvestmentBlock label="$950 + HST" dark>
+              <a
+                href="https://arqmaservices.setmore.com/services/d50ea8eb-95e1-473b-8fab-5e9031907deb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-light"
+                style={{ display: 'inline-block' }}
+              >
+                Book E-Design Essential
+              </a>
+            </InvestmentBlock>
           </AnimateOnScroll>
 
-          {/* Divider */}
-          <div style={{ height: '0.5px', background: 'rgba(238,235,231,0.1)', marginBottom: 'clamp(4rem, 7vw, 7rem)' }} />
+          {/* Divider between 02.1 and 02.2 */}
+          <div style={{ height: '0.5px', background: 'rgba(238,235,231,0.1)', margin: 'clamp(5rem, 10vw, 10rem) 0' }} />
 
-          {/* ── E-Design Signature 02.2 ───────── */}
+          {/* ── 02.2 E-Design Signature ────────────────────────── */}
           <AnimateOnScroll>
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.28)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>02.2</p>
             <h3 className="t-subheading font-serif" style={{ color: 'var(--color-cream)', marginBottom: '0.4rem' }}>E-Design Signature</h3>
-            <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.18em', marginBottom: '1.25rem' }}>Full Digital Design Package</p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '0.9rem' }}>
-              A more in-depth, strategic design experience for spaces that require a higher level of detail — with a thoughtful approach to customization, serving clients remotely.
-            </p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', maxWidth: '640px', lineHeight: 2.1, marginBottom: '0.9rem' }}>
-              If you&apos;re renovating a kitchen, updating a bathroom, or rethinking a closet, you&apos;re making decisions that impact how you live every day — and that will stay with you for years.
-            </p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.5)', maxWidth: '640px', lineHeight: 2.1, marginBottom: 'clamp(2rem, 3vw, 3rem)' }}>
-              This service is ideal for clients who are looking to improve their space without undergoing a major renovation, and who feel comfortable managing the implementation on their own. It provides expert guidance on layout, aesthetics, and key design decisions.
-            </p>
+            <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.18em', marginBottom: 'clamp(2rem, 3.5vw, 3.5rem)' }}>Full Digital Design Package</p>
           </AnimateOnScroll>
 
-          {/* Signature editorial strip */}
+          {/* Signature description */}
           <AnimateOnScroll>
-            <div style={{ width: '100%', height: 'clamp(200px, 24vw, 380px)', position: 'relative', overflow: 'hidden', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-              <Image src="/images/services/e-design-signature/6.png" alt="ARQMA E-Design Signature service" fill className="object-cover" sizes="90vw" />
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(42,31,26,0.18)' }} />
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1, marginBottom: '0.9rem' }}>
+                A more in-depth, strategic design experience for spaces that require a higher level of detail — with a thoughtful approach to customization, serving clients remotely.
+              </p>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1, marginBottom: '0.9rem' }}>
+                If you&apos;re renovating a kitchen, updating a bathroom, or rethinking a closet, you&apos;re making decisions that impact how you live every day — and that will stay with you for years.
+              </p>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.5)', lineHeight: 2.1 }}>
+                This service is ideal for clients who are looking to improve their space without undergoing a major renovation, and who feel comfortable managing the implementation on their own. It provides expert guidance on layout, aesthetics, and key design decisions.
+              </p>
             </div>
           </AnimateOnScroll>
 
-          {/* Signature: ideal for + what you'll receive + client journey */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(3rem, 8vw, 9rem)', marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
+          {/* Signature slideshow */}
+          <AnimateOnScroll>
+            <div style={{ marginBottom: 'clamp(4rem, 7vw, 7rem)' }}>
+              <ServiceSlideshow
+                images={[
+                  '/images/services/e-design-signature/6.png',
+                  '/images/services/e-design-signature/7.png',
+                  '/images/services/e-design-signature/8.png',
+                  '/images/services/e-design-signature/9.png',
+                  '/images/services/e-design-signature/10.png',
+                ]}
+                alt="ARQMA E-Design Signature"
+                theme="dark"
+              />
+            </div>
+          </AnimateOnScroll>
+
+          {/* Signature info grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(3rem, 8vw, 9rem)' }}>
             <AnimateOnScroll>
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>What This Is Ideal For</p>
+              <SectionLabel text="What This Is Ideal For" dark />
               <p style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.85rem', lineHeight: 1.85, fontFamily: 'var(--font-sans)', fontWeight: 300, marginBottom: '0.9rem' }}>
                 This service is designed for those who want a refined, customized result — through a more strategic and efficient approach.
               </p>
@@ -368,19 +580,20 @@ export default function ServicesPage() {
                 Rather than starting from scratch with fully bespoke solutions, we work with proven systems and elevate them through thoughtful design:
               </p>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                {['Adapting them to your space and your needs', 'Refining layouts and functionality', 'Layering design decisions to create a cohesive, intentional outcome'].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.6rem', width: '1.25rem', height: '1px', background: 'rgba(238,235,231,0.3)', display: 'block' }} />
-                    <span style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.85rem', lineHeight: 1.75, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{item}</span>
-                  </li>
+                {[
+                  'Adapting them to your space and your needs',
+                  'Refining layouts and functionality',
+                  'Layering design decisions to create a cohesive, intentional outcome',
+                ].map((item) => (
+                  <Bullet key={item} dark>{item}</Bullet>
                 ))}
               </ul>
               <p style={{ color: 'rgba(238,235,231,0.35)', fontSize: '0.78rem', lineHeight: 1.7, fontFamily: 'var(--font-sans)', fontWeight: 300, marginBottom: 'clamp(2.5rem, 4vw, 4rem)', letterSpacing: '0.04em' }}>
                 1 week of technical support post-session
               </p>
 
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>What You&apos;ll Receive</p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
+              <SectionLabel text="What You'll Receive" dark />
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
                   'Layout plans tailored to your space — designed to optimize flow, functionality, and how you live',
                   'A curated selection of finishes, materials, and key elements, aligned with your style and project goals',
@@ -389,19 +602,13 @@ export default function ServicesPage() {
                   'Key elevations highlighting essential overall dimensions and primary finishes',
                   'A clear, actionable plan to move your project forward with confidence',
                 ].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.6rem', width: '1.25rem', height: '1px', background: 'rgba(238,235,231,0.3)', display: 'block' }} />
-                    <span style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.85rem', lineHeight: 1.75, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{item}</span>
-                  </li>
+                  <Bullet key={item} dark>{item}</Bullet>
                 ))}
               </ul>
-
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.4)', letterSpacing: '0.22em', marginBottom: '2rem' }}>Investment starting at $1,600 + HST</p>
-              <Link href="/connect" className="btn-light" style={{ display: 'inline-block' }}>Book E-Design Signature</Link>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.1}>
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '2rem' }}>Client Journey</p>
+              <SectionLabel text="Client Journey" dark />
               <div>
                 {[
                   { step: '1.', title: 'Project Intake', desc: "You'll complete a detailed form sharing your space, needs, and goals — along with photos, measurements, and inspiration. This allows us to fully understand your project and define the right approach from the start." },
@@ -411,39 +618,35 @@ export default function ServicesPage() {
                   { step: '5.', title: 'Design Review Session (up to 2 hours)', desc: 'We walk through the design together, refining decisions in real time and ensuring every element works cohesively — covering layout adjustments, material and configuration discussions, and functional improvements.' },
                   { step: '6.', title: 'Follow-up Session (up to 1 hour)', desc: 'We clarify final details and any remaining questions, to ensure that you feel fully confident moving into implementation.' },
                 ].map(({ step, title, desc }, i, arr) => (
-                  <div key={step} style={{ paddingTop: '1.4rem', paddingBottom: '1.4rem', borderBottom: i < arr.length - 1 ? '0.5px solid rgba(238,235,231,0.1)' : 'none', display: 'grid', gridTemplateColumns: '2rem 1fr', gap: '1rem', alignItems: 'start' }}>
-                    <span className="t-label" style={{ color: 'rgba(238,235,231,0.28)', paddingTop: '0.2rem' }}>{step}</span>
-                    <div>
-                      <p className="font-serif" style={{ color: 'var(--color-cream)', fontSize: 'clamp(0.9rem, 1.1vw, 1.05rem)', lineHeight: 1.4, marginBottom: '0.5rem' }}>{title}</p>
-                      <p style={{ color: 'rgba(238,235,231,0.55)', fontSize: '0.82rem', lineHeight: 1.85, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{desc}</p>
-                    </div>
-                  </div>
+                  <JourneyStep key={step} step={step} title={title} desc={desc} isLast={i === arr.length - 1} dark />
                 ))}
               </div>
             </AnimateOnScroll>
           </div>
 
-          {/* Signature image row */}
+          {/* Signature investment + CTA */}
           <AnimateOnScroll>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              {['7', '8', '9', '10'].map((n) => (
-                <div key={n} style={{ position: 'relative', aspectRatio: '1/1', overflow: 'hidden' }}>
-                  <Image src={`/images/services/e-design-signature/${n}.png`} alt={`ARQMA E-Design Signature — example ${n}`} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(42,31,26,0.1)' }} />
-                </div>
-              ))}
-            </div>
+            <InvestmentBlock label="Starting at $1,600 + HST" dark>
+              <Link href="/connect" className="btn-light" style={{ display: 'inline-block' }}>
+                Book E-Design Signature
+              </Link>
+            </InvestmentBlock>
           </AnimateOnScroll>
+
         </div>
       </section>
 
-      {/* ── FULL-SERVICE DESIGN (wine) — Service 03 ──────────────── */}
+      {/* ══════════════════════════════════════════════════════════
+          SERVICE 03 — FULL-SERVICE DESIGN (wine)
+      ══════════════════════════════════════════════════════════ */}
       <section
         id="full-service"
         style={{ background: 'var(--color-wine)', paddingTop: 'clamp(6rem, 12vw, 11rem)', paddingBottom: 'clamp(6rem, 12vw, 11rem)' }}
         aria-label="Full-service design details"
       >
         <div className="container-wide">
+
+          {/* Header */}
           <AnimateOnScroll>
             <div style={{ borderBottom: '0.5px solid rgba(238,235,231,0.12)', paddingBottom: 'clamp(2.5rem, 4vw, 4.5rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
               <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.28em', marginBottom: '1.5rem' }}>
@@ -466,38 +669,40 @@ export default function ServicesPage() {
             </div>
           </AnimateOnScroll>
 
+          {/* Description */}
           <AnimateOnScroll>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', maxWidth: '620px', lineHeight: 2.2, letterSpacing: '0.02em', marginBottom: '1.25rem' }}>
-              For projects that require a complete, intentional transformation — from concept to execution.
-            </p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', maxWidth: '620px', lineHeight: 2.2, letterSpacing: '0.02em', marginBottom: '1.25rem' }}>
-              Our Full Interior Design Service is a comprehensive, fully guided experience designed for clients who want expert direction, a cohesive vision, and support throughout every stage of the project.
-            </p>
-            <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', maxWidth: '620px', lineHeight: 2.2, letterSpacing: '0.02em', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-              From spatial planning and design development to technical documentation, contractor coordination, and final styling, we guide the entire process with clarity, intention, and care — ensuring every decision works together toward a beautifully resolved result.
-            </p>
-          </AnimateOnScroll>
-
-          {/* Editorial image strip */}
-          <AnimateOnScroll>
-            <div style={{ width: '100%', height: 'clamp(220px, 28vw, 420px)', position: 'relative', overflow: 'hidden', marginBottom: 'clamp(3.5rem, 6vw, 6rem)' }}>
-              <Image
-                src="/images/services/full-service/11.png"
-                alt="ARQMA full-service interior design"
-                fill
-                className="object-cover"
-                sizes="90vw"
-              />
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(81,44,50,0.15)' }} />
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', lineHeight: 2.2, letterSpacing: '0.02em', marginBottom: '1.25rem' }}>
+                For projects that require a complete, intentional transformation — from concept to execution.
+              </p>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', lineHeight: 2.2, letterSpacing: '0.02em', marginBottom: '1.25rem' }}>
+                Our Full Interior Design Service is a comprehensive, fully guided experience designed for clients who want expert direction, a cohesive vision, and support throughout every stage of the project.
+              </p>
+              <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', lineHeight: 2.2, letterSpacing: '0.02em' }}>
+                From spatial planning and design development to technical documentation, contractor coordination, and final styling, we guide the entire process with clarity, intention, and care — ensuring every decision works together toward a beautifully resolved result.
+              </p>
             </div>
           </AnimateOnScroll>
 
-          {/* Deliverables + phases */}
+          {/* Full-service slideshow */}
+          <AnimateOnScroll>
+            <div style={{ marginBottom: 'clamp(4rem, 7vw, 7rem)' }}>
+              <ServiceSlideshow
+                images={[
+                  '/images/services/full-service/11.png',
+                  '/images/services/full-service/12.png',
+                  '/images/services/full-service/13.png',
+                ]}
+                alt="ARQMA Full-Service Interior Design"
+                theme="wine"
+              />
+            </div>
+          </AnimateOnScroll>
+
+          {/* Info grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(3.5rem, 8vw, 9rem)' }}>
             <AnimateOnScroll>
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '2rem' }}>
-                What You&apos;ll Receive
-              </p>
+              <SectionLabel text="What You'll Receive" dark />
               <div>
                 {[
                   { title: 'Strategic Discovery & Design Direction', desc: 'A deep understanding of your goals, lifestyle, and vision to define a clear design direction.' },
@@ -522,7 +727,7 @@ export default function ServicesPage() {
                 ))}
                 <div style={{ height: '0.5px', background: 'rgba(238,235,231,0.1)' }} />
               </div>
-              <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+              <div style={{ marginTop: '1.75rem' }}>
                 <p style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.82rem', lineHeight: 1.85, fontFamily: 'var(--font-sans)', fontWeight: 300, marginBottom: '0.5rem' }}>
                   Every project is uniquely tailored to reflect your space, vision, scope, and desired level of involvement.
                 </p>
@@ -530,43 +735,47 @@ export default function ServicesPage() {
                   Following your discovery call, we prepare a detailed proposal outlining the project scope, design phases, and overall investment.
                 </p>
               </div>
-              <Link href="/connect" className="btn-light" style={{ display: 'inline-block' }}>
-                Start Your Project
-              </Link>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.1}>
-              <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.26em', marginBottom: '2rem' }}>
-                Client Journey
-              </p>
+              <SectionLabel text="Client Journey" dark />
               <FullDesignPhases />
             </AnimateOnScroll>
           </div>
 
-          {/* Bottom image pair */}
+          {/* Full-service investment + CTA */}
           <AnimateOnScroll>
             <div
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
-              style={{ marginTop: 'clamp(3.5rem, 6vw, 6rem)' }}
+              style={{
+                borderTop: '0.5px solid rgba(238,235,231,0.1)',
+                paddingTop: 'clamp(2rem, 3.5vw, 3.5rem)',
+                marginTop: 'clamp(3rem, 5vw, 5rem)',
+              }}
             >
-              {['/images/services/full-service/12.png', '/images/services/full-service/13.png'].map((src, i) => (
-                <div key={i} style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
-                  <Image
-                    src={src}
-                    alt="ARQMA full-service interior design detail"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(81,44,50,0.12)' }} />
-                </div>
-              ))}
+              <p
+                className="t-label"
+                style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.24em', marginBottom: '0.6rem' }}
+              >
+                Investment
+              </p>
+              <p
+                style={{ color: 'rgba(238,235,231,0.62)', fontSize: '0.82rem', lineHeight: 1.85, fontFamily: 'var(--font-sans)', fontWeight: 300, maxWidth: '520px', marginBottom: '2.25rem' }}
+              >
+                Every project is uniquely tailored. Following your discovery call, we prepare a detailed
+                proposal outlining the scope, design phases, and overall investment.
+              </p>
+              <Link href="/connect" className="btn-light" style={{ display: 'inline-block' }}>
+                Start Your Project
+              </Link>
             </div>
           </AnimateOnScroll>
+
         </div>
       </section>
 
-      {/* ── CURATED PARTNERSHIPS (cream) — Service 04 ─────────── */}
+      {/* ══════════════════════════════════════════════════════════
+          SERVICE 04 — CURATED PARTNERSHIPS (cream)
+      ══════════════════════════════════════════════════════════ */}
       <section
         id="curated-partnerships"
         className="section-pad-xl"
@@ -574,6 +783,8 @@ export default function ServicesPage() {
         aria-label="Curated partnerships service"
       >
         <div className="container-wide">
+
+          {/* Header */}
           <AnimateOnScroll>
             <div style={{ borderBottom: '1px solid rgba(66,53,44,0.1)', paddingBottom: 'clamp(2.5rem, 4vw, 4rem)', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
               <p className="t-label" style={{ color: 'var(--color-taupe)', letterSpacing: '0.26em', marginBottom: '1.25rem' }}>
@@ -595,33 +806,32 @@ export default function ServicesPage() {
             </div>
           </AnimateOnScroll>
 
+          {/* Description */}
           <AnimateOnScroll>
-            <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', lineHeight: 2.1, marginBottom: '1.25rem' }}>
-              At ARQMA, we work alongside builders and contractors to ensure that design and execution are fully aligned — creating a smoother process, better results, and a more efficient experience for everyone involved.
-            </p>
-            <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', lineHeight: 2.1, marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-              Whether you already have a project in mind or are looking to establish a long-term partnership, we&apos;re open to building a workflow that supports both your team and your clients.
-            </p>
-          </AnimateOnScroll>
-
-          {/* Editorial image */}
-          <AnimateOnScroll>
-            <div style={{ width: '100%', height: 'clamp(220px, 28vw, 420px)', position: 'relative', overflow: 'hidden', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-              <Image
-                src="/images/projects/wellthera/RP409155.jpg"
-                alt="ARQMA curated partnership interior design"
-                fill
-                className="object-cover"
-                sizes="90vw"
-                style={{ objectPosition: 'center 55%' }}
-              />
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(66,53,44,0.08)' }} />
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, marginBottom: '1.25rem' }}>
+                At ARQMA, we work alongside builders and contractors to ensure that design and execution are fully aligned — creating a smoother process, better results, and a more efficient experience for everyone involved.
+              </p>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1 }}>
+                Whether you already have a project in mind or are looking to establish a long-term partnership, we&apos;re open to building a workflow that supports both your team and your clients.
+              </p>
             </div>
           </AnimateOnScroll>
 
+          {/* Curated partnerships slideshow */}
+          <AnimateOnScroll>
+            <div style={{ marginBottom: 'clamp(4rem, 7vw, 7rem)' }}>
+              <ServiceSlideshow
+                images={['/images/projects/wellthera/RP409155.jpg']}
+                alt="ARQMA Curated Partnership"
+                theme="light"
+              />
+            </div>
+          </AnimateOnScroll>
+
+          {/* Info grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(3rem, 8vw, 8rem)' }}>
             <AnimateOnScroll>
-              {/* How We Work Together */}
               <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>How We Work Together</p>
               <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
                 Every collaboration is tailored to the project and team involved.
@@ -633,40 +843,29 @@ export default function ServicesPage() {
                   'We support decision-making to keep projects moving efficiently',
                   'We provide clear documentation and guidance to reduce friction on site',
                 ].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.65rem', width: '1.25rem', height: '1px', background: 'var(--color-wine)', opacity: 0.45, display: 'block' }} />
-                    <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.8 }}>{item}</span>
-                  </li>
+                  <Bullet key={item}>{item}</Bullet>
                 ))}
               </ul>
               <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
                 The goal is simple: make your work easier, while elevating the final result.
               </p>
 
-              {/* For Your Clients */}
               <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>For Your Clients</p>
               <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
                 Our role is to enhance your client experience by:
               </p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', marginBottom: '1.5rem' }}>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
                 {[
                   'Helping them make confident design decisions',
                   'Creating cohesive, well-thought-out spaces',
                   'Reducing uncertainty during the process',
                 ].map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', listStyle: 'none' }}>
-                    <span style={{ flexShrink: 0, marginTop: '0.65rem', width: '1.25rem', height: '1px', background: 'var(--color-wine)', opacity: 0.45, display: 'block' }} />
-                    <span className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.8 }}>{item}</span>
-                  </li>
+                  <Bullet key={item}>{item}</Bullet>
                 ))}
               </ul>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9 }}>
-                This leads to smoother projects and more satisfied clients.
-              </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.1}>
-              {/* What We Bring */}
               <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '1rem' }}>What We Bring</p>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                 {[
@@ -698,22 +897,27 @@ export default function ServicesPage() {
                 <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2, marginBottom: '1.25rem' }}>
                   If you&apos;re a builder or contractor looking for a design partner, we&apos;d love to connect. We&apos;re happy to walk through your process, understand your needs, and define a collaboration that works for both your team and your clients.
                 </p>
-                <p className="t-label" style={{ color: 'rgba(66,53,44,0.4)', letterSpacing: '0.24em', marginBottom: '0.75rem' }}>Investment</p>
-                <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '0.5rem' }}>
-                  Every project is uniquely tailored to reflect your space, vision, and desired level of involvement.
-                </p>
-                <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: 'clamp(2rem, 3vw, 3rem)' }}>
-                  Following your discovery call, we prepare a detailed proposal outlining scope, design phases, and overall investment.
-                </p>
-                <Link href="/connect" className="btn-primary" style={{ display: 'inline-block' }}>
-                  Get in Touch
-                </Link>
               </div>
             </AnimateOnScroll>
           </div>
+
+          {/* Curated partnerships investment + CTA */}
+          <AnimateOnScroll>
+            <InvestmentBlock label="Tailored to your project">
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '0.5rem', maxWidth: '520px' }}>
+                Every project is uniquely tailored to reflect your space, vision, and desired level of involvement.
+              </p>
+              <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, marginBottom: '2.25rem', maxWidth: '520px' }}>
+                Following your discovery call, we prepare a detailed proposal outlining scope, design phases, and overall investment.
+              </p>
+              <Link href="/connect" className="btn-primary" style={{ display: 'inline-block' }}>
+                Get in Touch
+              </Link>
+            </InvestmentBlock>
+          </AnimateOnScroll>
+
         </div>
       </section>
-
 
       {/* ── FLEXIBLE TO YOUR PROJECT (wine) ──────────────────── */}
       <section
@@ -767,7 +971,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── CTA ─────────────────────────────────────────────── */}
+      {/* ── FINAL CTA ────────────────────────────────────────── */}
       <section
         className="relative section-pad-xl overflow-hidden"
         aria-label="Get started"
