@@ -14,7 +14,7 @@ const team = [
   {
     name: 'Marcia Oliveira',
     title: 'Founder and Principal Designer',
-    image: '/images/team/Marcia.jpg',
+    image: '/images/team/POWERGIRLS-14.jpg',
     bio: 'is the Founder and Creative Director of ARQMA, leading the studio with a clear vision rooted in thoughtful design and elevated client experience. With a background in architecture and interior design, she brings a refined and contemporary approach to every project, balancing aesthetics, functionality, and emotional connection. At ARQMA, Marcia is responsible for overseeing the creative direction of all projects, ensuring that each space reflects the studio\'s standards of quality, coherence, and attention to detail.',
   },
   {
