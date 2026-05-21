@@ -251,8 +251,7 @@ export default function ConnectPage() {
                 marginBottom: 'clamp(3rem, 5vw, 4.5rem)',
               }}
             >
-              Share a few details about your project, and our team will be in touch within
-              1–2 business days.
+              Every project we take on is carefully considered. We look forward to understanding your vision.
             </p>
 
             {/* Mobile contact info */}

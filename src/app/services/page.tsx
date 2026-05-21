@@ -31,14 +31,14 @@ const overviewCards = [
   },
   {
     number: '03',
-    title: 'Full-Service Design',
+    title: 'ARQMA Full-Service Design',
     subtitle: 'End-to-End Guidance',
     desc: 'A comprehensive, fully guided experience from first concept to final styling — for clients who want expert direction at every stage.',
     anchor: '#full-service',
   },
   {
     number: '04',
-    title: 'Curated Partnerships',
+    title: 'ARQMA Curated Partnerships',
     subtitle: 'Design + Collaboration',
     desc: 'For clients with an existing team in place. ARQMA steps in as the design authority, providing creative direction and cohesion across all parties.',
     anchor: '#curated-partnerships',
@@ -131,6 +131,7 @@ function JourneyStep({
             lineHeight: 1.85,
             fontFamily: 'var(--font-sans)',
             fontWeight: 300,
+            textAlign: 'justify',
           }}
         >
           {desc}
@@ -305,7 +306,7 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)', textAlign: 'justify' }}>
               <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, marginBottom: '1rem' }}>
                 Making design decisions shouldn&apos;t feel overwhelming — but with so many options
                 and details to consider, it often does.
@@ -366,7 +367,7 @@ export default function ServicesPage() {
               <SectionLabel text="Client Journey" />
               <div>
                 {[
-                  { step: '1.', title: 'Project Intake — Questionnaire', desc: "You'll complete a short form sharing your space, needs, and priorities — along with photos, measurements, and inspiration. This allows us to fully understand your space and what you're looking to achieve." },
+                  { step: '1.', title: 'Project Intake', desc: "You'll complete a short form sharing your space, needs, and priorities — along with photos, measurements, and inspiration. This allows us to fully understand your space and what you're looking to achieve." },
                   { step: '2.', title: 'Strategy Alignment Call (up to 30 min)', desc: "We review your space together, clarify your goals, and define the key areas we'll focus on during the session. This ensures our time together is fully intentional and aligned." },
                   { step: '3.', title: 'Design Preparation', desc: 'Based on your project, we prepare targeted design direction — which may include layout guidance, furniture suggestions, finishes, or key design recommendations. Everything is tailored to support your specific decisions.' },
                   { step: '4.', title: 'Strategy Session (Up to 1 hour)', desc: "During our live session, we work through your space together in real time — refining ideas, making decisions, and bringing clarity to your project. You'll leave with a clear direction and actionable next steps." },
@@ -430,13 +431,13 @@ export default function ServicesPage() {
           {/* ── 02.1 E-Design Essential ────────────────────────── */}
           <AnimateOnScroll>
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.28)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>02.1</p>
-            <h3 className="t-subheading font-serif" style={{ color: 'var(--color-cream)', marginBottom: '0.4rem' }}>E-Design Essential</h3>
+            <h3 className="t-subheading font-serif" style={{ color: 'var(--color-cream)', marginBottom: '0.4rem' }}>ARQMA E-Design Essential</h3>
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.18em', marginBottom: 'clamp(2rem, 3.5vw, 3.5rem)' }}>For Up to 2 rooms</p>
           </AnimateOnScroll>
 
           {/* Essential description */}
           <AnimateOnScroll>
-            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)', textAlign: 'justify' }}>
               <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1, marginBottom: '0.9rem' }}>
                 Creating a cohesive, well-designed space goes beyond simply choosing furniture — it requires clarity, direction, and thoughtful planning.
               </p>
@@ -533,13 +534,13 @@ export default function ServicesPage() {
           {/* ── 02.2 E-Design Signature ────────────────────────── */}
           <AnimateOnScroll>
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.28)', letterSpacing: '0.26em', marginBottom: '1.5rem' }}>02.2</p>
-            <h3 className="t-subheading font-serif" style={{ color: 'var(--color-cream)', marginBottom: '0.4rem' }}>E-Design Signature</h3>
+            <h3 className="t-subheading font-serif" style={{ color: 'var(--color-cream)', marginBottom: '0.4rem' }}>ARQMA E-Design Signature</h3>
             <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.18em', marginBottom: 'clamp(2rem, 3.5vw, 3.5rem)' }}>Full Digital Design Package</p>
           </AnimateOnScroll>
 
           {/* Signature description */}
           <AnimateOnScroll>
-            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)', textAlign: 'justify' }}>
               <p className="t-body" style={{ color: 'rgba(238,235,231,0.62)', lineHeight: 2.1, marginBottom: '0.9rem' }}>
                 A more in-depth, strategic design experience for spaces that require a higher level of detail — with a thoughtful approach to customization, serving clients remotely.
               </p>
@@ -655,7 +656,7 @@ export default function ServicesPage() {
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
                 <div>
                   <h2 className="t-heading font-serif" style={{ color: 'var(--color-cream)', lineHeight: 1.08, marginBottom: '1.1rem' }}>
-                    Full-Service Design
+                    ARQMA Full-Service Design
                   </h2>
                   <p className="t-label" style={{ color: 'rgba(238,235,231,0.38)', letterSpacing: '0.22em' }}>
                     Design Phase: 2 to 4 Months
@@ -671,7 +672,7 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)', textAlign: 'justify' }}>
               <p className="t-body" style={{ color: 'rgba(238,235,231,0.65)', lineHeight: 2.2, letterSpacing: '0.02em', marginBottom: '1.25rem' }}>
                 For projects that require a complete, intentional transformation — from concept to execution.
               </p>
@@ -793,7 +794,7 @@ export default function ServicesPage() {
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem' }}>
                 <div>
                   <h2 className="t-heading font-serif" style={{ color: 'var(--color-espresso)', marginBottom: '0.75rem' }}>
-                    Curated Partnerships
+                    ARQMA Curated Partnerships
                   </h2>
                   <p className="t-label" style={{ color: 'var(--color-wine)', letterSpacing: '0.22em' }}>
                     Partnerships with Builders &amp; Contractors
@@ -808,7 +809,7 @@ export default function ServicesPage() {
 
           {/* Description */}
           <AnimateOnScroll>
-            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+            <div style={{ maxWidth: '680px', marginBottom: 'clamp(3rem, 5vw, 5rem)', textAlign: 'justify' }}>
               <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, marginBottom: '1.25rem' }}>
                 At ARQMA, we work alongside builders and contractors to ensure that design and execution are fully aligned — creating a smoother process, better results, and a more efficient experience for everyone involved.
               </p>
