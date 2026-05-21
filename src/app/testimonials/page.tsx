@@ -93,7 +93,7 @@ export default function TestimonialsPage() {
               Your Story, Next
             </p>
             <h2
-              className="t-display font-serif italic"
+              className="t-hero font-serif italic"
               style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}
             >
               Let&apos;s design a space that elevates your experience.

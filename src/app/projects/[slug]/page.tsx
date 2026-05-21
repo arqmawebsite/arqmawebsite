@@ -181,7 +181,7 @@ export default async function ProjectPage({ params }: Props) {
               Inspired by this project?
             </p>
             <h2
-              className="t-display font-serif italic"
+              className="t-hero font-serif italic"
               style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}
             >
               Let&apos;s design a space that elevates your experience.

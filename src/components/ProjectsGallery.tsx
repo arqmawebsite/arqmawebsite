@@ -131,7 +131,7 @@ export default function ProjectsGallery() {
         <div className="container-narrow relative z-10 text-center">
           <AnimateOnScroll>
             <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>Ready to Begin?</p>
-            <h2 className="t-display font-serif italic" style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}>
+            <h2 className="t-hero font-serif italic" style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}>
               Let&apos;s design a space that elevates your experience.
             </h2>
             <Link href="/connect" className="btn-light">Start Your Project</Link>

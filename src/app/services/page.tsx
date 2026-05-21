@@ -786,8 +786,8 @@ export default function ServicesPage() {
             <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Not sure which service is right for you?
             </p>
-            <h2 className="t-display font-serif italic mb-10" style={{ color: 'var(--color-cream)' }}>
-              Let&apos;s design a space that elevates your experience.
+            <h2 className="t-hero font-serif italic mb-10" style={{ color: 'var(--color-cream)' }}>
+              Let&apos;s design a space that elevates your business.
             </h2>
             <p className="t-body mb-12" style={{ color: 'rgba(238,235,231,0.68)', maxWidth: '480px', margin: '0 auto 3rem', lineHeight: 2 }}>
               Fill out our brief form and we&apos;ll recommend the most suitable service

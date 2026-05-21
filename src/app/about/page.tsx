@@ -193,7 +193,7 @@ export default function AboutPage() {
               Work With Us
             </p>
             <h2
-              className="t-display font-serif italic mb-8"
+              className="t-hero font-serif italic mb-8"
               style={{ color: 'var(--color-cream)' }}
             >
               Let&apos;s bring your vision to life.

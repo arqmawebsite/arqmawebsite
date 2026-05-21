@@ -120,17 +120,16 @@ export default function HomePage() {
               </div>
             </AnimateOnScroll>
 
-            <AnimateOnScroll delay={0.15} className="relative" style={{ minHeight: '500px' }}>
-              <div className="relative h-full img-zoom-wrapper" style={{ minHeight: '500px' }}>
-                <Image
-                  src="/images/team/Marcia.jpg"
-                  alt="Marcia Oliveira — ARQMA Founder & Principal Designer"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </AnimateOnScroll>
+            {/* Image fills full height of the left column — no fixed aspect ratio */}
+            <div className="relative" style={{ minHeight: '600px' }}>
+              <Image
+                src="/images/team/Marcia.jpg"
+                alt="Marcia Oliveira — ARQMA Founder & Principal Designer"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -366,7 +365,7 @@ export default function HomePage() {
               Ready to Begin?
             </p>
             <h2
-              className="t-display font-serif italic mb-8"
+              className="t-hero font-serif italic mb-8"
               style={{ color: 'var(--color-cream)' }}
             >
               Let&apos;s create a space that reflects who you are.
