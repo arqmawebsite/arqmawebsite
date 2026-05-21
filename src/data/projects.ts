@@ -46,7 +46,7 @@ export const projects: Project[] = [
     slug: 'tfa',
     name: 'TFA Immigration Office',
     category: 'commercial',
-    location: 'Ontario, Canada',
+    location: 'Toronto, Ontario',
     description:
       "This immigration office was designed to balance a sense of professionalism with a welcoming and supportive atmosphere. The spatial concept draws directly from the company's branding, translating its colors and forms into curved panels and modern furniture that shape the experience of the space. Through a careful composition of materials, lighting, and geometry, the design introduces warmth and elegance. The result is an environment that conveys trust, respect, and reassurance — creating a setting where clients feel both supported and confident throughout their immigration journey.",
     shortDescription: 'Immigration office balancing professionalism with warmth and trust.',
@@ -83,6 +83,7 @@ export const projects: Project[] = [
     slug: 'mb-beauty',
     name: 'MB Beauty Clinic',
     category: 'commercial',
+    location: 'Toronto, Ontario',
     description:
       'This aesthetic clinic was conceived as a refined and feminine environment, where elegance is expressed through softness and attention to detail. A delicate color palette, paired with diffused lighting, creates a serene atmosphere that invites clients to slow down and indulge in a moment of personal care. Curved paneling and subtle material contrasts add depth and visual interest, while maintaining a cohesive and understated composition. Beyond functionality, every corner of the space was intentionally designed to foster a sense of connection, offering a calm and immersive experience centered on well-being and self-care.',
     shortDescription: 'Aesthetic clinic where elegance is expressed through softness and refined detail.',
@@ -109,6 +110,7 @@ export const projects: Project[] = [
     slug: 'nathalia-marques',
     name: 'Nathalia Marques Clinic',
     category: 'commercial',
+    location: 'Toronto, Ontario',
     description:
       "This aesthetic clinic was designed to balance a playful, Instagram-worthy appeal with a refined sense of elegance. The project translates the brand's identity through a bold and expressive use of color, creating a vibrant yet cohesive environment. Each area was thoughtfully composed to serve as both a functional space and a visually engaging backdrop, encouraging interaction and shareable moments. While dynamic in character, the design maintains a sense of sophistication through careful material selection, lighting, and spatial composition, resulting in an environment that feels both elevated and approachable.",
     shortDescription: 'Vibrant aesthetic clinic balancing bold expression with refined sophistication.',
@@ -131,6 +133,7 @@ export const projects: Project[] = [
     slug: 'bossa-nova',
     name: 'Bossa Nova Restaurant',
     category: 'commercial',
+    location: 'Hespeler Village, Ontario',
     description:
       "This Brazilian restaurant was designed as a vibrant expression of cultural identity, where interior design and branding come together to create an immersive dining experience. The space draws from the richness of Brazilian design through the use of bold colors, natural elements, and a layered contrast of materials. Soft, organic curves — so characteristic of Brazilian architecture — are echoed in the selection of furniture and millwork, bringing fluidity and movement into the space. Fully integrated with the brand's visual language, the design creates a cohesive and dynamic environment that celebrates warmth, authenticity, and a strong sense of place.",
     shortDescription: 'Brazilian restaurant as a vibrant expression of cultural identity and warmth.',
@@ -167,12 +170,6 @@ export const projects: Project[] = [
       '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-11.jpg',
       '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-12.jpg',
       '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-13.jpg',
-      '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-14.jpg',
-      '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-15.jpg',
-      '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-16.jpg',
-      '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-17.jpg',
-      '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-18.jpg',
-      '/images/projects/hidden-creek/RMPROREAL_ARQMA_516_HIDDEN_CREEK-19.jpg',
     ],
     tags: ['Residential', 'Kitchen', 'Dining'],
   },
@@ -202,6 +199,7 @@ export const projects: Project[] = [
     slug: 'nursery',
     name: "Girl's Nursery Room",
     category: 'nursery',
+    location: 'Toronto, Ontario',
     description:
       "This nursery was designed as a playful yet nurturing environment, inspired by the immersive atmosphere of a forest. The concept brings together references to wildlife — especially the giraffe, a meaningful element requested by the client — creating a space that feels both engaging and comforting for the baby. A soft contrast between rich green tones and the warmth of white oak establishes a natural and calming palette. Custom millwork plays a central role in the design, including a carved tree feature that enhances the narrative and reinforces the forest-inspired setting. Layered with thoughtful decorative elements, the space becomes a cozy and imaginative retreat, where design supports both comfort and early sensory experiences.",
     shortDescription: 'Forest-inspired nursery with custom millwork and natural materials for early sensory development.',
