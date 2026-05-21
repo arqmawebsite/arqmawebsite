@@ -16,6 +16,7 @@ export const projects: Project[] = [
     slug: 'wellthera',
     name: 'Wellthera',
     category: 'commercial',
+    location: 'Barrie, Ontario',
     description:
       'This massage therapy clinic was designed with a strong emphasis on spatial flow, materiality, and sensory experience. The layout is anchored by a generous reception area that establishes a sense of calm and arrival, seamlessly guiding clients into more private treatment spaces. Throughout the project, careful attention was given to proportions, lighting, and finishes to create a cohesive environment that minimizes external distractions and promotes introspection. Each element was intentionally selected to support a quiet and restorative atmosphere.',
     shortDescription: 'Massage therapy clinic designed for calm and restorative sensory experience.',
@@ -36,7 +37,6 @@ export const projects: Project[] = [
       '/images/projects/wellthera/RP409188.jpg',
       '/images/projects/wellthera/RP409191.jpg',
       '/images/projects/wellthera/RP409254.jpg',
-      '/images/projects/wellthera/RP409338-2.jpg',
     ],
     tags: ['Commercial', 'Wellness', 'Clinic'],
   },

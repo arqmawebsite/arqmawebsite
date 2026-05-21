@@ -114,7 +114,7 @@ export default async function ProjectPage({ params }: Props) {
                 />
                 <div>
                   <p className="t-label mb-2" style={{ color: 'rgba(66,53,44,0.4)' }}>Location</p>
-                  <p className="font-serif" style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1rem, 1.2vw, 1.2rem)' }}>Ontario, Canada</p>
+                  <p className="font-serif" style={{ color: 'var(--color-espresso)', fontSize: 'clamp(1rem, 1.2vw, 1.2rem)' }}>{project.location ?? 'Ontario, Canada'}</p>
                 </div>
               </div>
 
@@ -125,7 +125,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* ── GALLERY ──────────────────────────────────────────── */}
       <section
-        className="pb-28 md:pb-40"
+        className="pb-40 md:pb-64"
         style={{ background: 'var(--color-cream)' }}
         aria-label="Project gallery"
       >
@@ -175,14 +175,22 @@ export default async function ProjectPage({ params }: Props) {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
 
-        <div className="container-narrow relative z-10 text-center">
+        <div
+          className="relative z-10 text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5vw' }}
+        >
           <AnimateOnScroll>
-            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '1rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Inspired by this project?
             </p>
             <h2
-              className="t-hero font-serif italic"
-              style={{ color: 'var(--color-cream)', marginBottom: '2.5rem' }}
+              className="font-serif italic"
+              style={{
+                color: 'var(--color-cream)',
+                marginBottom: '2.5rem',
+                fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
+                lineHeight: 1.08,
+              }}
             >
               Let&apos;s design a space that elevates your experience.
             </h2>
