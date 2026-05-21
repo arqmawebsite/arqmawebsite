@@ -150,8 +150,9 @@ export const projects: Project[] = [
   },
   {
     slug: 'hidden-creek',
-    name: 'Hidden Creek',
+    name: 'Hidden Creek Project',
     category: 'residential',
+    location: 'Kitchener, Ontario',
     description:
       "This dining and kitchen space was designed to achieve a seamless integration between function and sophistication. Guided by a contemporary interpretation of classic elements, the project explores a refined black-and-white palette as its foundation, creating a timeless and balanced composition. Subtle gold accents were introduced to enrich the space, adding depth and a layer of understated elegance. The result is a cohesive environment where contrast and proportion come together to reflect the client's refined and sophisticated personality.",
     shortDescription: 'Timeless kitchen and dining space with refined black-and-white palette and gold accents.',

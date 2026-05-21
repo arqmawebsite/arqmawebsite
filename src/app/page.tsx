@@ -247,7 +247,7 @@ export default function HomePage() {
             <p className="t-label" style={{ color: 'var(--color-taupe)', letterSpacing: '0.22em', marginBottom: '1.5rem' }}>
               How We Can Work Together
             </p>
-            <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', marginBottom: '5rem' }}>
+            <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', marginBottom: '5rem', textAlign: 'justify' }}>
               Every project begins with a different need. Some clients are looking for guidance with
               finishes. Others want to rethink how their space functions. And some are ready for a
               fully developed, end-to-end design experience. We&apos;ve structured our services to
@@ -362,20 +362,22 @@ export default function HomePage() {
         {/* Bottom gradient — darkens smoothly from bottom edge inward */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
 
-        <div className="container-narrow relative z-10 text-center">
+        <div className="relative z-10 text-center" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5vw' }}>
           <AnimateOnScroll>
-            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '1rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Ready to Begin?
             </p>
             <h2
-              className="t-hero font-serif italic mb-8"
-              style={{ color: 'var(--color-cream)' }}
+              className="font-serif italic"
+              style={{
+                color: 'var(--color-cream)',
+                marginBottom: '2.5rem',
+                fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
+                lineHeight: 1.08,
+              }}
             >
               Let&apos;s create a space that reflects who you are.
             </h2>
-            <p className="t-body mb-10" style={{ color: 'rgba(238,235,231,0.7)', maxWidth: '480px', margin: '0 auto 2.5rem' }}>
-              Take your ideas off the mood board and into reality. We&apos;d love to hear about your project.
-            </p>
             <Link href="/connect" className="btn-light">
               Start Your Project
             </Link>

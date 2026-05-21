@@ -84,7 +84,7 @@ export default function Footer() {
           <div>
             <p className="t-label text-[var(--color-cream)] opacity-80" style={{ letterSpacing: '0.14em', marginBottom: '1rem' }}>Location</p>
             <div className="flex flex-col" style={{ gap: '1rem' }}>
-              <p className="t-label text-[var(--color-cream)] opacity-70">Toronto, Ontario</p>
+              <p className="t-label text-[var(--color-cream)] opacity-70">Ontario</p>
               <p className="t-label text-[var(--color-cream)] opacity-70">Canada</p>
               <p className="t-label text-[var(--color-cream)] opacity-50">
                 Serving clients across Canada &amp; the United States.<br />In-person &amp; remote available.
