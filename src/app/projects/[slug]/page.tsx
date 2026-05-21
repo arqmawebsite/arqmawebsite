@@ -125,8 +125,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* ── GALLERY ──────────────────────────────────────────── */}
       <section
-        className="pb-40 md:pb-64"
-        style={{ background: 'var(--color-cream)' }}
+        style={{ background: 'var(--color-cream)', paddingBottom: 'clamp(10rem, 18vw, 22rem)' }}
         aria-label="Project gallery"
       >
         <div className="container-wide">
