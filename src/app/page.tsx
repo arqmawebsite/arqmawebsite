@@ -84,45 +84,49 @@ export default function HomePage() {
         aria-label="About ARQMA"
       >
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <AnimateOnScroll>
-              <p className="t-label mb-8" style={{ color: 'var(--color-taupe)' }}>
-                About the Studio
-              </p>
-              <h2
-                className="t-display font-serif"
-                style={{ color: 'var(--color-espresso)', marginBottom: '4rem' }}
-              >
-                We don&apos;t just design spaces — we define how they are experienced.
-              </h2>
-              <p className="t-body mb-5" style={{ color: 'var(--color-taupe)' }}>
-                We don&apos;t just design spaces. We design the feeling of coming home. ARQMA was
-                built on a simple but radical belief: that your environment has the power to change
-                your life. Not in a grand, abstract way — but in the way light falls on a Sunday
-                morning. In the way a room makes you exhale the moment you walk in.
-              </p>
-              <p className="t-body mb-5" style={{ color: 'var(--color-taupe)' }}>
-                Based in Ontario, we work with clients across <strong>Canada and internationally</strong>,
-                bringing the same obsessive attention to detail to every project — whether a downtown
-                condo or a custom residence. Residential. Commercial. Always intentional.
-              </p>
-              <p className="t-body" style={{ color: 'var(--color-taupe)', marginBottom: '4rem' }}>
-                We listen before we design. We question before we decide. And we don&apos;t stop
-                until the space feels exactly like you — only better than you imagined. This is not
-                decoration. This is design as it was always meant to be.
-              </p>
-              <Link href="/about" className="btn-primary">
-                Meet the Team
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
+            <AnimateOnScroll className="flex flex-col justify-between">
+              <div>
+                <p className="t-label mb-8" style={{ color: 'var(--color-taupe)' }}>
+                  About the Studio
+                </p>
+                <h2
+                  className="t-display font-serif"
+                  style={{ color: 'var(--color-espresso)', marginBottom: '4rem' }}
+                >
+                  We don&apos;t just design spaces — we define how they are experienced.
+                </h2>
+                <p className="t-body mb-5" style={{ color: 'var(--color-taupe)', textAlign: 'justify' }}>
+                  We don&apos;t just design spaces. We design the feeling of coming home. ARQMA was
+                  built on a simple but radical belief: that your environment has the power to change
+                  your life. Not in a grand, abstract way — but in the way light falls on a Sunday
+                  morning. In the way a room makes you exhale the moment you walk in.
+                </p>
+                <p className="t-body mb-5" style={{ color: 'var(--color-taupe)', textAlign: 'justify' }}>
+                  Based in Ontario, we work with clients across <strong>Canada and internationally</strong>,
+                  bringing the same obsessive attention to detail to every project — whether a downtown
+                  condo or a custom residence. Residential. Commercial. Always intentional.
+                </p>
+                <p className="t-body" style={{ color: 'var(--color-taupe)', marginBottom: '4rem', textAlign: 'justify' }}>
+                  We listen before we design. We question before we decide. And we don&apos;t stop
+                  until the space feels exactly like you — only better than you imagined. This is not
+                  decoration. This is design as it was always meant to be.
+                </p>
+              </div>
+              <div>
+                <Link href="/about" className="btn-primary">
+                  Meet the Team
+                </Link>
+              </div>
             </AnimateOnScroll>
 
-            <AnimateOnScroll delay={0.15}>
-              <div className="relative aspect-[4/5] img-zoom-wrapper">
+            <AnimateOnScroll delay={0.15} className="relative" style={{ minHeight: '500px' }}>
+              <div className="relative h-full img-zoom-wrapper" style={{ minHeight: '500px' }}>
                 <Image
                   src="/images/team/Marcia.jpg"
-                  alt="Marcia Oliveira Martins — ARQMA Founder & Principal Designer"
+                  alt="Marcia Oliveira — ARQMA Founder & Principal Designer"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
