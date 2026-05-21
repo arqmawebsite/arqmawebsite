@@ -244,6 +244,9 @@ export default function HomePage() {
             >
               A refined design experience, thoughtfully tailored to how you live.
             </h2>
+            <p className="t-label" style={{ color: 'var(--color-taupe)', letterSpacing: '0.22em', marginBottom: '1.5rem' }}>
+              How We Can Work Together
+            </p>
             <p className="t-body" style={{ color: 'var(--color-taupe)', maxWidth: '680px', marginBottom: '5rem' }}>
               Every project begins with a different need. Some clients are looking for guidance with
               finishes. Others want to rethink how their space functions. And some are ready for a
