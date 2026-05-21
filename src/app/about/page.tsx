@@ -187,28 +187,22 @@ export default function AboutPage() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(42,31,26,0.72) 0%, transparent 38%)' }} />
 
-        <div className="container-narrow relative z-10 text-center">
+        <div className="relative z-10 text-center" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5vw' }}>
           <AnimateOnScroll>
-            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '0.82rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
+            <p className="mb-6" style={{ color: 'rgba(238,235,231,0.7)', fontSize: '1rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500 }}>
               Work With Us
             </p>
             <h2
-              className="t-hero font-serif italic mb-8"
-              style={{ color: 'var(--color-cream)' }}
+              className="font-serif italic"
+              style={{
+                color: 'var(--color-cream)',
+                marginBottom: '2.5rem',
+                fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
+                lineHeight: 1.08,
+              }}
             >
               Let&apos;s bring your vision to life.
             </h2>
-            <p
-              className="t-body mb-10"
-              style={{
-                color: 'rgba(238,235,231,0.75)',
-                maxWidth: '480px',
-                margin: '0 auto 2.5rem',
-              }}
-            >
-              Tell us about your project and let&apos;s explore how we can create a space
-              that is uniquely yours.
-            </p>
             <Link href="/connect" className="btn-light">
               Start Your Project
             </Link>
