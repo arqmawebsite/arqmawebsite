@@ -139,19 +139,23 @@ export default async function ProjectPage({ params }: Props) {
           {/* Gallery: uniform 2-column grid */}
           {galleryImages.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {galleryImages.map((img, i) => (
-                <AnimateOnScroll key={img} delay={(i % 4) * 0.05}>
-                  <div className="relative img-zoom-wrapper" style={{ aspectRatio: '4/3' }}>
-                    <Image
-                      src={img}
-                      alt={`${project.name} — interior design detail`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </AnimateOnScroll>
-              ))}
+              {galleryImages.map((img, i) => {
+                const objPos = project.imageObjectPositions?.[i] ?? '50% 50%'
+                return (
+                  <AnimateOnScroll key={img} delay={(i % 4) * 0.05}>
+                    <div className="relative img-zoom-wrapper" style={{ aspectRatio: '4/3' }}>
+                      <Image
+                        src={img}
+                        alt={`${project.name} — interior design detail`}
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: objPos }}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </AnimateOnScroll>
+                )
+              })}
             </div>
           )}
         </div>

@@ -8,6 +8,8 @@ export type Project = {
   shortDescription: string
   coverImage: string
   images: string[]
+  /** objectPosition per gallery image (index 0 = images[1]). Falls back to '50% 50%'. */
+  imageObjectPositions?: string[]
   tags: string[]
 }
 
@@ -44,6 +46,7 @@ export const projects: Project[] = [
     slug: 'tfa',
     name: 'TFA Immigration Office',
     category: 'commercial',
+    location: 'Ontario, Canada',
     description:
       "This immigration office was designed to balance a sense of professionalism with a welcoming and supportive atmosphere. The spatial concept draws directly from the company's branding, translating its colors and forms into curved panels and modern furniture that shape the experience of the space. Through a careful composition of materials, lighting, and geometry, the design introduces warmth and elegance. The result is an environment that conveys trust, respect, and reassurance — creating a setting where clients feel both supported and confident throughout their immigration journey.",
     shortDescription: 'Immigration office balancing professionalism with warmth and trust.',
@@ -57,10 +60,22 @@ export const projects: Project[] = [
       '/images/projects/TFA Immigration Office/ARQMA_TFA_07.png',
       '/images/projects/TFA Immigration Office/ARQMA_TFA_08.png',
       '/images/projects/TFA Immigration Office/ARQMA_TFA_09.png',
-      '/images/projects/TFA Immigration Office/ARQMA_TFA_10.png',
       '/images/projects/TFA Immigration Office/ARQMA_TFA_11.png',
       '/images/projects/TFA Immigration Office/ARQMA_TFA_12.png',
       '/images/projects/TFA Immigration Office/ARQMA_TFA_13.png',
+    ],
+    // Per-gallery-image objectPosition (index 0 = images[1] = TFA_03)
+    imageObjectPositions: [
+      '50% 60%', // TFA_03 — workspace, show floor + plant wall
+      '50% 25%', // TFA_04 — meeting room, show pendant + TFA logo
+      '50% 20%', // TFA_05 — meeting area, highlight pendant light
+      '50% 50%', // TFA_06 — mirror reflection, center
+      '50% 25%', // TFA_07 — private desk, TFA logo at top
+      '50% 15%', // TFA_08 — corridor, logo + light strips
+      '50% 40%', // TFA_09 — long workspace table
+      '50% 50%', // TFA_11 — overhead view, center
+      '50% 50%', // TFA_12 — figurine detail
+      '50% 15%', // TFA_13 — reception arch + logo
     ],
     tags: ['Commercial', 'Office', 'Corporate'],
   },
