@@ -54,67 +54,90 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── SECTION 2: STUDIO DESCRIPTION (wine bg) ───────── */}
+      {/* ── SECTION 2: STUDIO DESCRIPTION ────────────────── */}
       <section
-        className="section-pad-xl relative overflow-hidden"
-        style={{ background: 'var(--color-wine)' }}
+        style={{ background: 'var(--color-cream)' }}
         aria-label="Studio philosophy"
       >
-        {/* Watermark monogram */}
         <div
-          className="absolute right-[-5%] top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none"
+          className="grid grid-cols-1 lg:grid-cols-2"
+          style={{ alignItems: 'stretch', minHeight: '85vh' }}
         >
-          <Image
-            src="/images/brand/Vector.png"
-            alt=""
-            width={600}
-            height={600}
-            className="w-[45vw] max-w-[500px]"
-          />
-        </div>
-
-        <div className="container-wide relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left: text content */}
+          <div
+            className="flex flex-col justify-center"
+            style={{
+              padding: 'clamp(5rem, 9vw, 10rem) clamp(2rem, 5vw, 5rem)',
+            }}
+          >
             <AnimateOnScroll>
-              <p className="t-label mb-6" style={{ color: 'rgba(238,235,231,0.5)' }}>
-                Our Story
+              <p className="t-label mb-6" style={{ color: 'var(--color-taupe)' }}>
+                About the Studio
               </p>
               <h2
-                className="t-display font-serif italic mb-10"
-                style={{ color: 'var(--color-cream)', lineHeight: 1.15 }}
+                className="t-display font-serif italic mb-12"
+                style={{ color: 'var(--color-espresso)', lineHeight: 1.15, maxWidth: '560px' }}
               >
                 We don&apos;t just design spaces — we define how they are experienced.
               </h2>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll delay={0.15}>
-              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                At ARQMA, we believe that great design goes far beyond aesthetics. It begins with
-                understanding — how you live, what you value, and the way you want to feel in your space.
-              </p>
-              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                Based in Ontario, we work with clients across <strong style={{ color: 'rgba(238,235,231,0.95)' }}>Canada and internationally</strong>,
-                creating thoughtfully curated residential and commercial environments that are both
-                refined and deeply personal.
-              </p>
-              <p className="t-body mb-8" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                Our approach is rooted in intention. Every material, every detail, and every decision
-                is carefully considered to create spaces that are not only visually elevated, but also
-                functional, meaningful, and aligned with your lifestyle.
-              </p>
-              <p className="t-body" style={{ color: 'rgba(238,235,231,0.78)', lineHeight: 2.1 }}>
-                With a strong emphasis on client experience, we guide each project with clarity,
-                sensitivity, and a commitment to delivering spaces that truly reflect who you are.
-              </p>
+              <div style={{ maxWidth: '540px' }}>
+                <p className="t-body mb-8" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, textAlign: 'justify' }}>
+                  At ARQMA, we believe that great design goes far beyond aesthetics. It begins with
+                  understanding — how you live, what you value, and the way you want to feel in your space.
+                </p>
+                <p className="t-body mb-8" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, textAlign: 'justify' }}>
+                  Based in Ontario, we work with clients across{' '}
+                  <strong style={{ color: 'var(--color-espresso)' }}>Canada and internationally</strong>,
+                  creating thoughtfully curated residential and commercial environments that are both
+                  refined and deeply personal.
+                </p>
+                <p className="t-body mb-8" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, textAlign: 'justify' }}>
+                  Our approach is rooted in intention. Every material, every detail, and every decision
+                  is carefully considered to create spaces that are not only visually elevated, but also
+                  functional, meaningful, and aligned with your lifestyle.
+                </p>
+                <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 2.1, textAlign: 'justify' }}>
+                  With a strong emphasis on client experience, we guide each project with clarity,
+                  sensitivity, and a commitment to delivering spaces that truly reflect who you are.
+                </p>
+              </div>
             </AnimateOnScroll>
           </div>
+
+          {/* Right: Marcia portrait — edge-to-edge, full section height */}
+          <AnimateOnScroll
+            delay={0.12}
+            className="relative hidden lg:block"
+            style={{ minHeight: '600px' }}
+          >
+            <Image
+              src="/images/team/Marcia.jpg"
+              alt="Marcia Oliveira Martins — Founder and Principal Designer at ARQMA"
+              fill
+              className="object-cover"
+              style={{ objectPosition: '50% 15%' }}
+              sizes="50vw"
+            />
+          </AnimateOnScroll>
+        </div>
+
+        {/* Mobile image — shows below text on small screens */}
+        <div className="relative block lg:hidden" style={{ height: '60vw', maxHeight: '420px' }}>
+          <Image
+            src="/images/team/Marcia.jpg"
+            alt="Marcia Oliveira Martins — Founder and Principal Designer at ARQMA"
+            fill
+            className="object-cover"
+            style={{ objectPosition: '50% 15%' }}
+            sizes="100vw"
+          />
         </div>
       </section>
 
       {/* ── SECTION 3: TEAM (cream bg) ────────────────────── */}
       <section
         className="section-pad-xl"
-        style={{ background: 'var(--color-cream)' }}
+        style={{ background: 'var(--color-cream)', borderTop: '1px solid rgba(66,53,44,0.1)' }}
         aria-label="Meet the team"
       >
         <div className="container-wide">
@@ -158,7 +181,7 @@ export default function AboutPage() {
                   >
                     {member.name}
                   </h3>
-                  <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9 }}>
+                  <p className="t-body" style={{ color: 'var(--color-taupe)', lineHeight: 1.9, textAlign: 'justify' }}>
                     {member.name === 'Marcia Oliveira Martins'
                       ? `${member.name} ${member.bio}`
                       : member.bio}

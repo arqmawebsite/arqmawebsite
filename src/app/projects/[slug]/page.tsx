@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: Props) {
                 </div>
                 <p
                   className="t-subheading font-serif"
-                  style={{ color: 'var(--color-espresso)', lineHeight: 1.7, fontSize: 'clamp(1.15rem, 1.6vw, 1.5rem)' }}
+                  style={{ color: 'var(--color-espresso)', lineHeight: 1.7, fontSize: 'clamp(1.15rem, 1.6vw, 1.5rem)', textAlign: 'justify' }}
                 >
                   {project.description}
                 </p>

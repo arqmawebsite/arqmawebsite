@@ -1,16 +1,17 @@
 'use client'
 
-import { useEffect, useRef, ReactNode } from 'react'
+import { useEffect, useRef, ReactNode, CSSProperties } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion'
 
 type Props = {
   children: ReactNode
   delay?: number
   className?: string
+  style?: CSSProperties
   y?: number
 }
 
-export default function AnimateOnScroll({ children, delay = 0, className = '', y = 30 }: Props) {
+export default function AnimateOnScroll({ children, delay = 0, className = '', style, y = 30 }: Props) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const controls = useAnimation()
@@ -32,6 +33,7 @@ export default function AnimateOnScroll({ children, delay = 0, className = '', y
       }}
       transition={{ duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>
