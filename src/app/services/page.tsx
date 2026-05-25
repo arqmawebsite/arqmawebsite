@@ -589,10 +589,6 @@ export default function ServicesPage() {
                   <Bullet key={item} dark>{item}</Bullet>
                 ))}
               </ul>
-              <p style={{ color: 'rgba(238,235,231,0.35)', fontSize: '0.78rem', lineHeight: 1.7, fontFamily: 'var(--font-sans)', fontWeight: 300, marginBottom: 'clamp(2.5rem, 4vw, 4rem)', letterSpacing: '0.04em' }}>
-                1 week of technical support post-session
-              </p>
-
               <SectionLabel text="What You'll Receive" dark />
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
