@@ -5,29 +5,29 @@ import { motion } from 'framer-motion'
 
 const testimonials = [
   {
-    name: 'Sarah M.',
-    quote: "ARQMA completely transformed our home. Marcia's attention to detail and understanding of our lifestyle created a space that feels both beautiful and uniquely ours. The process was seamless from start to finish.",
-    project: 'Residential — Toronto',
+    name: 'Nayara Cardoso',
+    quote: "Working with Marcia has been such a wonderful experience for our family. She pays attention to every detail, but more than that, she takes the time to understand what a family really needs in order to create spaces that are not only beautiful, but functional, warm, and meaningful. She has a rare ability to transform ideas and feelings into spaces that truly feel like home.",
+    project: 'Google Review ★★★★★',
   },
   {
-    name: 'James & Lisa K.',
-    quote: 'Working with ARQMA was an exceptional experience. Every decision was thoughtful, every material carefully chosen. Our basement renovation exceeded every expectation.',
-    project: 'Freeman Project — Basement Renovation',
+    name: 'Thiago Duque',
+    quote: "Márcia is exceptional — highly recommended. She truly takes the time to understand your style and preferences, while carefully considering the functionality required for everyday life in a home. Márcia is an extremely friendly and approachable professional who brings fresh perspectives that would be difficult to achieve without her insightful guidance. Choosing Márcia is a no-brainer.",
+    project: 'Google Review ★★★★★',
   },
   {
-    name: 'Dr. A. Petrova',
-    quote: 'The clinic design ARQMA created perfectly captures our brand identity while creating a calming, welcoming environment for our clients. Truly remarkable work.',
-    project: 'Wellthera Clinic',
+    name: 'Andreza Silva Josiek',
+    quote: "Márcia did an incredible job with my living room and dining room design project. She was professional, organized, and very thoughtful throughout the entire process. She has a great eye for design and was able to create a space that is both beautiful and functional. The final result came together perfectly, and I'm extremely happy with how everything turned out.",
+    project: 'Google Review ★★★★★',
   },
   {
-    name: 'Carlos & Ana B.',
-    quote: "ARQMA brought our restaurant vision to life in a way we never imagined possible. The space tells a story — our story.",
-    project: 'Bossa Nova Restaurant',
+    name: 'Moises Pinho',
+    quote: "Arqma Interiors stands out for their outstanding professionalism. Their team is reliable, communicative, and truly listens to clients' needs, making the entire process smooth and enjoyable. Their designs beautifully combine style, functionality, and personal taste, offering fresh concepts that transform spaces in ways homeowners love.",
+    project: 'Google Review ★★★★★',
   },
   {
-    name: 'Michelle T.',
-    quote: "From the first meeting to the final reveal, ARQMA's professionalism and creativity were outstanding. Our nursery is a magical space our daughter will grow up loving.",
-    project: 'Nursery Design — Toronto',
+    name: 'Eduardo Josiek Junior',
+    quote: "We had a great experience with Arqma Interiors. Marcia was always very attentive, professional, and made sure all of our needs were met. We are very happy with the service and highly recommend them!",
+    project: 'Google Review ★★★★★',
   },
 ]
 
