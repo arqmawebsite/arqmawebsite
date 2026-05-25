@@ -30,9 +30,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/brand/favicon-dark.png', media: '(prefers-color-scheme: light)' },
-      { url: '/images/brand/favicon-light.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/images/brand/favicon-dark.png', type: 'image/png', media: '(prefers-color-scheme: light)' },
+      { url: '/images/brand/favicon-light.png', type: 'image/png', media: '(prefers-color-scheme: dark)' },
     ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   description:
     'ARQMA is a luxury interior design studio based in Toronto, Canada, serving clients across Canada and the United States. Specializing in residential and commercial interior design, we create beautifully curated spaces with full-service design, remote consultation, and end-to-end project support.',
