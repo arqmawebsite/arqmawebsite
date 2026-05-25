@@ -253,13 +253,14 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {overviewCards.map((card, i) => (
               <AnimateOnScroll key={card.number} delay={i * 0.08}>
-                <Link
+                <a
                   href={card.anchor}
                   className="flex flex-col h-full group"
                   style={{
                     border: '1px solid rgba(238,235,231,0.1)',
                     background: 'rgba(238,235,231,0.03)',
                     padding: 'clamp(2rem, 3.5vw, 3.5rem)',
+                    textDecoration: 'none',
                   }}
                 >
                   <p className="t-label mb-8" style={{ color: 'rgba(238,235,231,0.28)' }}>{card.number}</p>
@@ -274,7 +275,7 @@ export default function ServicesPage() {
                   >
                     Learn More <span>→</span>
                   </p>
-                </Link>
+                </a>
               </AnimateOnScroll>
             ))}
           </div>
