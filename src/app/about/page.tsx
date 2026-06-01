@@ -31,11 +31,11 @@ export default function AboutPage() {
       {/* ── SECTION 1: HERO ────────────────────────────────── */}
       <section className="section-full w-full overflow-hidden relative" aria-label="About ARQMA hero">
         <Image
-          src="/images/team/DSC_1249.jpg"
-          alt="ARQMA design team — Toronto interior designers"
+          src="/images/projects/mb-beauty/MBBEAULTY-SAL-CREATORS-2.jpg"
+          alt="ARQMA interior design project — MB Beauty Studio"
           fill
           className="object-cover"
-          style={{ objectPosition: '50% 20%' }}
+          style={{ objectPosition: '50% 50%' }}
           sizes="100vw"
           priority
         />
